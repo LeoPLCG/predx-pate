@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PATE · London Consulting Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --lcg-dark: #005C4B;
@@ -14,7 +14,7 @@
     --lcg-mint: #00D4A0;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', -apple-system, sans-serif; }
+  body { font-family: 'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif; }
 
   .landing-hero {
     min-height: 100vh;
@@ -65,7 +65,7 @@
   .logo-divider { width: 1px; height: 44px; background: rgba(255,255,255,0.2); }
 
   .landing-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
     color: white;
@@ -107,7 +107,7 @@
     outline: none;
     text-align: center;
     letter-spacing: 3px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
     margin-bottom: 16px;
   }
   .auth-box input::placeholder { color: rgba(255,255,255,0.4); letter-spacing: 1px; }
@@ -122,7 +122,7 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
     transition: background 0.2s;
   }
   .auth-box button:hover { background: #00D4A0; }
@@ -163,16 +163,16 @@
     border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.5rem;
+    color: rgba(255,255,255,0.9);
     margin-bottom: 16px;
   }
   .landing-card-icon.diag { background: linear-gradient(135deg, rgba(220,38,38,0.2), rgba(245,158,11,0.2)); }
   .landing-card-icon.interview { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); }
   .landing-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
     color: white;
     font-size: 1.25rem;
-    margin-bottom: 8px;
-  }
+    margin-bottom: 8px;font-weight:700}
   .landing-card p {
     color: rgba(255,255,255,0.55);
     font-size: 0.9rem;
@@ -198,6 +198,7 @@
   }
   .landing-meta-value {
     font-size: 1.5rem;
+    color: rgba(255,255,255,0.9);
     font-weight: 800;
     color: #00D4A0;
   }
@@ -257,21 +258,21 @@
 
       <div class="landing-cards">
         <a href="intro-prediagnostico.html" class="landing-card">
-          <div class="landing-card-icon diag">&#x1F50D;</div>
+          <div class="landing-card-icon diag"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></div>
           <h3>Prediagn&oacute;stico Operativo</h3>
           <p>
             Evaluaci&oacute;n de madurez NMO de la cadena de valor completa. 26 pilares en Abasto de Parvadas, Proceso Industrial, Frío, Logística y Comercial, Mantenimiento, Administración & Finanzas, Tecnología Aplicada, Soporte Transversal.
           </p>
-          <span class="landing-card-cta">Ver diagn&oacute;stico &#x2192;</span>
+          <span class="landing-card-cta">Ver diagn&oacute;stico</span>
         </a>
 
         <a href="entrevistas/index.html" class="landing-card">
-          <div class="landing-card-icon interview">&#x1F4DD;</div>
+          <div class="landing-card-icon interview"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1.5"/><path d="M9 4V3h6v1M8.5 10h7M8.5 14h7M8.5 18h4"/></svg></div>
           <h3>Entrevistas</h3>
           <p>
             Agenda de entrevistas y recorridos programados con el equipo directivo, gerencial y operativo de PATE.
           </p>
-          <span class="landing-card-cta">Ver entrevistas &#x2192;</span>
+          <span class="landing-card-cta">Ver entrevistas</span>
         </a>
       </div>
 
@@ -297,7 +298,7 @@
   </div>
 
   <div class="landing-footer">
-    <p>Confidencial · Preparado por London Consulting Group para PATE · Septiembre 2026</p>
+    <p>Confidencial · Preparado por London Consulting Group para PATE · Octubre 2026</p>
   </div>
 </div>
 
