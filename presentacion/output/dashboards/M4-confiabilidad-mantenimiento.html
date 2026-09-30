@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mantenimiento (MTBF / MTTR / % correctivo) · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#8896A6;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-teal);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-dark)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:28px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-teal);margin-bottom:8px}
+.header h1{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Playfair Display',serif;font-size:19px;margin:26px 0 12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .v{font-family:'Playfair Display',serif;font-size:24px;margin:6px 0}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s9" class="back-link">Volver a pilar M2</a>
+  <div class="header"><div class="header-label">Estudio estadístico · EE08 · Pilar M2, M3, M4, M6</div><h1>Mantenimiento (MTBF / MTTR / % correctivo)</h1><p>Pilares M2, M3, M4, M6. Programado para el mié 14-oct-2026.</p></div>
+  <div class="status">Estudio programado para el mié 14-oct-2026 (Leonardo Pimentel). Se construye con las bases BD10, BD04; los indicadores se publican al recibir la información de PATE.</div>
+  <h2>Indicadores del estudio</h2>
+  <div class="kpis"><div class="kpi"><div class="l">K902 · Horas de paro por falla y su costo</div><div class="v">Pendiente</div><div class="d">MXN/mes · Benchmark: Sin benchmark externo; se compara contra el propio histórico de PATE</div></div><div class="kpi"><div class="l">K903 · MTBF</div><div class="v">Pendiente</div><div class="d">h · Benchmark: Sin benchmark externo; se compara contra el propio histórico de PATE</div></div><div class="kpi"><div class="l">K904 · MTTR</div><div class="v">Pendiente</div><div class="d">h · Benchmark: Sin benchmark externo; se compara contra el propio histórico de PATE</div></div><div class="kpi"><div class="l">K905 · Cumplimiento de mantenimiento preventivo</div><div class="v">Pendiente</div><div class="d">% · Benchmark: Sin benchmark externo; se compara contra el propio histórico de PATE</div></div><div class="kpi"><div class="l">K906 · Trabajo reactivo</div><div class="v">Pendiente</div><div class="d">% · Benchmark: Sin benchmark externo; se compara contra el propio histórico de PATE</div></div><div class="kpi"><div class="l">K907 · Costo de mantenimiento por ave</div><div class="v">Pendiente</div><div class="d">MXN/ave · Benchmark: Sin benchmark externo; se compara contra el propio histórico de PATE</div></div></div>
+  <h2>Método de análisis</h2>
+  <p class="t">MTBF/MTTR por equipo crítico, % correctivo/reactivo, cumplimiento PM y costo por ave; Pareto de horas de paro por falla.</p>
+  <h2>Bases de datos</h2>
+  <table><thead><tr><th>Base</th><th>Contenido</th><th>Área PATE</th><th>Estado</th></tr></thead><tbody><tr><td><b>BD10</b></td><td>Órdenes de trabajo de mantenimiento</td><td>Mantenimiento · Refrigeración</td><td>Pendiente · entrega vie 09-oct-2026</td></tr><tr><td><b>BD04</b></td><td>Bitácora de paros de línea</td><td>Producción · Mantenimiento</td><td>Pendiente · entrega vie 09-oct-2026</td></tr></tbody></table>
+  <h2>Hipótesis que valida</h2>
+  <table><thead><tr><th>ID</th><th>Hipótesis</th><th>Análisis</th></tr></thead><tbody><tr><td><b>H13</b></td><td>El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes.</td><td>% reactivo, MTBF/MTTR por equipo; costo de paros (un solo método)</td></tr></tbody></table>
+  <h2>Resultados</h2>
+  <div class="card"><p class="t">Pendiente. Aquí van las gráficas y tablas del estudio, con fuente, periodo y número de registros analizados.</p></div>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

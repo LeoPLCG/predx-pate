@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PATE · London Consulting Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lcg-dark: #005C4B;
+    --lcg-teal: #00B388;
+    --lcg-mint: #00D4A0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; }
+
+  .landing-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .landing-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #0a1628 0%, #0d2137 40%, #005C4B 100%);
+  }
+  .landing-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(0,179,136,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(27,48,87,0.15) 0%, transparent 50%);
+  }
+  .landing-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .landing-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 60px 24px;
+    max-width: 900px;
+  }
+  .landing-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .landing-logos img.logo-lcg { height: 28px; filter: brightness(0) invert(1); opacity: 0.9; }
+  .landing-logos img.logo-cliente { height: 46px; filter: brightness(0) invert(1); opacity: 0.9; }
+  .logo-divider { width: 1px; height: 44px; background: rgba(255,255,255,0.2); }
+
+  .landing-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .landing-title span {
+    background: linear-gradient(135deg, #00D4A0, #00B388);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .landing-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 48px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* AUTH GATE */
+  #auth-section { display: block; }
+  #portal-section { display: none; }
+
+  .auth-box {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .auth-box input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    outline: none;
+    text-align: center;
+    letter-spacing: 3px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 16px;
+  }
+  .auth-box input::placeholder { color: rgba(255,255,255,0.4); letter-spacing: 1px; }
+  .auth-box input:focus { border-color: #00B388; }
+  .auth-box button {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    background: #00B388;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+  }
+  .auth-box button:hover { background: #00D4A0; }
+  #auth-error { color: #FCA5A5; font-size: 13px; margin-top: 12px; display: none; }
+
+  /* PORTAL CARDS */
+  .landing-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  @media (max-width: 600px) {
+    .landing-cards { grid-template-columns: 1fr; }
+    .landing-logos img.logo-cliente { height: 34px; }
+  }
+  .landing-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: left;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    backdrop-filter: blur(10px);
+  }
+  .landing-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #00B388;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  .landing-card-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  .landing-card-icon.diag { background: linear-gradient(135deg, rgba(220,38,38,0.2), rgba(245,158,11,0.2)); }
+  .landing-card-icon.interview { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); }
+  .landing-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+  .landing-card p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .landing-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #00D4A0;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .landing-card:hover .landing-card-cta { gap: 10px; }
+
+  .landing-meta {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .landing-meta-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #00D4A0;
+  }
+  .landing-meta-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+  .landing-footer {
+    position: absolute;
+    bottom: 24px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 1;
+  }
+  .landing-footer p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+  }
+</style>
+</head>
+<body>
+
+<div class="landing-hero">
+  <div class="landing-bg"></div>
+
+  <div class="landing-content">
+    <div class="landing-logos">
+      <img src="logo-lcg.png" alt="London Consulting Group" class="logo-lcg">
+      <div class="logo-divider"></div>
+      <img src="logo-cliente.png" alt="PATE" class="logo-cliente">
+    </div>
+
+    <h1 class="landing-title">
+      Transformando la <span>Cadena de Valor</span> de PATE
+    </h1>
+
+    <!-- AUTH SECTION -->
+    <div id="auth-section">
+      <p class="landing-subtitle">
+        Documento confidencial · ingresa la clave de acceso para continuar.
+      </p>
+      <div class="auth-box">
+        <input id="auth-input" type="password" placeholder="Clave de acceso" onkeydown="if(event.key==='Enter')checkAuth()">
+        <button onclick="checkAuth()">Acceder</button>
+        <div id="auth-error">Clave incorrecta. Inténtalo de nuevo.</div>
+      </div>
+    </div>
+
+    <!-- PORTAL SECTION (hidden until auth) -->
+    <div id="portal-section">
+      <p class="landing-subtitle">
+        Prediagnóstico operativo de PATE: del retiro de parvadas en granja a la venta de carne deshuesada y subproductos. Madurez NMO, benchmarks trazables y caso de urgencia.
+      </p>
+
+      <div class="landing-cards">
+        <a href="intro-prediagnostico.html" class="landing-card">
+          <div class="landing-card-icon diag">&#x1F50D;</div>
+          <h3>Prediagn&oacute;stico Operativo</h3>
+          <p>
+            Evaluaci&oacute;n de madurez NMO de la cadena de valor completa. 26 pilares en Abasto de Parvadas, Proceso Industrial, Frío, Logística y Comercial, Mantenimiento, Administración & Finanzas, Tecnología Aplicada, Soporte Transversal.
+          </p>
+          <span class="landing-card-cta">Ver diagn&oacute;stico &#x2192;</span>
+        </a>
+
+        <a href="entrevistas/index.html" class="landing-card">
+          <div class="landing-card-icon interview">&#x1F4DD;</div>
+          <h3>Entrevistas</h3>
+          <p>
+            Agenda de entrevistas y recorridos programados con el equipo directivo, gerencial y operativo de PATE.
+          </p>
+          <span class="landing-card-cta">Ver entrevistas &#x2192;</span>
+        </a>
+      </div>
+
+      <div class="landing-meta">
+        <div class="landing-meta-item">
+          <div class="landing-meta-value">Pendiente</div>
+          <div class="landing-meta-label">NMO Promedio</div>
+        </div>
+        <div class="landing-meta-item">
+          <div class="landing-meta-value">Pendiente</div>
+          <div class="landing-meta-label">Oportunidades</div>
+        </div>
+        <div class="landing-meta-item">
+          <div class="landing-meta-value">26 + 1</div>
+          <div class="landing-meta-label">Entrevistas + Gemba Walk</div>
+        </div>
+        <div class="landing-meta-item">
+          <div class="landing-meta-value">26</div>
+          <div class="landing-meta-label">Pilares</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-footer">
+    <p>Confidencial · Preparado por London Consulting Group para PATE · Septiembre 2026</p>
+  </div>
+</div>
+
+<script>
+function checkAuth() {
+  var p = document.getElementById('auth-input').value;
+  if (p === 'PATE2026') {
+    sessionStorage.setItem('auth', 'ok');
+    showPortal();
+  } else {
+    document.getElementById('auth-error').style.display = 'block';
+    document.getElementById('auth-input').style.borderColor = '#FCA5A5';
+    document.getElementById('auth-input').value = '';
+    document.getElementById('auth-input').focus();
+  }
+}
+function showPortal() {
+  document.getElementById('auth-section').style.display = 'none';
+  document.getElementById('portal-section').style.display = 'block';
+}
+if (sessionStorage.getItem('auth') === 'ok') { showPortal(); }
+</script>
+
+</body>
+</html>

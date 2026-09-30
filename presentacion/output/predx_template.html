@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PreDx PATE · London Consulting Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:         #0a1628;
+  --navy2:        #0d2137;
+  --navy3:        #162a52;
+  --teal:         #3db87a;
+  --teal-dark:    #1a7a5e;
+  --teal-bright:  #2dd4bf;
+  --teal-bg:      #0d3d3d;
+  --gold:         #c9963a;
+  --gold2:        #e8b84b;
+  --white:        #f0f4f8;
+  --gray:         #8a9ab5;
+  --gray2:        #c5cfe0;
+  --red:          #e05252;
+  --green:        #3db87a;
+  --amber:        #f59e0b;
+  --blue:         #3b82f6;
+  --sidebar-w:    260px;
+  --header-h:     64px;
+  --border-soft:  rgba(255,255,255,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--white);font-family:'Inter','Segoe UI',sans-serif;display:flex;min-height:100vh}
+h1,h2,h3,.serif{font-family:'Georgia',serif}
+
+/* ── APP ── */
+#app{display:flex;width:100%;min-height:100vh}
+
+/* ── SIDEBAR ── */
+#sidebar{width:var(--sidebar-w);background:var(--navy2);border-right:1px solid rgba(61,184,122,0.15);position:fixed;top:0;left:0;height:100vh;overflow-y:auto;z-index:100;display:flex;flex-direction:column;font-family:Georgia,Cambria,'Times New Roman',serif;}
+#sidebar *{font-family:inherit;}
+.sb-logo-wrap{padding:20px 16px 16px;border-bottom:1px solid rgba(61,184,122,0.15);display:flex;align-items:center;gap:12px;}
+.sb-divider{width:1px;height:44px;background:rgba(255,255,255,0.2)}
+.sb-phase{font-size:10px;color:var(--gray);margin-top:2px}
+#sidebar nav{padding:12px 0;flex:1}
+#sidebar nav a{display:flex;align-items:center;gap:8px;padding:6px 16px;color:var(--gray2);text-decoration:none;font-size:12px;font-style:italic;transition:all .15s;border-left:3px solid transparent;}
+#sidebar nav a:hover{color:var(--white)}
+#sidebar nav a.active{color:var(--teal);border-left-color:var(--teal);background:rgba(61,184,122,0.08)}
+#sidebar nav a .num{font-size:11px;color:var(--gray);flex-shrink:0;font-style:normal;}
+#sidebar nav a.active .num{color:var(--teal)}
+#sidebar nav a.nav-top{font-style:normal;font-weight:600;color:var(--white);padding:9px 16px;}
+#sidebar nav a.nav-top .num-arrow{color:var(--teal)}
+.sb-footer{padding:14px 16px;border-top:1px solid rgba(61,184,122,0.1);font-size:10px;color:var(--gray)}
+.sb-group-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;color:var(--white);font-size:12px;font-weight:700;letter-spacing:.01em;cursor:pointer;user-select:none;transition:all .15s;}
+.sb-group-hdr:hover{background:rgba(61,184,122,0.08)}
+.sb-group-hdr.accent{color:var(--teal)}
+.sb-group-hdr.open{background:rgba(61,184,122,0.06)}
+.sb-group-left{display:flex;align-items:center;gap:8px}
+.sb-group-num{font-size:11px;color:var(--gray);font-weight:700;flex-shrink:0}
+.sb-group-hdr.accent .sb-group-num{color:var(--teal)}
+.sb-arrow{font-size:9px;color:var(--gray);transition:transform .2s;display:inline-block}
+.sb-group-hdr.accent .sb-arrow{color:var(--teal)}
+.sb-group-hdr.open .sb-arrow{transform:rotate(90deg)}
+.sb-sub{display:none}
+.sb-sub.open{display:block}
+.sb-sub a{padding-left:32px;font-size:11.5px}
+
+/* ── HERO BRAND (single global instance, anchored to #main — never to section content) ── */
+#hero-brand{display:none;position:absolute;top:24px;right:56px;align-items:center;gap:14px;z-index:20}
+#hero-brand.show{display:flex}
+#hero-brand img{opacity:0.95;filter:brightness(0) invert(1);width:auto;height:auto;object-fit:contain;display:block}
+#hero-brand img.hb-lcg{max-height:18px;max-width:110px}
+#hero-brand img.hb-cliente{max-height:24px;max-width:90px}
+#hero-brand .hb-divider{width:1px;height:22px;background:rgba(255,255,255,0.25)}
+
+/* ── MAIN / HERO / CONTENT ── */
+#main{margin-left:var(--sidebar-w);flex:1;min-height:100vh;position:relative}
+.section{display:none;min-height:100vh}
+.section.active{display:block}
+.hero{background:linear-gradient(135deg,var(--navy2) 0%,var(--teal-bg) 100%);padding:64px 56px 48px;min-height:300px;border-bottom:1px solid rgba(61,184,122,0.2);position:relative;overflow:hidden;}
+.hero .tag{font-size:10px;letter-spacing:.15em;color:var(--teal);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:clamp(28px,3.5vw,40px);font-weight:700;line-height:1.15;color:var(--white);margin-bottom:10px}
+.hero h1 span{color:var(--teal)}
+.hero .sub{font-size:14px;color:var(--gray2);max-width:900px;line-height:1.65;margin-bottom:28px}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:680px}
+.meta-card{background:rgba(255,255,255,0.05);border:1px solid rgba(61,184,122,0.2);border-radius:8px;padding:12px 14px}
+.meta-card .label{font-size:9px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase}
+.meta-card .val{font-size:13px;font-weight:700;color:var(--white);margin-top:3px}
+.hero-buttons{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn-primary{padding:12px 24px;border-radius:7px;background:var(--teal);border:none;color:var(--navy);font-weight:700;font-size:13px;cursor:pointer;letter-spacing:.5px;transition:all .2s}
+.btn-primary:hover{background:#4ecf8a}
+.btn-outline{padding:12px 24px;border-radius:7px;background:transparent;border:1px solid var(--teal);color:var(--teal);font-size:13px;cursor:pointer;transition:all .2s}
+.btn-outline:hover{background:rgba(61,184,122,0.1)}
+.content{
+  background:#ffffff;
+  padding:48px 64px 100px;
+  min-height:calc(100vh - 300px);
+  --white:      #0d1b2e;
+  --gray2:      #47536b;
+  --gray:       #5b6b80;
+  --navy2:      #fafbfc;
+  --navy3:      #eaeef3;
+  --border-soft: rgba(10,22,40,0.09);
+}
+.content h1,.content h2,.content h3{color:var(--white)}
+
+/* ── TYPE SYSTEM (single hierarchy for every white page) ── */
+.eyebrow,.sec-header .act,.card-label,.kpi-label{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--teal-dark)}
+.card-label{display:block;margin-bottom:10px}
+.narrative,.card-text{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--gray2);line-height:1.85}
+.narrative{margin-bottom:18px}
+.sub-heading{font-family:'Georgia',serif;font-size:19px;font-weight:700;color:var(--white);margin:44px 0 16px;padding-top:24px;border-top:1px solid var(--border-soft)}
+.sub-heading:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.mb32{margin-bottom:40px}
+.sec-header{margin-bottom:20px}
+.sec-header .act{margin-bottom:6px;display:block}
+
+/* ── CARDS (one visual language for every card-type component) ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.kpi-card,.card,.level-card,.chain-block,.nmo-card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;box-shadow:0 1px 3px rgba(10,22,40,0.05)}
+.kpi-card{padding:20px}
+.kpi-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white);margin:6px 0 4px}
+.kpi-desc{font-size:11.5px;color:var(--gray);line-height:1.5}
+.card{padding:26px}
+.card-teal{border-color:#c7e6d7;background:#f8fcfa}
+
+/* ── TABLES (single editorial standard, reused by every matrix/benchmark table) ── */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--navy3)}
+th{color:var(--teal-dark);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;border-bottom:2px solid var(--teal)}
+td{color:var(--gray2)}
+tbody tr:hover td{background:var(--navy2)}
+
+/* ── NMO COLLAPSIBLE ── */
+.nmo-card{margin-bottom:12px;overflow:hidden}
+.nmo-hdr{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;cursor:pointer;background:#fff;transition:background .15s}
+.nmo-hdr:hover{background:var(--navy2)}
+.nmo-hdr b{color:var(--white)}
+.nmo-arrow{transition:transform .2s;color:var(--teal-dark)}
+.nmo-body{display:none;padding:0 20px 20px}
+.nmo-body.open{display:block}
+.nmo-level-badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700}
+.lvl-1,.lvl-2{background:rgba(224,82,82,0.12);color:var(--red)}
+.lvl-3{background:rgba(245,158,11,0.14);color:#b06a00}
+.lvl-4,.lvl-5{background:rgba(61,184,122,0.14);color:var(--teal-dark)}
+
+/* ── NMO DEEP-DIVE (level cards, chain, heatmap) ── */
+.level-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:8px}
+.level-card{padding:18px 16px;border-top:3px solid var(--c)}
+.level-card .lc-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--c);line-height:1}
+.level-card .lc-name{font-size:12.5px;font-weight:700;color:var(--white);margin:8px 0 8px}
+.level-card .lc-desc{font-size:11.5px;color:var(--gray2);line-height:1.65}
+.chain-flow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chain-block{flex:1;min-width:100px;padding:16px 12px;text-align:center}
+.chain-block .cb-code{font-family:'Inter',sans-serif;font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.chain-block .cb-name{font-size:11px;font-weight:700;color:var(--white);margin:7px 0 5px;line-height:1.3}
+.chain-block .cb-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gray)}
+.chain-row-label{font-size:9px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.12em;align-self:center;margin-right:8px;flex-shrink:0}
+.heatmap-wrap{overflow-x:auto;margin-bottom:8px;border:1px solid var(--navy3);border-radius:12px}
+.heatmap-table{width:100%;border-collapse:collapse;font-size:10.5px;min-width:900px}
+.heatmap-table th{background:transparent;color:var(--teal-dark);padding:12px 6px;text-align:center;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--teal)}
+.heatmap-table th.dim-col{text-align:left;min-width:150px;padding-left:14px}
+.heatmap-table td{padding:10px 6px;text-align:center;color:var(--gray);border-bottom:1px solid var(--navy3)}
+.heatmap-table td.dim-cell{text-align:left;padding-left:14px;color:var(--gray2);font-weight:700}
+.heatmap-table td.dim-cell span{display:block;font-weight:400;color:var(--gray);font-size:9.5px;margin-top:2px}
+.heatmap-table td.grp-start{border-left:2px solid var(--navy3)}
+.heatmap-table tbody tr:hover td{background:var(--navy2)}
+
+/* ── BRAND LOGOS ── */
+.brand-logo{width:auto;height:auto;object-fit:contain;display:block}
+.logo-box-sidebar{max-width:100px;max-height:32px}
+.logo-box-hero{max-width:190px;max-height:56px}
+
+/* ── EDITORIAL PROFILE (¿Quién es el cliente?) ── */
+.intro-block{display:grid;grid-template-columns:1.7fr 1fr;gap:48px;align-items:center;padding-bottom:32px;border-bottom:1px solid var(--navy3)}
+.intro-text{font-family:'Georgia',serif;font-size:19px;line-height:1.6;color:var(--white);font-weight:400}
+.intro-quote{border-left:2px solid var(--teal);padding-left:24px}
+.intro-quote-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:800;color:var(--teal-dark);line-height:1}
+.intro-quote-label{font-size:12px;color:var(--gray2);line-height:1.5;margin-top:6px;max-width:220px}
+.stat-strip{display:flex;flex-wrap:wrap}
+.stat-item{flex:1;min-width:130px;padding:0 22px;border-left:1px solid var(--navy3)}
+.stat-item:first-child{border-left:none;padding-left:0}
+.stat-item .v{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;color:var(--white);line-height:1.15}
+.stat-item .l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-top:6px}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border:1px solid var(--navy3);border-radius:22px;background:#fff;font-size:12px;font-weight:600;color:var(--gray2)}
+.chip .ic{width:22px;height:22px;border-radius:50%;background:rgba(61,184,122,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark)}
+.chip .ic svg{width:12px;height:12px}
+.mx-band{background:var(--navy2);border:1px solid var(--navy3);border-radius:14px;padding:32px 36px}
+.mx-band-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start;margin-top:16px}
+.mx-facts{display:flex;flex-direction:column;gap:14px}
+.mx-fact{display:flex;gap:12px;align-items:baseline}
+.mx-fact .k{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal-dark);flex-shrink:0;min-width:78px}
+.mx-fact .d{font-size:12.5px;color:var(--gray2);line-height:1.5}
+.mx-conclusion{display:flex;gap:28px;align-items:baseline;width:100%;margin-top:24px;padding-top:20px;border-top:1px solid var(--navy3)}
+.mx-conclusion .k{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal-dark);flex-shrink:0;min-width:150px}
+.mx-conclusion .d{font-size:13px;color:var(--white);line-height:1.6;flex:1}
+
+/* ── PANORAMA FINANCIERO (stat hero, insight, entidades, explicador) ── */
+.stat-hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:24px 0 28px}
+.stat-hero-card{border-radius:14px;padding:26px 22px;border-left:5px solid var(--c);background:var(--navy2)}
+.stat-hero-card .lbl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--c)}
+.stat-hero-card .num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--white);margin:8px 0 4px;line-height:1}
+.stat-hero-card .desc{font-size:12.5px;color:var(--gray2);font-weight:600;line-height:1.4}
+.insight-card{border-radius:14px;padding:28px 30px;background:linear-gradient(135deg,#f8fcfa,#ffffff);border:1px solid #c7e6d7}
+.insight-card .ic-title{font-family:'Georgia',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:12px}
+.entity-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
+.entity-card{background:var(--navy2);border-radius:12px;padding:26px;border-top:4px solid var(--c)}
+.entity-card .tag2{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--c);margin-bottom:10px}
+.entity-card h4{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:10px}
+.entity-card ul{font-size:12px;color:var(--gray2);line-height:1.85;padding-left:18px;margin-top:12px}
+.finance-explainer{background:var(--navy2);border:1px solid var(--navy3);border-radius:12px;padding:24px 28px;margin:18px 0 24px}
+.finance-explainer .fe-title{font-size:13.5px;font-weight:700;color:var(--white);margin-bottom:10px}
+.finance-explainer ul{font-size:12.5px;color:var(--gray2);line-height:1.8;padding-left:18px}
+
+/* ── COVER (PORTADA) ── */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 40px;position:relative;background:linear-gradient(135deg,var(--navy2) 0%,var(--teal-bg) 100%)}
+.cover-logos{display:flex;align-items:center;gap:24px;margin-bottom:48px}
+.cover-logo-divider{width:1px;height:44px;background:rgba(255,255,255,0.25)}
+.cover-kicker{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;font-weight:600}
+.cover-title{font-family:'Playfair Display','Georgia',serif;font-size:clamp(28px,4vw,48px);font-weight:800;color:var(--white);line-height:1.18;max-width:820px;margin-bottom:16px}
+.cover-title span{color:var(--teal)}
+.cover-sub{font-size:14px;color:var(--gray2);max-width:560px;line-height:1.7;margin-bottom:28px}
+.cover-divider{width:64px;height:2px;background:var(--teal);margin-bottom:40px}
+.cover-stats{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;margin-bottom:8px}
+.cover-stat .v{font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,28px);font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.2}
+.cover-stat .l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.cover-cta{margin-top:40px}
+.cover-footer{position:absolute;bottom:28px;left:0;right:0;text-align:center;font-size:11px;color:var(--gray);letter-spacing:.02em}
+
+/* ── GLOSARIO (light page) ── */
+.glossary-page{background:#fff;min-height:100vh;padding:48px 64px 100px;color:#0d1b2e;font-family:'Inter',sans-serif;}
+.glossary-logos{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid #eaeef3;margin-bottom:36px}
+.glossary-kicker{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--teal-dark);margin-bottom:10px}
+.glossary-title{font-family:'Georgia',serif;font-size:clamp(26px,3vw,34px);font-weight:700;color:#0d1b2e;margin-bottom:10px}
+.glossary-sub{font-size:13.5px;color:#47536b;line-height:1.7}
+.glossary-divider{height:1px;background:#eaeef3;border-top:2px solid var(--teal);margin:28px 0 8px}
+.glossary-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.glossary-cat{font-family:'Georgia',serif;font-weight:700;font-size:15px;color:#0d1b2e;border-bottom:2px solid var(--teal);padding-bottom:8px;margin:28px 0 4px}
+.glossary-cat:first-child{margin-top:0}
+.glossary-term-row{display:flex;gap:14px;padding:12px 4px;border-bottom:1px solid #eaeef3;font-size:13px}
+.glossary-term-row:nth-of-type(even){background:#fafbfc}
+.glossary-acr{font-weight:700;color:#0d1b2e;min-width:64px;flex-shrink:0;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+.glossary-def{color:#47536b;line-height:1.65}
+.glossary-def b{color:#0d1b2e}
+@media (max-width:900px){.glossary-grid{grid-template-columns:1fr}.glossary-page{padding:32px 24px}}
+
+/* ── Prácticas heredadas: hallazgos por pilar, enlaces a estudios, índice tipo TOC ── */
+.findings-list{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--gray2);line-height:1.85;margin:12px 0 16px;padding-left:20px}
+.findings-list li{margin-bottom:8px}
+.findings-list b{color:var(--white)}
+.dashboard-link{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;padding:9px 16px;border-radius:8px;text-decoration:none;margin:6px 8px 0 0;transition:background .15s}
+.dashboard-link:hover{background:var(--teal-dark)}
+.dashboard-link.alt{background:#fff;color:var(--teal-dark);border:1px solid var(--teal)}
+.toc-columns{columns:2;column-gap:40px;column-fill:balance}
+.toc-group{break-inside:avoid;-webkit-column-break-inside:avoid;margin-bottom:3px}
+.toc-row{display:flex;align-items:baseline;gap:5px;text-decoration:none;padding:1.5px 0}
+.toc-num{font-family:'Playfair Display',serif;font-weight:700;font-size:12px;color:var(--teal-dark);min-width:15px;flex-shrink:0}
+.toc-num.toc-arrow{font-size:10px}
+.toc-name{font-family:'Inter',sans-serif;font-weight:700;font-size:11px;color:var(--white)}
+.toc-dots{flex:1;border-bottom:2px dotted var(--gray);margin:0 4px;min-width:8px;position:relative;top:-3px}
+.toc-row .pdf-page{font-family:'Inter',sans-serif;font-weight:700;font-size:10.5px;color:var(--teal-dark);flex-shrink:0;text-align:right;min-width:12px}
+.toc-row:hover .toc-name{color:var(--teal)}
+.toc-sub{display:block;font-family:'Inter',sans-serif;font-style:italic;font-weight:400;font-size:9.5px;color:var(--gray2);text-decoration:none;padding:1px 0 1px 20px}
+.toc-sub:hover{color:var(--teal)}
+.pdf-download{display:inline-flex;margin-top:18px;font-size:12px;font-weight:700;color:var(--teal-dark);text-decoration:none;border:1px solid var(--teal);border-radius:8px;padding:8px 14px}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}</script>
+
+<!-- APP -->
+<div id="app">
+<aside id="sidebar">
+  <div class="sb-logo-wrap">
+    <img src="logo-lcg.png" alt="LCG" class="brand-logo logo-box-sidebar">
+    <div class="sb-divider"></div>
+    <div><img src="logo-cliente.png" alt="PATE" class="brand-logo logo-box-sidebar"></div>
+  </div>
+  <nav>
+<a href="#" onclick="show('s0')" id="nav-s0" class="nav-top"><span class="num num-arrow">➤</span> Portada</a>
+<a href="#" onclick="show('sidx')" id="nav-sidx" class="nav-top"><span class="num">1</span> Índice</a>
+<div class="sb-group-hdr" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">2</span> Contexto</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub"><a href="#" onclick="show('s1')" id="nav-s1"><span class="num">•</span> ¿Quién es PATE?</a>
+<a href="#" onclick="show('s1b')" id="nav-s1b"><span class="num">•</span> Glosario de Términos</a></div>
+<a href="#" onclick="show('sag')" id="nav-sag" class="nav-top"><span class="num">3</span> Agenda</a>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">4</span> Metodología del Prediagnóstico</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s2')" id="nav-s2"><span class="num">•</span> Proceso de Levantamiento</a>
+<a href="#" onclick="show('s2')"><span class="num">•</span> Visión &amp; Expectativas Dirección General</a>
+<a href="#" onclick="show('s2')"><span class="num">•</span> Pilares del Alcance</a>
+<a href="#" onclick="show('s2')"><span class="num">•</span> Hallazgos Principales</a></div>
+<a href="#" onclick="show('s3')" id="nav-s3" class="nav-top"><span class="num">5</span> NMO &amp; Alineación Estratégica</a>
+<a href="#" onclick="show('s4')" id="nav-s4" class="nav-top"><span class="num">6</span> Panorama Financiero</a>
+<a href="#" onclick="show('s5')" id="nav-s5" class="nav-top"><span class="num">7</span> Estructura Organizacional</a>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">8</span> Abasto de Parvadas</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s6')" id="nav-s6"><span class="num">•</span> A1 Programación de Retiros con Accionistas</a>
+<a href="#" onclick="show('s6')"><span class="num">•</span> A2 Captura y Transporte</a>
+<a href="#" onclick="show('s6')"><span class="num">•</span> A3 Recepción, Bienestar y Bioseguridad</a></div>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">9</span> Proceso Industrial</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s7')" id="nav-s7"><span class="num">•</span> O1 Sacrificio y Capacidad de Línea</a>
+<a href="#" onclick="show('s7')"><span class="num">•</span> O2 Rendimientos y Balance de Masa</a>
+<a href="#" onclick="show('s7')"><span class="num">•</span> O3 Deshuese y Valor Agregado</a>
+<a href="#" onclick="show('s7')"><span class="num">•</span> O4 Calidad, Inocuidad y TIF</a>
+<a href="#" onclick="show('s7')"><span class="num">•</span> O5 Subproductos y Rendering</a></div>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">10</span> Frío, Logística y Comercial</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s8')" id="nav-s8"><span class="num">•</span> C1 Cadena de Frío e Inventarios</a>
+<a href="#" onclick="show('s8')"><span class="num">•</span> C2 Logística de Salida y Servicio</a>
+<a href="#" onclick="show('s8')"><span class="num">•</span> C3 Comercial, Precio y Clientes</a></div>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">11</span> Mantenimiento</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s9')" id="nav-s9"><span class="num">•</span> M1 Estrategia y Criticidad de Activos</a>
+<a href="#" onclick="show('s9')"><span class="num">•</span> M2 Planeación y Programación del Trabajo</a>
+<a href="#" onclick="show('s9')"><span class="num">•</span> M3 Mantenimiento Preventivo, Predictivo y Autónomo</a>
+<a href="#" onclick="show('s9')"><span class="num">•</span> M4 Confiabilidad y Análisis de Fallas</a>
+<a href="#" onclick="show('s9')"><span class="num">•</span> M5 Refacciones y Almacén MRO</a>
+<a href="#" onclick="show('s9')"><span class="num">•</span> M6 Costo y Desempeño de Mantenimiento</a></div>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">12</span> Administración &amp; Finanzas</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s10')" id="nav-s10"><span class="num">•</span> F1 Costeo por Ave y por Kg</a>
+<a href="#" onclick="show('s10')"><span class="num">•</span> F2 Rentabilidad por Segmento y Servicio al Accionista</a>
+<a href="#" onclick="show('s10')"><span class="num">•</span> F3 Capital de Trabajo, Tesorería y Activos</a></div>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">13</span> Tecnología Aplicada</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s11')" id="nav-s11"><span class="num">•</span> T1 Sistemas Transaccionales (ERP, Báscula, CMMS)</a>
+<a href="#" onclick="show('s11')"><span class="num">•</span> T2 Calidad y Conciliación del Dato</a>
+<a href="#" onclick="show('s11')"><span class="num">•</span> T3 Tableros, Analítica y Automatización</a></div>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">14</span> Soporte Transversal</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s12')" id="nav-s12"><span class="num">•</span> S1 Servicios Industriales y Ambiente</a>
+<a href="#" onclick="show('s12')"><span class="num">•</span> S2 Capital Humano y Seguridad</a>
+<a href="#" onclick="show('s12')"><span class="num">•</span> TX Gobierno y Gestión</a></div>
+<a href="#" onclick="show('sgm')" id="nav-sgm" class="nav-top"><span class="num">15</span> Growth Management</a>
+<a href="#" onclick="show('sres')" id="nav-sres" class="nav-top"><span class="num">16</span> Resumen Ejecutivo de Hallazgos</a>
+<div class="sb-group-hdr" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">17</span> Mapa de Oportunidades</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub"><a href="#" onclick="show('s13')" id="nav-s13"><span class="num">•</span> Inventario Priorizado</a></div>
+<div class="sb-group-hdr accent" onclick="toggleGroup(this)"><div class="sb-group-left"><span class="sb-group-num">18</span> Transformación: Roadmap &amp; Propuesta</div><span class="sb-arrow">▶</span></div>
+<div class="sb-sub accent"><a href="#" onclick="show('s14')" id="nav-s14"><span class="num">•</span> Alcance, Beneficios, Metodología, Implementación, Cronograma, Inversión y ROI</a></div>
+<a href="#" onclick="show('s15')" id="nav-s15" class="nav-top"><span class="num num-arrow">➤</span> Cierre</a>
+</nav>
+  <div class="sb-footer"><a href="index.html" style="color:var(--gray2);text-decoration:none">Volver al portal</a><br>Confidencial · NDA · LCG-PATE 2026</div>
+</aside>
+
+<main id="main">
+<div id="hero-brand">
+  <img src="logo-lcg.png" alt="London Consulting Group" class="hb-lcg">
+  <div class="hb-divider"></div>
+  <img src="logo-cliente.png" alt="PATE" class="hb-cliente">
+</div>
+
+<!-- S0 PORTADA -->
+<section class="section active" id="s0">
+  <div class="cover">
+    <div class="cover-logos">
+      <img src="logo-lcg.png" alt="London Consulting Group" class="brand-logo logo-box-hero"><div class="cover-logo-divider"></div><img src="logo-cliente.png" alt="PATE" class="brand-logo logo-box-hero">
+    </div>
+    <div class="cover-kicker">London Consulting Group · Pre-Diagnóstico · Septiembre 2026</div>
+    <h1 class="cover-title">Transformando la <span>Cadena de Valor</span><br>de PATE</h1>
+    <p class="cover-sub">Evaluación de Madurez de la Cadena de Valor · PATE</p>
+    <div class="cover-divider"></div>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="v">Pendiente</div><div class="l">NMO Promedio</div></div>
+      <div class="cover-stat"><div class="v">Pendiente</div><div class="l">Oportunidades</div></div>
+      <div class="cover-stat"><div class="v">26 + 1</div><div class="l">Entrevistas + Gemba Walk</div></div>
+      <div class="cover-stat"><div class="v">26</div><div class="l">Pilares</div></div>
+    </div>
+    <button class="btn-primary cover-cta" onclick="show('sidx')">ABRIR DOCUMENTO</button>
+    <div class="cover-footer">Confidencial · Preparado por London Consulting Group para PATE · Septiembre 2026</div>
+  </div>
+</section>
+
+<!-- ÍNDICE -->
+<section class="section" id="sidx">
+  <div class="hero"><div class="tag">Índice</div><h1>Índice <span>del Documento</span></h1>
+    <p class="sub">Navegación directa a cada sección del prediagnóstico. El número de página se llena al generar el PDF maestro.</p></div>
+  <div class="content" style="padding:28px 56px">
+    <div class="toc-columns">
+<div class="toc-group"><a href="#" onclick="show('s0')" class="toc-row" data-section-id="s0"><span class="toc-num toc-arrow">➤</span><span class="toc-name">Portada</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s0"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('sidx')" class="toc-row" data-section-id="sidx"><span class="toc-num">1</span><span class="toc-name">Índice</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="sidx"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('s1')" class="toc-row" data-section-id="s1"><span class="toc-num">2</span><span class="toc-name">Contexto</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s1"></span></a><a href="#" onclick="show('s1')" class="toc-sub">¿Quién es PATE?</a><a href="#" onclick="show('s1b')" class="toc-sub">Glosario de Términos</a></div>
+<div class="toc-group"><a href="#" onclick="show('sag')" class="toc-row" data-section-id="sag"><span class="toc-num">3</span><span class="toc-name">Agenda</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="sag"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('s2')" class="toc-row" data-section-id="s2"><span class="toc-num">4</span><span class="toc-name">Metodología del Prediagnóstico</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s2"></span></a><a href="#" onclick="show('s2')" class="toc-sub">Proceso de Levantamiento</a><a href="#" onclick="show('s2')" class="toc-sub">Visión &amp; Expectativas Dirección General</a><a href="#" onclick="show('s2')" class="toc-sub">Pilares del Alcance</a><a href="#" onclick="show('s2')" class="toc-sub">Hallazgos Principales</a></div>
+<div class="toc-group"><a href="#" onclick="show('s3')" class="toc-row" data-section-id="s3"><span class="toc-num">5</span><span class="toc-name">NMO &amp; Alineación Estratégica</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s3"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('s4')" class="toc-row" data-section-id="s4"><span class="toc-num">6</span><span class="toc-name">Panorama Financiero</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s4"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('s5')" class="toc-row" data-section-id="s5"><span class="toc-num">7</span><span class="toc-name">Estructura Organizacional</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s5"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('s6')" class="toc-row" data-section-id="s6"><span class="toc-num">8</span><span class="toc-name">Abasto de Parvadas</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s6"></span></a><a href="#" onclick="show('s6')" class="toc-sub">A1 Programación de Retiros con Accionistas</a><a href="#" onclick="show('s6')" class="toc-sub">A2 Captura y Transporte</a><a href="#" onclick="show('s6')" class="toc-sub">A3 Recepción, Bienestar y Bioseguridad</a></div>
+<div class="toc-group"><a href="#" onclick="show('s7')" class="toc-row" data-section-id="s7"><span class="toc-num">9</span><span class="toc-name">Proceso Industrial</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s7"></span></a><a href="#" onclick="show('s7')" class="toc-sub">O1 Sacrificio y Capacidad de Línea</a><a href="#" onclick="show('s7')" class="toc-sub">O2 Rendimientos y Balance de Masa</a><a href="#" onclick="show('s7')" class="toc-sub">O3 Deshuese y Valor Agregado</a><a href="#" onclick="show('s7')" class="toc-sub">O4 Calidad, Inocuidad y TIF</a><a href="#" onclick="show('s7')" class="toc-sub">O5 Subproductos y Rendering</a></div>
+<div class="toc-group"><a href="#" onclick="show('s8')" class="toc-row" data-section-id="s8"><span class="toc-num">10</span><span class="toc-name">Frío, Logística y Comercial</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s8"></span></a><a href="#" onclick="show('s8')" class="toc-sub">C1 Cadena de Frío e Inventarios</a><a href="#" onclick="show('s8')" class="toc-sub">C2 Logística de Salida y Servicio</a><a href="#" onclick="show('s8')" class="toc-sub">C3 Comercial, Precio y Clientes</a></div>
+<div class="toc-group"><a href="#" onclick="show('s9')" class="toc-row" data-section-id="s9"><span class="toc-num">11</span><span class="toc-name">Mantenimiento</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s9"></span></a><a href="#" onclick="show('s9')" class="toc-sub">M1 Estrategia y Criticidad de Activos</a><a href="#" onclick="show('s9')" class="toc-sub">M2 Planeación y Programación del Trabajo</a><a href="#" onclick="show('s9')" class="toc-sub">M3 Mantenimiento Preventivo, Predictivo y Autónomo</a><a href="#" onclick="show('s9')" class="toc-sub">M4 Confiabilidad y Análisis de Fallas</a><a href="#" onclick="show('s9')" class="toc-sub">M5 Refacciones y Almacén MRO</a><a href="#" onclick="show('s9')" class="toc-sub">M6 Costo y Desempeño de Mantenimiento</a></div>
+<div class="toc-group"><a href="#" onclick="show('s10')" class="toc-row" data-section-id="s10"><span class="toc-num">12</span><span class="toc-name">Administración &amp; Finanzas</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s10"></span></a><a href="#" onclick="show('s10')" class="toc-sub">F1 Costeo por Ave y por Kg</a><a href="#" onclick="show('s10')" class="toc-sub">F2 Rentabilidad por Segmento y Servicio al Accionista</a><a href="#" onclick="show('s10')" class="toc-sub">F3 Capital de Trabajo, Tesorería y Activos</a></div>
+<div class="toc-group"><a href="#" onclick="show('s11')" class="toc-row" data-section-id="s11"><span class="toc-num">13</span><span class="toc-name">Tecnología Aplicada</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s11"></span></a><a href="#" onclick="show('s11')" class="toc-sub">T1 Sistemas Transaccionales (ERP, Báscula, CMMS)</a><a href="#" onclick="show('s11')" class="toc-sub">T2 Calidad y Conciliación del Dato</a><a href="#" onclick="show('s11')" class="toc-sub">T3 Tableros, Analítica y Automatización</a></div>
+<div class="toc-group"><a href="#" onclick="show('s12')" class="toc-row" data-section-id="s12"><span class="toc-num">14</span><span class="toc-name">Soporte Transversal</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s12"></span></a><a href="#" onclick="show('s12')" class="toc-sub">S1 Servicios Industriales y Ambiente</a><a href="#" onclick="show('s12')" class="toc-sub">S2 Capital Humano y Seguridad</a><a href="#" onclick="show('s12')" class="toc-sub">TX Gobierno y Gestión</a></div>
+<div class="toc-group"><a href="#" onclick="show('sgm')" class="toc-row" data-section-id="sgm"><span class="toc-num">15</span><span class="toc-name">Growth Management</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="sgm"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('sres')" class="toc-row" data-section-id="sres"><span class="toc-num">16</span><span class="toc-name">Resumen Ejecutivo de Hallazgos</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="sres"></span></a></div>
+<div class="toc-group"><a href="#" onclick="show('s13')" class="toc-row" data-section-id="s13"><span class="toc-num">17</span><span class="toc-name">Mapa de Oportunidades</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s13"></span></a><a href="#" onclick="show('s13')" class="toc-sub">Inventario Priorizado</a></div>
+<div class="toc-group"><a href="#" onclick="show('s14')" class="toc-row" data-section-id="s14"><span class="toc-num">18</span><span class="toc-name">Transformación: Roadmap &amp; Propuesta</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s14"></span></a><a href="#" onclick="show('s14')" class="toc-sub">Alcance, Beneficios, Metodología, Implementación, Cronograma, Inversión y ROI</a></div>
+<div class="toc-group"><a href="#" onclick="show('s15')" class="toc-row" data-section-id="s15"><span class="toc-num toc-arrow">➤</span><span class="toc-name">Cierre</span><span class="toc-dots"></span><span class="pdf-page" data-section-id="s15"></span></a></div>
+    </div>
+    <a href="PreDx_PATE_Completo.pdf" class="pdf-download">Descargar PDF maestro del prediagnóstico</a>
+  </div>
+</section>
+
+
+<!-- S1 CONTEXTO -->
+<!--
+  INSTRUCCIÓN (Paso 2-3 del SKILL.md): esta sección responde en <30s "¿quién es el cliente,
+  qué tan grande es, qué hace, por qué es relevante, y por qué este PreDx" — investigar el
+  sitio web del cliente y llenar cada bloque con research real (nunca inventar cifras).
+  Estructura (no cambiar el orden): 1) hero institucional con insight, 2) franja de KPIs,
+  3) propuesta de valor con chips, 4) banda "operación local" (zoom a la geografía/alcance
+  del PreDx), 5) dos columnas de industrias/capacidades con chips + ícono SVG.
+-->
+<section class="section" id="s1">
+  <div class="hero"><div class="tag">Contexto</div><h1>¿Quién es <span>PATE</span>?</h1>
+    <p class="sub">El rastro TIF de los avicultores de Los Altos: retiro ordenado de gallina de fin de postura, deshuese para embutidos y valorización de subproductos.</p></div>
+  <div class="content">
+    <div class="mb32"><a href="matriz-impactos-financieros.html" class="dashboard-link">Ver matriz de impactos financieros</a><a href="dashboards/propuesta-proyecto.html" class="dashboard-link alt">Ver propuesta de proyecto</a></div>
+    <div class="mb32"><a href="dashboards/GM-growth-management.html" class="dashboard-link">Ver estudio estadístico · Encuesta de Growth Management</a></div>
+    <div class="mb32"><a href="entrevistas/index.html" class="dashboard-link">Ver agenda de entrevistas</a><a href="dashboards/A3-gemba-walk.html" class="dashboard-link alt">Ver hallazgos del Gemba Walk</a></div>
+    <div class="mb32"><a href="dashboards/estructura-span-control.html" class="dashboard-link">Ver estructura y span de control</a></div>
+    <div class="mb32"><a href="simulacion-financiera.html" class="dashboard-link">Ver simulación financiera</a></div>
+    <div class="mb32"><a href="nmo-detalle.html" class="dashboard-link">Ver detalle de evaluación NMO por pilar y dimensión</a></div>
+
+    <!-- HERO INSTITUCIONAL -->
+    <div class="intro-block mb32">
+      <p class="intro-text">PATE nació de un problema sanitario regional: al final del ciclo de postura, las gallinas de Los Altos , una de las principales cuencas de huevo del país,  no tenían una salida ordenada. En 1991 un grupo de avicultores se asoció para construir un rastro propio que inició operaciones en 1994. Hoy la planta de San José de Gracia opera bajo inspección federal (TIF 165), declara una capacidad de 9,500 aves por hora y emplea a cerca de 580 personas. Su modelo combina un servicio para los accionistas (retiro de parvadas) con una operación industrial que deshuesa la carne para la industria de embutidos y convierte los subproductos en harinas y grasas para alimento balanceado.</p>
+      <div class="intro-quote">
+        <div class="intro-quote-num">32 años</div>
+        <div class="intro-quote-label">operando desde 1994 como el rastro propio de los productores de huevo de Los Altos. Pasó de 3,000 a 9,500 aves/hora de capacidad declarada.</div>
+      </div>
+    </div>
+
+    <!-- KPIs ESTRATÉGICOS -->
+    <div class="stat-strip mb32">
+      <div class="stat-item"><div class="v">1991</div><div class="l">Fundación</div></div>
+      <div class="stat-item"><div class="v">Por validar</div><div class="l">Facturación</div></div>
+      <div class="stat-item"><div class="v">≈580</div><div class="l">Colaboradores</div></div>
+      <div class="stat-item"><div class="v">9,500</div><div class="l">Aves/hora (capacidad declarada)</div></div>
+      <div class="stat-item"><div class="v">51%</div><div class="l">Huevo nacional producido en Jalisco (ene-abr 2026)</div></div>
+      <div class="stat-item"><div class="v">TIF 165</div><div class="l">Certificaciones</div></div>
+    </div>
+
+    <!-- PROPUESTA DE VALOR -->
+    <div class="sub-heading">Propuesta de Valor</div>
+    <div class="mb32">
+      <p class="narrative" style="max-width:680px">Para el accionista, PATE es la garantía de que cada parvada que termina su ciclo sale de la granja en tiempo, con bioseguridad y bajo inspección federal. Para el mercado, es un proveedor de proteína de gallina deshuesada y de subproductos valorizados, con escala regional. El reto del PreDx es hacer visible cuánto vale cada ave en cada etapa , del retiro a la venta,  y cerrar la brecha entre la capacidad declarada y la que realmente se convierte en margen.</p>
+      <!-- INICIO BLOQUE REPETIBLE: un .chip por diferenciador clave (3-5). El ícono es un SVG de 24x24 minimalista (stroke currentColor); reutilizar los ya definidos en las secciones de abajo o crear uno nuevo con la misma técnica. -->
+      <div class="chip-row" style="margin-top:16px">
+        <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/></svg></span> Inspección federal TIF 165</div>
+        <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c9 0 14-5 14-14 0 0-1 4-6 6S5 21 5 21z"/><path d="M5 21c0-6 3-10 8-12"/></svg></span> Propiedad de los propios avicultores</div>
+        <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v9l9 5 9-5V8"/></svg></span> Aprovechamiento integral del ave (carne + rendering)</div>
+        <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span> Escala regional: 9,500 aves/h</div>
+      </div>
+      <!-- FIN BLOQUE REPETIBLE -->
+    </div>
+
+    <!-- BANDA "OPERACIÓN LOCAL" — el zoom del grupo/matriz hacia el alcance geográfico de este PreDx -->
+    <div class="mx-band mb32">
+      <div class="card-label" style="margin-bottom:6px">PATE dentro del alcance de este PreDx</div>
+      <p class="narrative" style="margin-bottom:0;max-width:760px">El alcance cubre la planta de San José de Gracia de punta a punta: programación y retiro de parvadas con accionistas, captura y transporte, recepción y bienestar, sacrificio, enfriamiento, deshuese, calidad/TIF, rendering de subproductos, cadena de frío, logística de salida y comercialización, más el soporte transversal (mantenimiento, servicios y ambiente, capital humano, finanzas operativas y gobierno).</p>
+      <div class="mx-band-grid">
+        <div class="mx-facts">
+          <div class="mx-fact"><span class="k">Cobertura</span><span class="d">Abasto de granjas de accionistas en Los Altos de Jalisco; venta B2B nacional</span></div>
+          <div class="mx-fact"><span class="k">Modelo</span><span class="d">Servicio de retiro al accionista + venta B2B de carne deshuesada y subproductos</span></div>
+          <div class="mx-fact"><span class="k">Capacidad</span><span class="d">9,500 aves/h declaradas (última cifra pública: 9,000 aves/h, 2007) · por conciliar</span></div>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-item" style="min-width:100px"><div class="v">1</div><div class="l">Sedes</div></div>
+          <div class="stat-item" style="min-width:100px"><div class="v">7</div><div class="l">Verticales en alcance</div></div>
+          <div class="stat-item" style="min-width:100px"><div class="v">26</div><div class="l">Entrevistas + recorridos</div></div>
+        </div>
+      </div>
+      <div class="mx-conclusion"><span class="k">Por qué este PreDx</span><span class="d">La brecha entre capacidad nominal y velocidad efectiva, la dispersión del rendimiento de deshuese y el valor de los subproductos determinan cuánto margen deja cada ave; hoy no hay evidencia pública de cómo se miden. El PreDx convierte 141 KPI y 20 hipótesis en un diagnóstico con evidencia y un caso económico para decidir.</span></div>
+    </div>
+
+    <!-- INDUSTRIAS Y CAPACIDADES — dos columnas horizontales con chips (no tarjetas verticales) -->
+    <div class="g2">
+      <div>
+        <div class="sub-heading" style="margin-top:0;padding-top:0;border-top:none">Industrias / Segmentos Atendidos</div>
+        <!-- INICIO BLOQUE REPETIBLE: un .chip por industria/segmento (investigar sitio del cliente) -->
+        <div class="chip-row">
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h9v9a4.5 4.5 0 0 1-9 0V3z"/><path d="M14 6h2a3 3 0 0 1 0 6h-2"/></svg></span> Embutidos y cárnicos procesados</div>
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span> Alimentos balanceados</div>
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h6v16H6a2 2 0 0 1-2-2V6z"/><path d="M20 6a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 0 2-2V6z"/></svg></span> Alimento para mascotas</div>
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span> Industria alimentaria (grasa, colágeno)</div>
+        </div>
+        <!-- FIN BLOQUE REPETIBLE -->
+      </div>
+      <div>
+        <div class="sub-heading" style="margin-top:0;padding-top:0;border-top:none">Capacidades Clave</div>
+        <!-- INICIO BLOQUE REPETIBLE: un .chip por capacidad/línea de producto o servicio -->
+        <div class="chip-row">
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><circle cx="8" cy="12" r="1.3"/><path d="M12 12h9M17 8v8"/></svg></span> Línea de sacrificio 9,500 aves/h</div>
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V4h12v5"/><rect x="4" y="9" width="16" height="7" rx="1"/><path d="M6 16v4h12v-4"/></svg></span> Deshuese manual (pechuga, muslo, pierna)</div>
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span> Planta de rendering (harinas y grasa)</div>
+          <div class="chip"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span> Frío por amoniaco y PTAR propia</div>
+        </div>
+        <!-- FIN BLOQUE REPETIBLE -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- S1b GLOSARIO DE TÉRMINOS -->
+<section class="section" id="s1b">
+  <div class="glossary-page">
+    <div class="glossary-logos">
+      <img src="logo-lcg.png" alt="London Consulting Group" class="brand-logo" style="max-height:26px;max-width:150px">
+      <img src="logo-cliente-dark.png" alt="PATE" class="brand-logo" style="max-height:44px;max-width:150px">
+    </div>
+    <div class="glossary-kicker">Referencia</div>
+    <h1 class="glossary-title">Glosario de Términos</h1>
+    <p class="glossary-sub">Siglas y conceptos utilizados a lo largo del documento</p>
+    <div class="glossary-divider"></div>
+    <!--
+      INSTRUCCIÓN: reemplazar las categorías/términos de ejemplo de abajo por el vocabulario
+      real de la industria del cliente + los códigos de pilar reales de config.json (ej.
+      "Comercial (C1–C5)"). Conservar SIEMPRE la categoría "Metodología LCG / PreDx" tal cual
+      — es universal a todos los proyectos.
+    -->
+    <div class="glossary-grid">
+      <div>
+        <div class="glossary-cat">Operación avícola</div>
+        <div class="glossary-term-row"><div class="glossary-acr">DOA</div><div class="glossary-def"><b>Dead on Arrival:</b> aves muertas entre la captura y el colgado, como % de aves embarcadas</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">TIF</div><div class="glossary-def"><b>Tipo Inspección Federal:</b> certificación SENASICA para establecimientos de sacrificio con inspección ante y post mortem</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">RTC</div><div class="glossary-def"><b>Ready to Cook:</b> canal lista para cocinar; base del rendimiento de canal sobre peso vivo</div></div>
+
+        <div class="glossary-cat">Comercial</div>
+        <div class="glossary-term-row"><div class="glossary-acr">B2B</div><div class="glossary-def"><b>Business to Business:</b> venta a clientes empresariales/industriales</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">B2C</div><div class="glossary-def"><b>Business to Consumer:</b> venta directa a consumidor final</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">SKU</div><div class="glossary-def"><b>Stock Keeping Unit:</b> código único que identifica cada referencia de producto</div></div>
+      </div>
+      <div>
+        <div class="glossary-cat">Proceso y subproductos</div>
+        <div class="glossary-term-row"><div class="glossary-acr">CMS</div><div class="glossary-def"><b>Carne mecánicamente separada</b> (MDM / pasta): carne recuperada de armazones por separación mecánica</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">OEE</div><div class="glossary-def"><b>Overall Equipment Effectiveness:</b> disponibilidad × desempeño × calidad de la línea de sacrificio</div></div>
+
+        <div class="glossary-cat">Metodología LCG / PreDx</div>
+        <div class="glossary-term-row"><div class="glossary-acr">NMO</div><div class="glossary-def"><b>Nivel de Madurez Organizacional:</b> modelo de 5 niveles para medir madurez de procesos, adaptado del framework CMMI de Carnegie Mellon</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">KPI</div><div class="glossary-def"><b>Key Performance Indicator:</b> indicador clave de desempeño</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">PreDx</div><div class="glossary-def">Pre-diagnóstico: fase de exploración y diagnóstico rápido previa a un proyecto de transformación</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">ERP</div><div class="glossary-def"><b>Enterprise Resource Planning:</b> sistema integrado de gestión empresarial</div></div>
+        <div class="glossary-term-row"><div class="glossary-acr">Quick Win</div><div class="glossary-def">Oportunidad de mejora de alto impacto y baja complejidad de implementación</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="section" id="sag">
+  <div class="hero"><div class="tag">Agenda</div><h1>Plan de <span>Estudios</span></h1>
+    <p class="sub">26 entrevistas, 1 Gemba Walk y 12 estudios estadísticos que cubren los 26 pilares y el modelo de gestión. Kick Off: lun 05-oct-2026 11:00 (Leonardo Pimentel, Jaime Restrepo). No cuenta como entrevista. </p></div>
+  <div class="content">
+    <div class="kpi-grid mb32">
+      <div class="kpi-card"><div class="kpi-label">Entrevistas</div><div class="kpi-val">26</div><div class="kpi-desc">5 al 7 de octubre de 2026</div></div>
+      <div class="kpi-card"><div class="kpi-label">Gemba Walk</div><div class="kpi-val">1</div><div class="kpi-desc">Recorrido de planta · lun 05-oct 16:00</div></div>
+      <div class="kpi-card"><div class="kpi-label">Estudios estadísticos</div><div class="kpi-val">11 + 1</div><div class="kpi-desc">EE (12-15 oct) + encuesta Growth Management</div></div>
+      <div class="kpi-card"><div class="kpi-label">Avance</div><div class="kpi-val">0 / 27</div><div class="kpi-desc">Sesiones procesadas</div></div>
+    </div>
+    <div class="sec-header"><div class="act">01</div><h2 style="font-size:18px">Entrevistas y Gemba Walk</h2></div>
+    <table class="mb32"><thead><tr><th>#</th><th>Entrevistado</th><th>Área / puesto</th><th>Pilares</th><th>LCG</th><th>Fecha</th><th>Estado</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Alejandro Mercado</td><td>Gerencia General</td><td>TX, O1, GM</td><td>Leonardo Pimentel, Jaime Restrepo</td><td>lun 05-oct-2026 13:00 (estructura) + mar 06-oct-2026 09:00 (entrevista)</td><td>Programado</td></tr>
+<tr><td>2</td><td>José Obed Fabián Arriaga Rocha</td><td>Responsable de Sistemas / TI</td><td>T1, T2, T3</td><td>Leonardo Pimentel</td><td>lun 05-oct-2026 14:00</td><td>Programado</td></tr>
+<tr><td>3</td><td>TBD</td><td>Contraloría</td><td>F1, F2</td><td>Leonardo Pimentel, Jaime Restrepo</td><td>mar 06-oct-2026 10:00</td><td>Programado</td></tr>
+<tr><td>4</td><td>Gonzalo Eduardo Hernándes Serratos</td><td>Producción</td><td>O1, O2</td><td>Leonardo Pimentel</td><td>mar 06-oct-2026 11:00</td><td>Programado</td></tr>
+<tr><td>5</td><td>José Obed Fabián Arriaga</td><td>Mejora continua y eficiencia operativa</td><td>O1, O3, GM</td><td>Jaime Restrepo</td><td>mar 06-oct-2026 11:00</td><td>Programado</td></tr>
+<tr><td>6</td><td>Iván de Jesús Reynaga Navarro</td><td>Abastos</td><td>A1, A2</td><td>Leonardo Pimentel</td><td>mar 06-oct-2026 12:00</td><td>Programado</td></tr>
+<tr><td>7</td><td>Baudelio Morales Sánchez</td><td>Colgado y sacrificio</td><td>A3, O1</td><td>Jaime Restrepo</td><td>mar 06-oct-2026 12:00</td><td>Programado</td></tr>
+<tr><td>8</td><td>Ernesto Javier Gómez Medina</td><td>Deshuese, pastas y empaque</td><td>O3</td><td>Jaime Restrepo</td><td>mar 06-oct-2026 13:00</td><td>Programado</td></tr>
+<tr><td>9</td><td>José de Jesús Vega Meza</td><td>Mantenimiento</td><td>M1, M2, M3, M4, M5, M6</td><td>Leonardo Pimentel</td><td>mar 06-oct-2026 14:00</td><td>Programado</td></tr>
+<tr><td>10</td><td>Gabriel Armando Galván Arriaga</td><td>Refrigeración</td><td>C1, M3, S1</td><td>Jaime Restrepo</td><td>mar 06-oct-2026 14:00</td><td>Programado</td></tr>
+<tr><td>11</td><td>José Roberto Preciado Arriaga</td><td>Ventas, almacenes y logística</td><td>C1, C2, C3</td><td>Leonardo Pimentel</td><td>mar 06-oct-2026 15:00</td><td>Programado</td></tr>
+<tr><td>12</td><td>Daniel Delgado</td><td>Grasas</td><td>O5</td><td>Jaime Restrepo</td><td>mar 06-oct-2026 15:00</td><td>Programado</td></tr>
+<tr><td>13</td><td>TBD</td><td>Eviscerado</td><td>O1, O2, O4</td><td>Leonardo Pimentel</td><td>mar 06-oct-2026 16:00</td><td>Programado</td></tr>
+<tr><td>14</td><td>Ana Carolina Loza Rubio</td><td>Compras</td><td>M5, F3</td><td>Leonardo Pimentel</td><td>mié 07-oct-2026 10:00</td><td>Programado</td></tr>
+<tr><td>15</td><td>Pedro Gómez Díaz</td><td>Higiene y sanidad</td><td>O4, S1</td><td>Jaime Restrepo</td><td>mié 07-oct-2026 10:00</td><td>Programado</td></tr>
+<tr><td>16</td><td>Bernardina Aceves Galindo</td><td>Contabilidad</td><td>F1</td><td>Leonardo Pimentel</td><td>mié 07-oct-2026 11:00</td><td>Programado</td></tr>
+<tr><td>17</td><td>Sarai Castellanos Navarro</td><td>Tesorería</td><td>F3</td><td>Jaime Restrepo</td><td>mié 07-oct-2026 11:00</td><td>Programado</td></tr>
+<tr><td>18</td><td>Bárbara del Rayo Sánchez Macías</td><td>SGIA</td><td>O4</td><td>Leonardo Pimentel</td><td>mié 07-oct-2026 12:00</td><td>Programado</td></tr>
+<tr><td>19</td><td>Ana Laura Villalobos Sánchez</td><td>Medio ambiente</td><td>S1</td><td>Jaime Restrepo</td><td>mié 07-oct-2026 12:00</td><td>Programado</td></tr>
+<tr><td>20</td><td>Responsables por turno</td><td>Vigilancia y Báscula</td><td>A3, T2</td><td>Leonardo Pimentel</td><td>mié 07-oct-2026 13:00</td><td>Programado</td></tr>
+<tr><td>21</td><td>Ana Isabel Macías Ruíz</td><td>Nómina</td><td>S2, F1</td><td>Jaime Restrepo</td><td>mié 07-oct-2026 13:00</td><td>Programado</td></tr>
+<tr><td>22</td><td>Jesús Emmanuel Valle Sánchez</td><td>RR.HH.</td><td>S2</td><td>Leonardo Pimentel</td><td>mié 07-oct-2026 14:00</td><td>Programado</td></tr>
+<tr><td>23</td><td>Jose Manuel Orozco Fonseca</td><td>Seguridad e higiene</td><td>S2</td><td>Jaime Restrepo</td><td>mié 07-oct-2026 14:00</td><td>Programado</td></tr>
+<tr><td>24</td><td>Laura Elena Nungaray Gómez</td><td>Aseguramiento de calidad</td><td>O4, O2</td><td>Leonardo Pimentel</td><td>mié 07-oct-2026 15:00</td><td>Programado</td></tr>
+<tr><td>25</td><td>Luis Humberto Vázquez Ortíz</td><td>TIF (Tipo Inspección Federal)</td><td>O4, A3</td><td>Jaime Restrepo</td><td>mié 07-oct-2026 15:00</td><td>Programado</td></tr>
+<tr><td>26</td><td>José Manuel Zavala Gutiérrez</td><td>Rendimiento</td><td>O2</td><td>Leonardo Pimentel</td><td>mié 07-oct-2026 16:00</td><td>Programado</td></tr>
+<tr><td>GW</td><td>·</td><td>Recorrido de planta (Gemba Walk)</td><td>A3, O1, O2, O3, O4, C1, C2</td><td>Leonardo Pimentel, Jaime Restrepo</td><td>lun 05-oct-2026 16:00</td><td>Programado</td></tr>
+    </tbody></table>
+    <div class="sec-header"><div class="act">02</div><h2 style="font-size:18px">Estudios Estadísticos</h2></div>
+    <table class="mb32"><thead><tr><th>ID</th><th>Estudio</th><th>Pilares</th><th>KPIs</th><th>LCG</th><th>Fecha</th><th>Estado</th></tr></thead>
+    <tbody>
+<tr><td>EE01</td><td>Balance de masa y rendimientos (canal / carne / subproductos)</td><td>O2, O3, O5</td><td>K401, K402, K403, K404…</td><td>Leonardo Pimentel</td><td>lun 12-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE02</td><td>Utilización de línea, velocidad real y paros</td><td>O1</td><td>K301, K302, K303, K304…</td><td>Leonardo Pimentel</td><td>lun 12-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE03</td><td>DOA, decomisos y calidad de ave recibida</td><td>A2, A3, O2, O4</td><td>K103, K105, K106, K408…</td><td>Leonardo Pimentel</td><td>lun 12-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE04</td><td>Cumplimiento programa de retiros</td><td>A1</td><td>K101, K111, K1405, K1103</td><td>Leonardo Pimentel</td><td>mar 13-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE05</td><td>Productividad de deshuese (kg/hh)</td><td>O3, S2</td><td>K501, K502, K503, K508…</td><td>Leonardo Pimentel</td><td>mar 13-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE06</td><td>Costo por ave y por kg</td><td>F1, F2</td><td>K1301, K1302, K1303, K1304…</td><td>Leonardo Pimentel</td><td>mar 13-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE07</td><td>Consumos de energía, agua y gas</td><td>S1, O5</td><td>K1001, K1002, K1003, K1004…</td><td>Leonardo Pimentel</td><td>mié 14-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE08</td><td>Mantenimiento (MTBF / MTTR / % correctivo)</td><td>M2, M3, M4, M6</td><td>K902, K903, K904, K905…</td><td>Leonardo Pimentel</td><td>mié 14-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE09</td><td>Precio neto y valorización de subproductos</td><td>O5, C3</td><td>K506, K801, K806, K1202…</td><td>Leonardo Pimentel</td><td>mié 14-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE10</td><td>Plantilla, ausentismo, horas extra y rotación</td><td>S2</td><td>K1101, K1102, K1103, K1104…</td><td>Leonardo Pimentel</td><td>jue 15-oct-2026</td><td>Programado</td></tr>
+<tr><td>EE11</td><td>CxC &amp; CxP (Cartera)</td><td>F3, C3</td><td>K1306, K1207</td><td>Leonardo Pimentel</td><td>jue 15-oct-2026</td><td>Programado</td></tr>
+<tr><td>ENC01</td><td>Encuesta de Growth Management</td><td>GM, TX</td><td>K1402, K1404</td><td>Leonardo Pimentel</td><td>lun 05-oct-2026</td><td>Programado</td></tr>
+    </tbody></table>
+    <div class="sec-header"><div class="act">03</div><h2 style="font-size:18px">Entregables</h2></div>
+    <table class="mb32"><thead><tr><th>Entregable</th><th>LCG</th><th>Fecha</th></tr></thead><tbody>
+<tr><td>1ra Presentación de Hallazgos</td><td>Leonardo Pimentel, Jaime Restrepo</td><td>jue 08-oct-2026</td></tr>
+<tr><td>2da Presentación de Hallazgos</td><td>Leonardo Pimentel, Jaime Restrepo</td><td>mié 14-oct-2026</td></tr>
+<tr><td>Configuración del proyecto</td><td>Leonardo Pimentel, Jaime Restrepo</td><td>mié 14-oct-2026</td></tr>
+<tr><td>Presentación de Resumen Hallazgos &amp; Propuesta de Proyecto</td><td>Leonardo Pimentel, Jaime Restrepo</td><td>jue 15-oct-2026</td></tr>
+    </tbody></table>
+    <div class="card card-teal"><div class="card-label">Detalle</div><div class="card-text">Agenda con estado por sesión en <a href="entrevistas/index.html" style="color:var(--teal-dark);font-weight:700">la página de Entrevistas</a>. Guías en <code>entrevistas/GUIA_ENTREVISTAS_PATE.md</code>; fichas de cada estudio en <code>estudios-estadisticos/</code>.</div></div>
+  </div>
+</section>
+
+<!-- S2 METODOLOGÍA DEL PREDIAGNÓSTICO -->
+<section class="section" id="s2">
+  <div class="hero"><div class="tag">Metodología del Prediagnóstico</div><h1>Cómo Construimos <span>el Prediagnóstico</span></h1>
+    <p class="sub">Marco de análisis LCG aplicado a PATE: proceso de levantamiento, visión de Dirección General, pilares del alcance y hallazgos principales.</p></div>
+  <div class="content">
+    <div class="g2 mb32">
+      <div class="card card-teal">
+        <div class="card-label">Proceso de Levantamiento</div>
+        <div class="card-text">
+          El PreDx analiza la cadena de valor end-to-end de PATE usando el <b>Modelo de Madurez NMO</b> (5 niveles × 5 dimensiones: Estructura, Procesos, Productividad &amp; Costos, Tablero &amp; Visibilidad, Calidad &amp; Mejora), cuantifica el impacto económico de las ineficiencias con benchmarks de industria, y compara AS-IS vs. TO-BE de clase mundial.<br><br>
+          Cada calificación se respalda con al menos una fuente; ante contradicciones se registra la más conservadora. Agenda: <b>26 sesiones</b> (26 entrevistas + 1 Gemba Walk).
+        </div>
+      </div>
+      <div class="card card-teal">
+        <div class="card-label">Visión &amp; Expectativas Dirección General</div>
+        <div class="card-text">Pendiente · se documentará a partir de las entrevistas con la Dirección General de PATE.</div>
+      </div>
+    </div>
+    <div class="mb32">
+      <div class="sec-header"><div class="act">Alcance</div><h2 style="font-size:18px">Pilares del Alcance · 26 pilares en 7 verticales</h2></div>
+      <!-- INICIO BLOQUE REPETIBLE: un .kpi-card por vertical (incluido Soporte Transversal si existe), generado por build_kpi_grid_verticales_html() -->
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Abasto de Parvadas</div><div class="kpi-val">A1-A3</div><div class="kpi-desc">Programación de Retiros con Accionistas, Captura y Transporte, Recepción, Bienestar y Bioseguridad</div></div>
+        <div class="kpi-card"><div class="kpi-label">Proceso Industrial</div><div class="kpi-val">O1-O5</div><div class="kpi-desc">Sacrificio y Capacidad de Línea, Rendimientos y Balance de Masa, Deshuese y Valor Agregado, Calidad, Inocuidad y TIF, Subproductos y Rendering</div></div>
+        <div class="kpi-card"><div class="kpi-label">Frío, Logística y Comercial</div><div class="kpi-val">C1-C3</div><div class="kpi-desc">Cadena de Frío e Inventarios, Logística de Salida y Servicio, Comercial, Precio y Clientes</div></div>
+        <div class="kpi-card"><div class="kpi-label">Mantenimiento</div><div class="kpi-val">M1-M6</div><div class="kpi-desc">Estrategia y Criticidad de Activos, Planeación y Programación del Trabajo, Mantenimiento Preventivo, Predictivo y Autónomo, Confiabilidad y Análisis de Fallas, Refacciones y Almacén MRO, Costo y Desempeño de Mantenimiento</div></div>
+        <div class="kpi-card"><div class="kpi-label">Administración &amp; Finanzas</div><div class="kpi-val">F1-F3</div><div class="kpi-desc">Costeo por Ave y por Kg, Rentabilidad por Segmento y Servicio al Accionista, Capital de Trabajo, Tesorería y Activos</div></div>
+        <div class="kpi-card"><div class="kpi-label">Tecnología Aplicada</div><div class="kpi-val">T1-T3</div><div class="kpi-desc">Sistemas Transaccionales (ERP, Báscula, CMMS), Calidad y Conciliación del Dato, Tableros, Analítica y Automatización</div></div>
+        <div class="kpi-card"><div class="kpi-label">Soporte Transversal</div><div class="kpi-val">S1-TX</div><div class="kpi-desc">Servicios Industriales y Ambiente, Capital Humano y Seguridad, Gobierno y Gestión</div></div>
+      </div>
+      <!-- FIN BLOQUE REPETIBLE -->
+    </div>
+    <div class="card">
+      <div class="card-label">Hallazgos Principales</div>
+      <div class="card-text">Pendiente · se consolidará conforme se procesen las 26 sesiones agendadas (ver Flujo 1, CLAUDE.md).</div>
+    </div>
+  </div>
+</section>
+
+<!-- S3 NMO & ALINEACIÓN ESTRATÉGICA -->
+<section class="section" id="s3">
+  <div class="hero"><div class="tag">NMO &amp; Alineación Estratégica</div><h1>Modelo de Madurez &amp; <span>Alineación Estratégica</span></h1>
+    <p class="sub">5 niveles × 5 dimensiones de evaluación aplicados a los 26 pilares de PATE.</p></div>
+  <div class="content">
+
+    <p class="narrative">El Modelo de Nivel de Madurez Organizacional (NMO) utilizado en este prediagnóstico es una adaptación del framework CMMI de Carnegie Mellon, enriquecido con principios de Lean Management y estándares de la industria de Procesamiento de gallina de fin de postura (rastro TIF, deshuese y rendering). El modelo evalúa los <b>26 pilares</b> de la cadena de valor de PATE en <b>5 dimensiones</b> y <b>5 niveles de madurez</b>, proporcionando una radiografía estructurada del estado actual y una hoja de ruta hacia la excelencia operativa.</p>
+    <p class="narrative">La evaluación se basará en evidencia multi-fuente: <b>26 sesiones</b> (26 entrevistas + 1 Gemba Walk) con el equipo directivo, gerencial y operativo, complementadas con análisis de documentos, reportes financieros y KPIs que comparta el cliente. Cuando haya contradicción entre fuentes, se registrará la calificación más conservadora. La ausencia de evidencia no se interpreta como funcionamiento correcto. El default es conservador (ver <a href="#" onclick="show('s2')" style="color:var(--teal)">Metodología del Prediagnóstico</a>).</p>
+
+    <div class="kpi-grid mb32">
+      <div class="kpi-card"><div class="kpi-label">NMO Promedio Actual</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Se calculará al consolidar evidencia de los 26 pilares</div></div>
+      <div class="kpi-card"><div class="kpi-label">Meta de Madurez</div><div class="kpi-val">Por definir</div><div class="kpi-desc">A validar con la Dirección General de PATE</div></div>
+      <div class="kpi-card"><div class="kpi-label">Fuentes de Evidencia</div><div class="kpi-val">26 sesiones</div><div class="kpi-desc">26 entrevistas + 1 Gemba Walk</div></div>
+      <div class="kpi-card"><div class="kpi-label">Pilares Evaluados</div><div class="kpi-val">0 / 26</div><div class="kpi-desc">Se actualizará conforme se procese cada sesión</div></div>
+    </div>
+
+    <h3 class="sub-heading">5 Niveles de Madurez</h3>
+    <div class="level-cards mb32">
+      <div class="level-card" style="--c:var(--red)"><div class="lc-num">1</div><div class="lc-name">Inicial</div><div class="lc-desc">No hay proceso. Caótico y reactivo. Los resultados dependen enteramente de personas clave.</div></div>
+      <div class="level-card" style="--c:#e08e3a"><div class="lc-num">2</div><div class="lc-name">Emergente</div><div class="lc-desc">Se reconoce la necesidad. Esfuerzos aislados, sin consistencia ni uso sistemático de formatos.</div></div>
+      <div class="level-card" style="--c:var(--amber)"><div class="lc-num">3</div><div class="lc-name">Definido</div><div class="lc-desc">Procesos documentados y aplicados regularmente, con dueño claro. Equivalente a ISO 9001 implementado.</div></div>
+      <div class="level-card" style="--c:var(--teal)"><div class="lc-num">4</div><div class="lc-name">Gestionado</div><div class="lc-desc">Gestión por datos. KPIs definidos con metas y seguimiento (WMS/ERP, S&amp;OP formal, OTIF/Fill Rate).</div></div>
+      <div class="level-card" style="--c:var(--teal-bright)"><div class="lc-num">5</div><div class="lc-name">Optimizado</div><div class="lc-desc">Mejora continua sistemática (PHVA/Kaizen). Benchmarking externo activo. Trazabilidad end-to-end.</div></div>
+    </div>
+
+    <h3 class="sub-heading">5 Dimensiones de Evaluación</h3>
+    <table class="mb32">
+      <thead><tr><th>Dim.</th><th>Nombre</th><th>Qué evalúa</th><th>Estándar de referencia</th></tr></thead>
+      <tbody>
+        <tr><td><b>E1</b></td><td>Estructura</td><td>Roles claros, responsabilidades definidas, capacidad instalada, tramo de control adecuado</td><td>ISO 9001:2015 · organigramas funcionales</td></tr>
+        <tr><td><b>E2</b></td><td>Procesos</td><td>Flujo documentado, repetible, con dueño. Planeación colaborativa entre Comercial, Importaciones y Almacén</td><td>ISO 9001:2015 · mapeo de procesos</td></tr>
+        <tr><td><b>E3</b></td><td>Productividad &amp; Costos</td><td>Eficiencia en corte y acabado, reducción de merma, costo operativo logístico, ROI de inventario</td><td>Lean Manufacturing, Six Sigma</td></tr>
+        <tr><td><b>E4</b></td><td>Tablero &amp; Visibilidad</td><td>KPIs definidos, dashboards en tiempo real: Fillrate, OTIF, exactitud de inventario, DSO</td><td>WMS/ERP maduro, S&amp;OP formal</td></tr>
+        <tr><td><b>E5</b></td><td>Calidad &amp; Mejora</td><td>Estándares de calidad, retroalimentación, mejora continua (PHVA)</td><td>Certificaciones de calidad relevantes del cliente/industria</td></tr>
+      </tbody>
+    </table>
+
+    <!-- INSTRUCCIÓN: investigar 3-5 empresas de referencia (nivel 4-5) y asociaciones/certificaciones (nivel 3) reales de Procesamiento de gallina de fin de postura (rastro TIF, deshuese y rendering) para esta tabla — no dejar los nombres de ejemplo de otra industria. -->
+    <h3 class="sub-heading">Benchmarks de Madurez por Industria</h3>
+    <p class="narrative">El modelo NMO no opera en el vacío. Los niveles se calibran contra estándares internacionales y prácticas de líderes de la industria de Procesamiento de gallina de fin de postura (rastro TIF, deshuese y rendering):</p>
+    <table class="mb32">
+      <thead><tr><th>Nivel NMO</th><th>Equivalencia en la industria</th><th>Referencia</th></tr></thead>
+      <tbody>
+        <tr><td><b>Nivel 1</b></td><td>Sin sistema de gestión formal. Operación reactiva, sin trazabilidad</td><td>Sacrificio municipal o in situ sin inspección federal; descarte de gallina viva sin trazabilidad</td></tr>
+        <tr><td><b>Nivel 2</b></td><td>Esfuerzos aislados de estandarización. Certificaciones en trámite o parcialmente implementadas</td><td>Rastros con TIF en trámite o HACCP parcial; registros manuales sin conciliación</td></tr>
+        <tr><td><b>Nivel 3</b></td><td>Procesos documentados con dueño. Sistemas de gestión certificados</td><td>Establecimientos TIF con HACCP documentado y cumplimiento NOM-009-ZOO, NOM-033-SAG/ZOO, NOM-194-SSA1</td></tr>
+        <tr><td><b>Nivel 4</b></td><td>Sistemas integrados (ERP/WMS), KPIs medidos y gestionados, Lean aplicado</td><td>Integradoras avícolas mexicanas con ERP, gestión por KPI y certificación GFSI (referencia de otras aves, no gallina)</td></tr>
+        <tr><td><b>Nivel 5</b></td><td>Mejora continua sistemática. Trazabilidad end-to-end. Benchmarking externo activo</td><td>Plantas en niveles MTD de la UE (BREF 2023) en agua y energía, balance de masa cerrado y benchmarking externo</td></tr>
+      </tbody>
+    </table>
+    <p class="narrative">No existe un benchmark público de desempeño específico para rastros de gallina de fin de postura en México. Por eso el modelo se calibra con tres capas: estudios revisados por pares de gallina (DOA, decomisos, rendimientos), referencias de otras aves (MTD UE para agua y energía) y obligaciones normativas mexicanas (TIF, NOM-033, NOM-194, NOM-001/002-SEMARNAT). Cada comparación declara su comparabilidad (A-D, N) en la herramienta de benchmark del proyecto.</p>
+
+    <h3 class="sub-heading">Distribución de Madurez</h3>
+    <div class="card mb32" style="text-align:center;padding:32px">
+      <div class="card-text">Pendiente. El gráfico de distribución de madurez (por nivel y por vertical) se generará automáticamente al consolidar la evaluación de los 26 pilares con evidencia de las 26 sesiones agendadas.</div>
+    </div>
+
+    <h3 class="sub-heading">Metodología de Calificación</h3>
+    <div class="card card-teal mb32">
+      <div class="card-label">Reglas de Evidencia</div>
+      <ul class="card-text" style="line-height:1.95;padding-left:18px">
+        <li>Cada calificación está respaldada por al menos una fuente (entrevista o documento).</li>
+        <li>Cuando hay contradicción entre fuentes, se registra la más conservadora.</li>
+        <li>"Sin evidencia" no equivale a "funciona bien". El default es conservador.</li>
+        <li>Las calificaciones se ajustarán conforme avancen las 26 sesiones.</li>
+        <li>Se busca evidencia multi-perspectiva: lo que dice Dirección General, lo que dice el equipo operativo, y lo que muestran los documentos.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-heading">Cadena de Valor · Madurez por Pilar</h3>
+    <p class="narrative" style="text-align:center;max-width:680px;margin:0 auto 20px">Cada uno de los 26 pilares será evaluado en las 5 dimensiones del modelo. Los bloques se colorearán por nivel de madurez conforme se consolide evidencia. Hoy todos están <b>pendientes</b>.</p>
+    <!--
+      INICIO BLOQUE REPETIBLE: un .chain-flow por vertical (build_chain_flow_html()), con un
+      .chain-block por pilar de esa vertical (cb-code = id del pilar, cb-name = nombre corto,
+      cb-val = "—" hasta que exista evaluación real).
+    -->
+    <div class="chain-flow">
+  <div class="chain-row-label">Abasto de Parvadas</div>
+  <div class="chain-block"><div class="cb-code">A1</div><div class="cb-name">Programación de Retiros con Accionistas</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">A2</div><div class="cb-name">Captura y Transporte</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">A3</div><div class="cb-name">Recepción, Bienestar y Bioseguridad</div><div class="cb-val">·</div></div>
+</div>
+<div class="chain-flow">
+  <div class="chain-row-label">Proceso Industrial</div>
+  <div class="chain-block"><div class="cb-code">O1</div><div class="cb-name">Sacrificio y Capacidad de Línea</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">O2</div><div class="cb-name">Rendimientos y Balance de Masa</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">O3</div><div class="cb-name">Deshuese y Valor Agregado</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">O4</div><div class="cb-name">Calidad, Inocuidad y TIF</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">O5</div><div class="cb-name">Subproductos y Rendering</div><div class="cb-val">·</div></div>
+</div>
+<div class="chain-flow">
+  <div class="chain-row-label">Frío, Logística y Comercial</div>
+  <div class="chain-block"><div class="cb-code">C1</div><div class="cb-name">Cadena de Frío e Inventarios</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">C2</div><div class="cb-name">Logística de Salida y Servicio</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">C3</div><div class="cb-name">Comercial, Precio y Clientes</div><div class="cb-val">·</div></div>
+</div>
+<div class="chain-flow">
+  <div class="chain-row-label">Mantenimiento</div>
+  <div class="chain-block"><div class="cb-code">M1</div><div class="cb-name">Estrategia y Criticidad de Activos</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">M2</div><div class="cb-name">Planeación y Programación del Trabajo</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">M3</div><div class="cb-name">Mantenimiento Preventivo, Predictivo y Autónomo</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">M4</div><div class="cb-name">Confiabilidad y Análisis de Fallas</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">M5</div><div class="cb-name">Refacciones y Almacén MRO</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">M6</div><div class="cb-name">Costo y Desempeño de Mantenimiento</div><div class="cb-val">·</div></div>
+</div>
+<div class="chain-flow">
+  <div class="chain-row-label">Administración &amp; Finanzas</div>
+  <div class="chain-block"><div class="cb-code">F1</div><div class="cb-name">Costeo por Ave y por Kg</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">F2</div><div class="cb-name">Rentabilidad por Segmento y Servicio al Accionista</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">F3</div><div class="cb-name">Capital de Trabajo, Tesorería y Activos</div><div class="cb-val">·</div></div>
+</div>
+<div class="chain-flow">
+  <div class="chain-row-label">Tecnología Aplicada</div>
+  <div class="chain-block"><div class="cb-code">T1</div><div class="cb-name">Sistemas Transaccionales (ERP, Báscula, CMMS)</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">T2</div><div class="cb-name">Calidad y Conciliación del Dato</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">T3</div><div class="cb-name">Tableros, Analítica y Automatización</div><div class="cb-val">·</div></div>
+</div>
+<div class="chain-flow">
+  <div class="chain-row-label">Soporte Transversal</div>
+  <div class="chain-block"><div class="cb-code">S1</div><div class="cb-name">Servicios Industriales y Ambiente</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">S2</div><div class="cb-name">Capital Humano y Seguridad</div><div class="cb-val">·</div></div>
+  <div class="chain-block"><div class="cb-code">TX</div><div class="cb-name">Gobierno y Gestión</div><div class="cb-val">·</div></div>
+</div>
+    <!-- FIN BLOQUE REPETIBLE -->
+    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:36px;font-size:11px;color:var(--gray2);flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:14px;height:14px;border-radius:4px;background:var(--red)"></div> Crítico (1.0-1.4)</div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:14px;height:14px;border-radius:4px;background:var(--amber)"></div> Emergente (1.5-2.9)</div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:14px;height:14px;border-radius:4px;background:var(--teal)"></div> Definido+ (3.0+)</div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:14px;height:14px;border-radius:4px;background:#dbe1e8"></div> Pendiente de evaluar</div>
+    </div>
+
+    <h3 class="sub-heading">Mapa de Calor · Dimensiones × Pilares</h3>
+    <p class="narrative" style="text-align:center;max-width:680px;margin:0 auto 20px;font-size:12.5px">Matriz de evaluación objetiva (E1-E5) por pilar. Se llenará con evidencia multi-fuente conforme avancen las 26 sesiones. Escala NMO: 1 = Inicial a 5 = Optimizado.</p>
+    <!--
+      INICIO BLOQUE REPETIBLE: build_heatmap_html() genera la tabla completa —
+      encabezado con una <th> por cada id de pilar de todas las verticales (en orden), y
+      5 filas fijas (E1-E5) con una celda "—" por pilar, agrupadas visualmente por vertical
+      (clase .grp-start en la primera columna de cada vertical, igual que en el ejemplo).
+    -->
+    <div class="heatmap-wrap">
+      <table class="heatmap-table"><thead><tr><th class="dim-col">Dimensión</th><th class="grp-start">A1</th><th>A2</th><th>A3</th><th class="grp-start">O1</th><th>O2</th><th>O3</th><th>O4</th><th>O5</th><th class="grp-start">C1</th><th>C2</th><th>C3</th><th class="grp-start">M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th class="grp-start">F1</th><th>F2</th><th>F3</th><th class="grp-start">T1</th><th>T2</th><th>T3</th><th class="grp-start">S1</th><th>S2</th><th>TX</th></tr></thead><tbody><tr><td class="dim-cell">E1 · Estructura<span>Roles, responsabilidades, capacidad</span></td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td></tr><tr><td class="dim-cell">E2 · Procesos<span>Flujo documentado, repetible, con dueño</span></td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td></tr><tr><td class="dim-cell">E3 · Productividad &amp; Costos<span>Eficiencia, ROI, desperdicios</span></td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td></tr><tr><td class="dim-cell">E4 · Tablero &amp; Visibilidad<span>KPIs, dashboards, tiempo real</span></td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td></tr><tr><td class="dim-cell">E5 · Calidad &amp; Mejora<span>Estándares, retroalimentación, PHVA</span></td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td><td class="grp-start">·</td><td>·</td><td>·</td></tr></tbody></table>
+    </div>
+    <!-- FIN BLOQUE REPETIBLE -->
+
+    <div class="card mb32">
+      <div class="card-label">Alineación Estratégica</div>
+      <div class="card-text">Pendiente. Se validará el nivel de madurez objetivo por pilar contra las prioridades estratégicas de la Dirección General de PATE conforme avancen las entrevistas.</div>
+    </div>
+  </div>
+</section>
+
+<!-- S4 PANORAMA FINANCIERO -->
+<section class="section" id="s4">
+  <div class="hero"><div class="tag">Panorama Financiero</div><h1>El Costo de <span>No Actuar</span></h1>
+    <p class="sub">Modelo de negocio, estructura corporativa, ingresos y panorama financiero de PATE.</p></div>
+  <div class="content">
+
+    <!-- LA FOTO FINANCIERA EN 3 NÚMEROS -->
+    <div class="sub-heading" style="margin-top:0;padding-top:0;border-top:none">La Foto Financiera en 3 Números</div>
+    <p class="narrative">Antes del detalle contable, tres números permiten dimensionar la conversación: <b>qué tan grande es la empresa, qué tan grande es el mercado que ataca, y a qué ritmo crece ese mercado.</b></p>
+    <div class="stat-hero-grid">
+      <div class="stat-hero-card" style="--c:var(--teal-dark)">
+        <div class="lbl">Facturación</div>
+        <div class="num">Por validar</div>
+        <div class="desc">Ingresos anuales a confirmar con Finanzas (estados financieros de 3 ejercicios solicitados).</div>
+      </div>
+      <div class="stat-hero-card" style="--c:#b06a00">
+        <div class="lbl">Mercado que Atiende</div>
+        <div class="num">3.23 Mt</div>
+        <div class="desc">Producción nacional de huevo 2025 (SIAP) · motor del flujo de gallina de fin de postura.</div>
+      </div>
+      <div class="stat-hero-card" style="--c:var(--blue)">
+        <div class="lbl">Crecimiento del Mercado</div>
+        <div class="num">+30.6%</div>
+        <div class="desc">Crecimiento acumulado de la producción de huevo 2010-2025 (SIAP); Jalisco ≈51% en 2026.</div>
+      </div>
+    </div>
+
+    <div class="insight-card mb32">
+      <div class="ic-title">El margen se decide en tres palancas: velocidad efectiva, kg de carne por ave y valor de subproductos</div>
+      <p class="card-text">Con el ave como materia prima de costo acotado, el resultado de PATE depende de cuántas aves pasan por hora efectiva, cuánta carne vendible se recupera por ave (hasta 18.6-20.3% del peso vivo en deshuese manual, benchmark B06) y a qué precio se colocan harinas y grasa. Separar el resultado del servicio al accionista del resultado industrial es condición para leer bien las cifras.</p>
+      <p class="card-text" style="margin-top:10px;font-style:italic;color:var(--gray)">Hipótesis a validar con evidencia directa del cliente. No se reporta una cifra de ahorro estimado hasta contar con medición real.</p>
+    </div>
+
+    <!--
+      ESTRUCTURA CORPORATIVA — bloque 100% condicional, generado por crear_proyecto.py
+      desde config["entidades"]. Si el cliente declara 2+ entidades legales (ej. matriz
+      productiva + filial comercial en otro país), el script
+      arma este bloque automáticamente. Si config["entidades"] no existe o tiene <2 items,
+       se resuelve vacío y esta sección no aparece — no
+      requiere edición manual.
+    -->
+    
+
+    <!-- MODELO FINANCIERO -->
+    <div class="sub-heading">El Modelo Financiero del Negocio</div>
+    <p class="narrative">PATE combina un servicio al accionista (retiro y sacrificio de parvadas, con una regla de liquidación o tarifa por ave) con un negocio industrial (venta de carne deshuesada y subproductos). La forma en que se registra el ave , compra, maquila o esquema mixto,  y el método de asignación de costos conjuntos determinan el costo por ave y por kg. Ambos se confirmarán con Finanzas.</p>
+    <div class="card mb32">
+      <div class="card-label">Quién construye el modelo</div>
+      <div class="card-text">Pendiente. Se documentará con la Gerencia de Administración y Finanzas y Contraloría durante las entrevistas agendadas.</div>
+    </div>
+
+    <!-- BALANCE Y ESTADO DE RESULTADOS -->
+    <div class="sub-heading">Balance General y Estado de Resultados</div>
+    <div class="finance-explainer">
+      <div class="fe-title"> ¿Qué significan estos reportes?</div>
+      <p class="card-text">El <b>Balance General</b> es una fotografía de la situación financiera en un momento dado: qué <b>tiene</b> la empresa (activos: caja, inventario, cuentas por cobrar), qué <b>debe</b> (pasivos: proveedores, créditos), y qué queda para los accionistas (capital contable). El <b>Estado de Resultados</b> muestra si la operación del periodo ganó o perdió dinero, comparando ingresos por venta contra costos y gastos operativos e intereses.</p>
+    </div>
+    <table class="mb32">
+      <thead><tr><th>Concepto</th><th>PATE</th><th>Fuente</th></tr></thead>
+      <tbody>
+        <tr><td>Activo circulante (caja, inventario, cuentas por cobrar)</td><td>Pendiente</td><td>A compartir por Administración &amp; Finanzas</td></tr>
+        <tr><td>Pasivo (proveedores, créditos, anticipos)</td><td>Pendiente</td><td>A compartir por Administración &amp; Finanzas</td></tr>
+        <tr><td>Capital contable</td><td>Pendiente</td><td>A compartir por Administración &amp; Finanzas</td></tr>
+        <tr><td>Ingresos vs. costo de ventas (período)</td><td>Pendiente</td><td>Estado de Resultados · a validar con Contabilidad</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:var(--gray);line-height:1.7;font-style:italic">Nota metodológica: esta sección se llenará con las cifras reales del Balance General y Estado de Resultados que comparta PATE · no se estiman estos rubros mientras no exista evidencia documental directa.</p>
+
+  </div>
+</section>
+
+<!-- S5 ESTRUCTURA ORGANIZACIONAL -->
+<section class="section" id="s5">
+  <div class="hero"><div class="tag">Estructura Organizacional</div><h1>Cómo Está <span>Organizada</span> PATE</h1>
+    <p class="sub">Vista preliminar basada en la agenda de entrevistas · pendiente de validar con el organigrama oficial.</p></div>
+  <div class="content">
+    <div class="kpi-grid mb32">
+      <div class="kpi-card"><div class="kpi-label">Dirección</div><div class="kpi-val">1</div><div class="kpi-desc">Dirección General, que reporta al Consejo de la sociedad de avicultores</div></div>
+      <div class="kpi-card"><div class="kpi-label">Gerencias</div><div class="kpi-val">Por validar</div><div class="kpi-desc">Previstas: Planta, Calidad/TIF, Mantenimiento, Comercial, Administración y Finanzas, RH</div></div>
+      <div class="kpi-card"><div class="kpi-label">Jefaturas y Coordinaciones</div><div class="kpi-val">Por validar</div><div class="kpi-desc">Supervisión por turno y área (colgado, evisceración, deshuese, rendering, frío)</div></div>
+      <div class="kpi-card"><div class="kpi-label">Ubicaciones</div><div class="kpi-val">1</div><div class="kpi-desc">San José de Gracia, Tepatitlán de Morelos, Jalisco (Los Altos) · planta única</div></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Nota</div>
+      <div class="card-text">Plantilla aproximada de 580 colaboradores en una sola planta, con fuerte peso de mano de obra directa en deshuese manual. La estructura formal, líneas de reporte y headcount por área se validarán con la Dirección General de PATE y RH durante las entrevistas.</div>
+    </div>
+  </div>
+</section>
+
+<!--
+  HALLAZGOS POR VERTICAL (dinámico) — generado por build_hallazgos_sections_html() en
+  scripts/crear_proyecto.py. Genera UNA <section> por cada vertical de config.json (en su
+  orden) y, si config.json define "soporte_transversal", una <section> adicional al final
+  para ese grupo. Cada <section> replica exactamente el patrón de S6-S11 del proyecto de
+  referencia: .hero con tag/h1/sub de la vertical, y un .nmo-card por pilar
+  (id="nmo-list-vN") con <b>PILAR_ID — PILAR_NOMBRE</b>, badge "Nivel Pendiente",
+  y el texto estándar "Pendiente de evidencia — se llenará al procesar las primeras
+  entrevistas y recorridos de planta." Los ids de sección (s6, s7…) deben coincidir 1:1 con
+  los que generó build_sidebar_nav_html() para los mismos grupos.
+-->
+<!-- S6 HALLAZGOS — ABASTO DE PARVADAS -->
+<section class="section" id="s6">
+  <div class="hero"><div class="tag">Hallazgos · Abasto de Parvadas</div><h1>Modelo Macro &amp; <span>Madurez NMO</span></h1>
+    <p class="sub">Recorrido por la cadena de valor de Abasto de Parvadas, con nivel de madurez y evidencia por pilar.</p></div>
+  <div class="content" id="nmo-list-v1">
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>A1 · Programación de Retiros con Accionistas</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H02</b>: Desfases en el programa de retiros generan días de baja utilización y picos con horas extra. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Iván de Jesús Reynaga Navarro</b> (Abastos, mar 06-oct-2026 12:00).</li>
+      </ul>
+      <a href="dashboards/A1-programa-retiros.html" class="dashboard-link">Ver estudio estadístico · Cumplimiento programa de retiros</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Abastos · bases BD01, BD02, BD13 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>A2 · Captura y Transporte</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H03</b>: DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H07</b>: Los decomisos se concentran en ciertas granjas o lotes; la retroalimentación a accionistas reduciría pérdidas. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Iván de Jesús Reynaga Navarro</b> (Abastos, mar 06-oct-2026 12:00).</li>
+      </ul>
+      <a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Abastos · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>A3 · Recepción, Bienestar y Bioseguridad</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H03</b>: DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H07</b>: Los decomisos se concentran en ciertas granjas o lotes; la retroalimentación a accionistas reduciría pérdidas. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Baudelio Morales Sánchez</b> (Colgado y sacrificio, mar 06-oct-2026 12:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Responsables por turno</b> (Vigilancia y Báscula, mié 07-oct-2026 13:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Luis Humberto Vázquez Ortíz</b> (TIF (Tipo Inspección Federal), mié 07-oct-2026 15:00).</li>
+        <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
+      </ul>
+      <a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Colgado y sacrificio, Vigilancia y Báscula, TIF (Tipo Inspección Federal) · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- S7 HALLAZGOS — PROCESO INDUSTRIAL -->
+<section class="section" id="s7">
+  <div class="hero"><div class="tag">Hallazgos · Proceso Industrial</div><h1>Modelo Macro &amp; <span>Madurez NMO</span></h1>
+    <p class="sub">Recorrido por la cadena de valor de Proceso Industrial, con nivel de madurez y evidencia por pilar.</p></div>
+  <div class="content" id="nmo-list-v2">
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O1 · Sacrificio y Capacidad de Línea</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H01</b>: La velocidad efectiva promedio está por debajo de la capacidad nominal por ganchos vacíos, microparos, esperas de abasto y arranques. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Alejandro Mercado</b> (Gerencia General, lun 05-oct-2026 13:00 (estructura) + mar 06-oct-2026 09:00 (entrevista)).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Gonzalo Eduardo Hernándes Serratos</b> (Producción, mar 06-oct-2026 11:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José Obed Fabián Arriaga</b> (Mejora continua y eficiencia operativa, mar 06-oct-2026 11:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Baudelio Morales Sánchez</b> (Colgado y sacrificio, mar 06-oct-2026 12:00).</li>
+        <li>Pendiente de evidencia de la entrevista de <b>Eviscerado</b> (responsable por confirmar, mar 06-oct-2026 16:00).</li>
+        <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
+      </ul>
+      <a href="dashboards/O1-utilizacion-linea.html" class="dashboard-link">Ver estudio estadístico · Utilización de línea, velocidad real y paros</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Gerencia General, Producción, Mejora continua y eficiencia operativa, Colgado y sacrificio, Eviscerado · bases BD03, BD04 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O2 · Rendimientos y Balance de Masa</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H06</b>: El balance de masa no cierra por pesajes faltantes o bases húmedas/secas mezcladas, ocultando mermas reales. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H04</b>: El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H03</b>: DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Gonzalo Eduardo Hernándes Serratos</b> (Producción, mar 06-oct-2026 11:00).</li>
+        <li>Pendiente de evidencia de la entrevista de <b>Eviscerado</b> (responsable por confirmar, mar 06-oct-2026 16:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Laura Elena Nungaray Gómez</b> (Aseguramiento de calidad, mié 07-oct-2026 15:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José Manuel Zavala Gutiérrez</b> (Rendimiento, mié 07-oct-2026 16:00).</li>
+        <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
+      </ul>
+      <a href="dashboards/O2-balance-de-masa.html" class="dashboard-link">Ver estudio estadístico · Balance de masa y rendimientos (canal / carne / subproductos)</a><a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Producción, Eviscerado, Aseguramiento de calidad, Rendimiento · bases BD01, BD05, BD06 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O3 · Deshuese y Valor Agregado</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H06</b>: El balance de masa no cierra por pesajes faltantes o bases húmedas/secas mezcladas, ocultando mermas reales. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H04</b>: El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H15</b>: Rotación y ausentismo en deshuese reducen productividad por la curva de aprendizaje. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José Obed Fabián Arriaga</b> (Mejora continua y eficiencia operativa, mar 06-oct-2026 11:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Ernesto Javier Gómez Medina</b> (Deshuese, pastas y empaque, mar 06-oct-2026 13:00).</li>
+        <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
+      </ul>
+      <a href="dashboards/O2-balance-de-masa.html" class="dashboard-link">Ver estudio estadístico · Balance de masa y rendimientos (canal / carne / subproductos)</a><a href="dashboards/O3-productividad-deshuese.html" class="dashboard-link">Ver estudio estadístico · Productividad de deshuese (kg/hh)</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mejora continua y eficiencia operativa, Deshuese, pastas y empaque · bases BD01, BD05, BD07, BD12 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O4 · Calidad, Inocuidad y TIF</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H03</b>: DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H07</b>: Los decomisos se concentran en ciertas granjas o lotes; la retroalimentación a accionistas reduciría pérdidas. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista de <b>Eviscerado</b> (responsable por confirmar, mar 06-oct-2026 16:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Pedro Gómez Díaz</b> (Higiene y sanidad, mié 07-oct-2026 10:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Bárbara del Rayo Sánchez Macías</b> (SGIA, mié 07-oct-2026 12:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Laura Elena Nungaray Gómez</b> (Aseguramiento de calidad, mié 07-oct-2026 15:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Luis Humberto Vázquez Ortíz</b> (TIF (Tipo Inspección Federal), mié 07-oct-2026 15:00).</li>
+        <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
+      </ul>
+      <a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Eviscerado, Higiene y sanidad, SGIA, Aseguramiento de calidad, TIF (Tipo Inspección Federal) · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O5 · Subproductos y Rendering</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H06</b>: El balance de masa no cierra por pesajes faltantes o bases húmedas/secas mezcladas, ocultando mermas reales. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H04</b>: El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H11</b>: La intensidad energética (rastro y rendering) está por encima de los rangos MTD tras normalizar por t canal / t materia prima. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Daniel Delgado</b> (Grasas, mar 06-oct-2026 15:00).</li>
+      </ul>
+      <a href="dashboards/O2-balance-de-masa.html" class="dashboard-link">Ver estudio estadístico · Balance de masa y rendimientos (canal / carne / subproductos)</a><a href="dashboards/S1-energia-agua-gas.html" class="dashboard-link">Ver estudio estadístico · Consumos de energía, agua y gas</a><a href="dashboards/O5-precio-subproductos.html" class="dashboard-link">Ver estudio estadístico · Precio neto y valorización de subproductos</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Grasas · bases BD01, BD05, BD09, BD11 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- S8 HALLAZGOS — FRÍO, LOGÍSTICA Y COMERCIAL -->
+<section class="section" id="s8">
+  <div class="hero"><div class="tag">Hallazgos · Frío, Logística y Comercial</div><h1>Modelo Macro &amp; <span>Madurez NMO</span></h1>
+    <p class="sub">Recorrido por la cadena de valor de Frío, Logística y Comercial, con nivel de madurez y evidencia por pilar.</p></div>
+  <div class="content" id="nmo-list-v3">
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>C1 · Cadena de Frío e Inventarios</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>Gabriel Armando Galván Arriaga</b> (Refrigeración, mar 06-oct-2026 14:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José Roberto Preciado Arriaga</b> (Ventas, almacenes y logística, mar 06-oct-2026 15:00).</li>
+        <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
+      </ul>
+      
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Refrigeración, Ventas, almacenes y logística.</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>C2 · Logística de Salida y Servicio</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>José Roberto Preciado Arriaga</b> (Ventas, almacenes y logística, mar 06-oct-2026 15:00).</li>
+        <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
+      </ul>
+      
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Ventas, almacenes y logística.</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>C3 · Comercial, Precio y Clientes</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H10</b>: Existe diferencia material entre el precio realizado de subproductos y su mejor destino alternativo, o flujos que hoy se disponen con costo. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H08</b>: El precio de la carne de gallina se ancla a sustitutos (p. ej., pasta de pollo importada) y el margen es sensible a esa referencia y al tipo de cambio. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José Roberto Preciado Arriaga</b> (Ventas, almacenes y logística, mar 06-oct-2026 15:00).</li>
+      </ul>
+      <a href="dashboards/O5-precio-subproductos.html" class="dashboard-link">Ver estudio estadístico · Precio neto y valorización de subproductos</a><a href="dashboards/F3-cxc-cxp.html" class="dashboard-link">Ver estudio estadístico · CxC &amp; CxP (Cartera)</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Ventas, almacenes y logística · bases BD09, BD14, BD15 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- S9 HALLAZGOS — MANTENIMIENTO -->
+<section class="section" id="s9">
+  <div class="hero"><div class="tag">Hallazgos · Mantenimiento</div><h1>Modelo Macro &amp; <span>Madurez NMO</span></h1>
+    <p class="sub">Recorrido por la cadena de valor de Mantenimiento, con nivel de madurez y evidencia por pilar.</p></div>
+  <div class="content" id="nmo-list-v4">
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M1 · Estrategia y Criticidad de Activos</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
+      </ul>
+      
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento.</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M2 · Planeación y Programación del Trabajo</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H13</b>: El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
+      </ul>
+      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M3 · Mantenimiento Preventivo, Predictivo y Autónomo</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H13</b>: El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Gabriel Armando Galván Arriaga</b> (Refrigeración, mar 06-oct-2026 14:00).</li>
+      </ul>
+      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento, Refrigeración · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M4 · Confiabilidad y Análisis de Fallas</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H13</b>: El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
+      </ul>
+      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M5 · Refacciones y Almacén MRO</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Ana Carolina Loza Rubio</b> (Compras, mié 07-oct-2026 10:00).</li>
+      </ul>
+      
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento, Compras.</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M6 · Costo y Desempeño de Mantenimiento</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H13</b>: El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
+      </ul>
+      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- S10 HALLAZGOS — ADMINISTRACIÓN & FINANZAS -->
+<section class="section" id="s10">
+  <div class="hero"><div class="tag">Hallazgos · Administración &amp; Finanzas</div><h1>Modelo Macro &amp; <span>Madurez NMO</span></h1>
+    <p class="sub">Recorrido por la cadena de valor de Administración &amp; Finanzas, con nivel de madurez y evidencia por pilar.</p></div>
+  <div class="content" id="nmo-list-v5">
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>F1 · Costeo por Ave y por Kg</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H16</b>: El costo del servicio de retiro al accionista no está separado del resultado industrial, generando subsidios cruzados no visibles. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista de <b>Contraloría</b> (responsable por confirmar, mar 06-oct-2026 10:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Bernardina Aceves Galindo</b> (Contabilidad, mié 07-oct-2026 11:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Ana Isabel Macías Ruíz</b> (Nómina, mié 07-oct-2026 13:00).</li>
+      </ul>
+      <a href="dashboards/F1-costo-por-ave.html" class="dashboard-link">Ver estudio estadístico · Costo por ave y por kg</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Contraloría, Contabilidad, Nómina · bases BD08, BD09, BD16 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>F2 · Rentabilidad por Segmento y Servicio al Accionista</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H16</b>: El costo del servicio de retiro al accionista no está separado del resultado industrial, generando subsidios cruzados no visibles. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista de <b>Contraloría</b> (responsable por confirmar, mar 06-oct-2026 10:00).</li>
+      </ul>
+      <a href="dashboards/F1-costo-por-ave.html" class="dashboard-link">Ver estudio estadístico · Costo por ave y por kg</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Contraloría · bases BD08, BD09, BD16 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>F3 · Capital de Trabajo, Tesorería y Activos</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>Ana Carolina Loza Rubio</b> (Compras, mié 07-oct-2026 10:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Sarai Castellanos Navarro</b> (Tesorería, mié 07-oct-2026 11:00).</li>
+      </ul>
+      <a href="dashboards/F3-cxc-cxp.html" class="dashboard-link">Ver estudio estadístico · CxC &amp; CxP (Cartera)</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Compras, Tesorería · bases BD09, BD14, BD15 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- S11 HALLAZGOS — TECNOLOGÍA APLICADA -->
+<section class="section" id="s11">
+  <div class="hero"><div class="tag">Hallazgos · Tecnología Aplicada</div><h1>Modelo Macro &amp; <span>Madurez NMO</span></h1>
+    <p class="sub">Recorrido por la cadena de valor de Tecnología Aplicada, con nivel de madurez y evidencia por pilar.</p></div>
+  <div class="content" id="nmo-list-v6">
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>T1 · Sistemas Transaccionales (ERP, Báscula, CMMS)</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>José Obed Fabián Arriaga Rocha</b> (Responsable de Sistemas / TI, lun 05-oct-2026 14:00).</li>
+      </ul>
+      
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Responsable de Sistemas / TI.</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>T2 · Calidad y Conciliación del Dato</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>José Obed Fabián Arriaga Rocha</b> (Responsable de Sistemas / TI, lun 05-oct-2026 14:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Responsables por turno</b> (Vigilancia y Báscula, mié 07-oct-2026 13:00).</li>
+      </ul>
+      
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Responsable de Sistemas / TI, Vigilancia y Báscula.</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>T3 · Tableros, Analítica y Automatización</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>José Obed Fabián Arriaga Rocha</b> (Responsable de Sistemas / TI, lun 05-oct-2026 14:00).</li>
+      </ul>
+      
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Responsable de Sistemas / TI.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- S12 HALLAZGOS — SOPORTE TRANSVERSAL -->
+<section class="section" id="s12">
+  <div class="hero"><div class="tag">Hallazgos · Soporte Transversal</div><h1>Modelo Macro &amp; <span>Madurez NMO</span></h1>
+    <p class="sub">Recorrido por la cadena de valor de Soporte Transversal, con nivel de madurez y evidencia por pilar.</p></div>
+  <div class="content" id="nmo-list-v7">
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>S1 · Servicios Industriales y Ambiente</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H11</b>: La intensidad energética (rastro y rendering) está por encima de los rangos MTD tras normalizar por t canal / t materia prima. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H12</b>: El consumo y la descarga de agua por t canal son altos; hay oportunidad de reducción sin comprometer inocuidad. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Gabriel Armando Galván Arriaga</b> (Refrigeración, mar 06-oct-2026 14:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Pedro Gómez Díaz</b> (Higiene y sanidad, mié 07-oct-2026 10:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Ana Laura Villalobos Sánchez</b> (Medio ambiente, mié 07-oct-2026 12:00).</li>
+      </ul>
+      <a href="dashboards/S1-energia-agua-gas.html" class="dashboard-link">Ver estudio estadístico · Consumos de energía, agua y gas</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Refrigeración, Higiene y sanidad, Medio ambiente · bases BD05, BD11 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>S2 · Capital Humano y Seguridad</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li><b>Hipótesis H04</b>: El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H15</b>: Rotación y ausentismo en deshuese reducen productividad por la curva de aprendizaje. Pendiente de validar con datos.</li>
+        <li><b>Hipótesis H14</b>: La dotación indirecta y de apoyo es alta respecto de la directa; la supervisión y polivalencia son limitadas. Pendiente de validar con datos.</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Ana Isabel Macías Ruíz</b> (Nómina, mié 07-oct-2026 13:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Jesús Emmanuel Valle Sánchez</b> (RR.HH., mié 07-oct-2026 14:00).</li>
+        <li>Pendiente de evidencia de la entrevista con <b>Jose Manuel Orozco Fonseca</b> (Seguridad e higiene, mié 07-oct-2026 14:00).</li>
+      </ul>
+      <a href="dashboards/O3-productividad-deshuese.html" class="dashboard-link">Ver estudio estadístico · Productividad de deshuese (kg/hh)</a><a href="dashboards/S2-plantilla-rotacion.html" class="dashboard-link">Ver estudio estadístico · Plantilla, ausentismo, horas extra y rotación</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Nómina, RR.HH., Seguridad e higiene · bases BD07, BD12, BD13 (entrega solicitada vie 09-oct-2026).</p>
+    </div></div>
+    <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>TX · Gobierno y Gestión</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
+      <ul class="findings-list">
+        <li>Pendiente de evidencia de la entrevista con <b>Alejandro Mercado</b> (Gerencia General, lun 05-oct-2026 13:00 (estructura) + mar 06-oct-2026 09:00 (entrevista)).</li>
+      </ul>
+      <a href="dashboards/GM-growth-management.html" class="dashboard-link">Ver estudio estadístico · Encuesta de Growth Management</a>
+      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Gerencia General.</p>
+    </div></div>
+  </div>
+</section>
+
+
+<!-- GROWTH MANAGEMENT -->
+<section class="section" id="sgm">
+  <div class="hero"><div class="tag">Growth Management</div><h1>Modelo de <span>Gestión</span></h1>
+    <p class="sub">Cómo PATE fija objetivos, mide, revisa y da seguimiento: el sistema que sostiene los resultados de todos los pilares.</p></div>
+  <div class="content">
+    <p class="narrative">Growth Management evalúa el <b>sistema de gestión</b> de PATE de forma independiente a los pilares: sin objetivos desplegados, indicadores confiables y rutinas de revisión, las mejoras operativas no se sostienen. Se evalúa con entrevistas a Dirección y gerencias, observación de juntas y revisión de reportes.</p>
+    <table class="mb32"><thead><tr><th>Componente</th><th>Qué se evalúa</th><th>Responsable</th><th>Estado</th></tr></thead><tbody>
+<tr><td><b>1. Dirección estratégica y objetivos</b></td><td>Objetivos anuales de la sociedad para PATE (servicio al accionista + resultado industrial) y su despliegue a gerencias.</td><td>Consejo · Dirección General</td><td>Pendiente</td></tr>
+<tr><td><b>2. Cascada de KPIs (N1 a N3)</b></td><td>KPI N1 de Consejo/Dirección (costo y margen por ave, aves/h efectivas, kg carne/ave), N2 por gerencia y N3 por turno/mesa, con definición única.</td><td>Dirección · Gerencias</td><td>Pendiente</td></tr>
+<tr><td><b>3. Rutinas de gestión</b></td><td>Arranque de turno (15 min), revisión diaria de planta, semanal por área, mensual de Dirección y trimestral con Consejo; agenda estándar y acuerdos con dueño y fecha.</td><td>Todas las áreas</td><td>Pendiente</td></tr>
+<tr><td><b>4. Seguimiento de iniciativas</b></td><td>Portafolio de proyectos de mejora con responsable, hitos, beneficio esperado y beneficio capturado.</td><td>Dirección · PMO</td><td>Pendiente</td></tr>
+<tr><td><b>5. Roles, incentivos y consecuencias</b></td><td>Responsabilidades claras por KPI, incentivos alineados (velocidad × rendimiento × calidad) y reconocimiento/consecuencia.</td><td>Dirección · RH</td><td>Pendiente</td></tr>
+    </tbody></table>
+    <div class="kpi-grid mb32">
+      <div class="kpi-card"><div class="kpi-label">NMO de Gestión</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Se califica con la misma escala 1-5</div></div>
+      <div class="kpi-card"><div class="kpi-label">KPI N1 con dato confiable</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Liga con T2 (K1401)</div></div>
+      <div class="kpi-card"><div class="kpi-label">Encuesta Growth Management</div><div class="kpi-val">lun 05-oct</div><div class="kpi-desc">ENC01 · equipo directivo y gerencial</div></div>
+    </div>
+    <div class="card"><div class="card-label">Hallazgos</div><div class="card-text">Pendiente · se documentará con la evidencia de entrevistas y observación de rutinas (ver <code>growth-management/README.md</code>).</div></div>
+  </div>
+</section>
+
+<!-- RESUMEN EJECUTIVO DE HALLAZGOS -->
+<section class="section" id="sres">
+  <div class="hero"><div class="tag">Resumen Ejecutivo de Hallazgos</div><h1>Lo que <span>Encontramos</span></h1>
+    <p class="sub">Síntesis de todo el levantamiento: madurez por grupo, hallazgos clave y oportunidades. Se integra al cerrar entrevistas, Gemba Walk y análisis de datos.</p></div>
+  <div class="content">
+    <div class="kpi-grid mb32">
+      <div class="kpi-card"><div class="kpi-label">NMO Promedio</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">26 pilares + gestión</div></div>
+      <div class="kpi-card"><div class="kpi-label">Oportunidades</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">20 candidatas en validación</div></div>
+      <div class="kpi-card"><div class="kpi-label">Impacto estimado</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Con datos reales del cliente</div></div>
+      <div class="kpi-card"><div class="kpi-label">Sesiones procesadas</div><div class="kpi-val">0 / 27</div><div class="kpi-desc">Entrevistas + Gemba Walk</div></div>
+    </div>
+    <table class="mb32"><thead><tr><th>Grupo</th><th>Pilares</th><th>NMO</th><th>Hallazgo clave</th><th>Oportunidades</th></tr></thead><tbody>
+<tr><td><b>Abasto de Parvadas</b></td><td>A1 · A2 · A3</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+<tr><td><b>Proceso Industrial</b></td><td>O1 · O2 · O3 · O4 · O5</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+<tr><td><b>Frío, Logística y Comercial</b></td><td>C1 · C2 · C3</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+<tr><td><b>Mantenimiento</b></td><td>M1 · M2 · M3 · M4 · M5 · M6</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+<tr><td><b>Administración &amp; Finanzas</b></td><td>F1 · F2 · F3</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+<tr><td><b>Tecnología Aplicada</b></td><td>T1 · T2 · T3</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+<tr><td><b>Soporte Transversal</b></td><td>S1 · S2 · TX</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+<tr><td><b>Growth Management</b></td><td>Modelo de gestión</td><td>Pendiente</td><td>Pendiente</td><td>·</td></tr>
+    </tbody></table>
+    <div class="card card-teal"><div class="card-label">Instrucción</div><div class="card-text">Esta sección se llena al final con el Flujo 5 (Integrador) de CLAUDE.md, a partir de <code>presentacion/resumen_ejecutivo_hallazgos.md</code>. No se publica con celdas pendientes.</div></div>
+  </div>
+</section>
+
+<!-- S12 MAPA DE OPORTUNIDADES -->
+<section class="section" id="s13">
+  <div class="hero"><div class="tag">Mapa de Oportunidades</div><h1>Inventario <span>Priorizado</span></h1>
+    <p class="sub">Impacto × viabilidad. Quick Wins vs. Estructurales.</p></div>
+  <div class="content">
+    <table>
+      <thead><tr><th>ID</th><th>Oportunidad</th><th>Pilar</th><th>Impacto</th><th>Urgencia</th><th>Viabilidad</th><th>Tipo</th></tr></thead>
+      <tbody><tr><td>OPP-001</td><td>Pendiente · se identificará al procesar entrevistas y documentos</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- S13 TRANSFORMACIÓN: ROADMAP & PROPUESTA -->
+<section class="section" id="s14">
+  <div class="hero"><div class="tag">Transformación: Roadmap &amp; Propuesta</div><h1>Ruta de <span>Transformación</span></h1>
+    <p class="sub">Alcance, beneficios, metodología, implementación, cronograma, inversión y ROI.</p></div>
+  <div class="content">
+    <div class="kpi-grid mb32">
+      <div class="kpi-card"><div class="kpi-label">Alcance</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Se define tras validar hallazgos y priorizar oportunidades</div></div>
+      <div class="kpi-card"><div class="kpi-label">Fases</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Roadmap por vertical y por horizonte</div></div>
+      <div class="kpi-card"><div class="kpi-label">Inversión</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">A estimar con el equipo y presupuesto de implementación</div></div>
+      <div class="kpi-card"><div class="kpi-label">ROI Estimado</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Se calculará sobre el inventario de oportunidades priorizado</div></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Roadmap &amp; Propuesta</div>
+      <div class="card-text">Pendiente. Se construye en el Acto 5 del storyline (alcance, beneficios, metodología de implementación, cronograma, inversión y ROI), después de validar hallazgos y priorizar oportunidades.</div>
+    </div>
+  </div>
+</section>
+
+<!-- S14 CIERRE -->
+<section class="section" id="s15">
+  <div class="hero" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+    <div class="cover-kicker">Documento Confidencial</div>
+    <div style="font-family:Georgia,serif;font-size:clamp(22px,2.6vw,28px);font-weight:700;color:var(--white);margin-bottom:10px">Prediagnóstico Operativo</div>
+    <div style="font-family:Georgia,serif;font-size:clamp(16px,1.8vw,19px);color:var(--gray2);margin-bottom:10px">Evaluación de Madurez de la Cadena de Valor</div>
+    <div style="font-family:Georgia,serif;font-size:clamp(15px,1.6vw,17px);color:var(--gray2);margin-bottom:6px">PATE · San José de Gracia, Tepatitlán, Jal.</div>
+    <div style="font-family:Georgia,serif;font-size:clamp(15px,1.6vw,17px);color:var(--gray);margin-bottom:36px">Septiembre 2026</div>
+    <div class="cover-divider"></div>
+    <div style="font-size:13px;color:var(--gray);letter-spacing:.05em;margin-bottom:14px">Realizado por</div>
+    <img src="logo-lcg-light.png" alt="London Consulting Group" class="brand-logo" style="max-height:34px;max-width:220px;margin:0 auto 36px">
+    <!-- INICIO BLOQUE REPETIBLE: un bloque "div" por cada líder LCG a acreditar (típicamente 1-2, ej. Director de Operaciones / Consultor líder) -->
+    <div style="display:flex;justify-content:center;gap:80px;flex-wrap:wrap;font-size:14px;color:var(--gray2)">
+      <div>Consultor Líder LCG: <b style="color:var(--white)">Leonardo Pimentel</b></div>
+      <div>Sponsor PATE: <b style="color:var(--white)">Dirección General de PATE</b></div>
+    </div>
+    <!-- FIN BLOQUE REPETIBLE -->
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+function toggleGroup(el){ el.classList.toggle('open'); el.nextElementSibling.classList.toggle('open'); }
+function toggleNmo(hdr){
+  const body = hdr.nextElementSibling; const arrow = hdr.querySelector('.nmo-arrow');
+  body.classList.toggle('open'); arrow.style.transform = body.classList.contains('open') ? 'rotate(90deg)' : '';
+}
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('#sidebar nav a').forEach(a=>a.classList.remove('active'));
+  const sec = document.getElementById(id); if(sec) sec.classList.add('active');
+  const nav = document.getElementById('nav-'+id);
+  if(nav){
+    nav.classList.add('active');
+    const sub = nav.closest('.sb-sub');
+    if(sub && !sub.classList.contains('open')){ sub.classList.add('open'); sub.previousElementSibling.classList.add('open'); }
+  }
+  const brand = document.getElementById('hero-brand');
+  if(brand) brand.classList.toggle('show', id !== 's0' && id !== 's15');
+  document.getElementById('main').scrollTo(0,0); window.scrollTo(0,0);
+}
+</script>
+<script>
+(function(){function go(){var id=(location.hash||'').replace('#','');if(id&&document.getElementById(id)&&typeof show==='function'){show(id);}}
+window.addEventListener('hashchange',go);document.addEventListener('DOMContentLoaded',go);})();
+</script>
+</body>
+</html>

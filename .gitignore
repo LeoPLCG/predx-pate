@@ -1,0 +1,20 @@
+# Lista blanca: solo se sube presentacion/output/ (sin entrevistas raw), los logos que usa
+# y el script del PDF maestro. El resto del expediente (knowledge-base, benchmarks, pilares, documentos,
+# bases de datos, estudios, oportunidades, entrevistas) se queda 100% local y nunca se sube.
+/*
+!/.github/
+!/.gitignore
+!/presentacion/
+/presentacion/*
+!/presentacion/output/
+!/presentacion/slides/
+!/presentacion/scripts/
+/presentacion/output/entrevistas/*
+!/presentacion/output/entrevistas/index.html
+/presentacion/slides/*
+!/presentacion/slides/logo-cliente.png
+!/presentacion/slides/logo-cliente-dark.png
+!/presentacion/slides/logo-lcg.png
+!/presentacion/slides/logo-lcg-light.png
+/presentacion/scripts/node_modules/
+/presentacion/scripts/.tmp/

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta de Proyecto PATE · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#8896A6;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-teal);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-dark)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:28px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-teal);margin-bottom:8px}
+.header h1{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Playfair Display',serif;font-size:19px;margin:26px 0 12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .v{font-family:'Playfair Display',serif;font-size:24px;margin:6px 0}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s14" class="back-link">Volver a Roadmap &amp; Propuesta</a>
+  <div class="header"><div class="header-label">Transformación: Roadmap &amp; Propuesta</div><h1>Propuesta de Proyecto PATE</h1><p>Alcance, metodología, equipo, cronograma, inversión y beneficios estimados.</p></div>
+  <div class="status">Pendiente. Coloca el archivo <b>Propuesta_de_Proyecto_PATE.pdf</b> en <code>presentacion/output/</code> y esta página lo muestra aquí.</div>
+  <div class="card"><iframe src="../Propuesta_de_Proyecto_PATE.pdf" title="Propuesta de Proyecto PATE" style="width:100%;height:85vh;min-height:900px;border:none;border-radius:8px;display:block"></iframe></div>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "pate-pdf-maestro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Genera el PDF maestro del sitio PreDx PATE a partir de presentacion/output/.",
+  "scripts": {
+    "build:pdf": "node build-pdf-maestro.js"
+  },
+  "devDependencies": {
+    "pdf-lib": "^1.17.1",
+    "postcss": "^8.5.25",
+    "postcss-prefix-selector": "^2.1.1",
+    "puppeteer": "^23.0.0"
+  }
+}
