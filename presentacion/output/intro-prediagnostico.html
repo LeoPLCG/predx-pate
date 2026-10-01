@@ -7,7 +7,7 @@
 <title>Prediagnóstico Operativo · PATE × London Consulting Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --lcg-teal:#00B388;
@@ -15,16 +15,14 @@
     --navy-black:#06101C;
     --blueprint:#5BD8C4;
     --blueprint-dim:rgba(91,216,196,0.35);
-    --font:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;overflow:hidden;background:var(--navy-black)}
   body{
-    font-family:var(--font);
+    font-family:'Inter',sans-serif;
     color:#fff;
     -webkit-font-smoothing:antialiased;
     text-rendering:geometricPrecision;
-    font-variant-numeric:tabular-nums;
   }
 
   .stage{
@@ -56,7 +54,8 @@
     position:absolute;top:0;left:0;right:0;
     display:flex;justify-content:space-between;align-items:center;
     padding:28px 56px;
-    font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
     color:var(--blueprint-dim);
     z-index:10;
     pointer-events:none;
@@ -66,15 +65,16 @@
     position:absolute;bottom:0;left:0;right:0;
     display:flex;justify-content:space-between;align-items:center;
     padding:28px 56px;
-    font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
     color:var(--blueprint-dim);
     z-index:10;
   }
 
   .skip{
     pointer-events:auto;
-    font-family:var(--font);
-    font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
     color:rgba(255,255,255,0.55);
     background:transparent;
     border:1px solid rgba(255,255,255,0.18);
@@ -83,6 +83,7 @@
     transition:all .3s;
   }
   .skip:hover{color:#fff;border-color:var(--blueprint);background:rgba(91,216,196,0.08)}
+  .skip .arr{margin-left:8px}
 
   .intro{
     position:absolute;inset:0;
@@ -114,12 +115,9 @@
   .draw-thick{stroke-width:1.8}
   .draw-dim{opacity:.4}
   .fade-in{opacity:0;animation:fadeIn .8s ease forwards;animation-delay:var(--delay,0s)}
-  .ln{stroke:var(--blueprint);fill:none;stroke-width:.8;vector-effect:non-scaling-stroke}
-  .ln-dim{stroke:var(--blueprint-dim);fill:none;stroke-width:.8;vector-effect:non-scaling-stroke}
-  .zone{stroke:var(--blueprint-dim);fill:none;stroke-width:.8;stroke-dasharray:4 4;vector-effect:non-scaling-stroke}
   .label{
-    font-family:var(--font);
-    font-size:11px;font-weight:700;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
     fill:var(--blueprint);
     letter-spacing:1.5px;
     text-transform:uppercase;
@@ -127,30 +125,18 @@
     animation:fadeIn .6s ease forwards;
     animation-delay:var(--delay,0s);
   }
-  .label-dim{fill:var(--blueprint-dim);font-size:9px;font-weight:600;letter-spacing:1px}
-  .comp{font-family:var(--font);font-size:8px;font-weight:700;letter-spacing:.6px;fill:var(--blueprint-dim)}
-  .cota{font-family:var(--font);font-size:11px;font-weight:800;letter-spacing:1.5px;fill:var(--blueprint)}
+  .label-dim{fill:var(--blueprint-dim);font-size:9px;letter-spacing:1px}
 
   @keyframes draw{ to{stroke-dashoffset:0} }
   @keyframes fadeIn{ to{opacity:1} }
-
-  /* Riel de ganchos: la cadena avanza a paso de un gancho y un pulso recorre la línea */
-  .shackles{animation:shackleMove 1.1s linear infinite;animation-delay:3.6s}
-  @keyframes shackleMove{ from{transform:translateX(0)} to{transform:translateX(24px)} }
-  .rail-pulse{fill:var(--lcg-mint);animation:railPulse 2.6s linear infinite both;animation-delay:4.2s}
-  @keyframes railPulse{
-    0%{transform:translateX(0);opacity:0}
-    8%{opacity:1}
-    92%{opacity:1}
-    100%{transform:translateX(385px);opacity:0}
-  }
 
   .intro-status{
     position:absolute;
     left:50%;transform:translateX(-50%);
     bottom:-56px;
     display:flex;align-items:center;gap:18px;
-    font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
     color:var(--blueprint);
     white-space:nowrap;
   }
@@ -170,15 +156,16 @@
     opacity:0;
     animation:fadeIn 1s ease forwards;
     animation-delay:.3s;
-    white-space:nowrap;
   }
   .intro-title .kicker{
-    font-size:10px;font-weight:700;color:var(--blueprint);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;color:var(--blueprint);
     letter-spacing:4px;text-transform:uppercase;
     margin-bottom:8px;
   }
   .intro-title .t{
-    font-weight:700;
+    font-family:'Playfair Display',serif;
+    font-weight:400;
     color:#fff;
     font-size:clamp(20px,2.4vw,30px);
     letter-spacing:-.5px;
@@ -187,7 +174,8 @@
 
   .phase-label{
     position:absolute;
-    font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
     color:var(--blueprint);
     opacity:0;
     animation: phaseFlash 1s ease forwards;
@@ -221,7 +209,8 @@
 
   .hero-rule{
     display:flex;align-items:center;gap:16px;
-    font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:4px;text-transform:uppercase;
     color:var(--blueprint);
     margin:0;
   }
@@ -229,23 +218,24 @@
   .hero-rule span:last-child{color:rgba(255,255,255,0.45);letter-spacing:3px}
 
   .hero h1{
-    font-weight:800;
+    font-family:'Playfair Display',serif;
+    font-weight:400;
     font-size:clamp(34px,min(5vw,7.2vh),72px);
-    line-height:1.02;
+    line-height:0.98;
     letter-spacing:-1.5px;
     color:#fff;
     max-width:1100px;
     margin:0;
   }
-  .hero h1 em{font-style:italic;color:var(--blueprint);font-weight:800}
-  .hero h1 .light{color:rgba(255,255,255,0.55);font-weight:700}
+  .hero h1 em{font-style:italic;color:var(--blueprint);font-weight:400}
+  .hero h1 .light{color:rgba(255,255,255,0.55);font-weight:300}
 
   .hero-sub{
     margin:0;
     max-width:640px;
     font-size:14px;line-height:1.6;
     color:rgba(255,255,255,0.62);
-    font-weight:400;
+    font-weight:300;
   }
 
   .hero-stats{
@@ -261,14 +251,16 @@
   }
   .hs:last-child{border-right:none}
   .hs .v{
-    font-size:clamp(24px,3.2vw,36px);font-weight:800;color:#fff;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(24px,3.2vw,36px);font-weight:500;color:#fff;
     line-height:1;letter-spacing:-1px;
     display:flex;align-items:baseline;gap:4px;
   }
-  .hs .v .unit{font-size:12px;font-weight:600;color:var(--blueprint);letter-spacing:1px}
+  .hs .v .unit{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--blueprint);letter-spacing:1px}
   .hs .l{
     margin-top:8px;
-    font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
     color:rgba(255,255,255,0.5);
   }
 
@@ -280,8 +272,8 @@
     display:inline-flex;align-items:center;gap:14px;
     background:var(--lcg-teal);
     color:#04221B;
-    font-family:var(--font);
-    font-weight:800;font-size:12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;font-size:12px;
     letter-spacing:3px;text-transform:uppercase;
     padding:18px 28px;
     border:none;cursor:pointer;
@@ -302,8 +294,8 @@
     display:inline-flex;align-items:center;gap:10px;
     background:transparent;
     color:rgba(255,255,255,0.7);
-    font-family:var(--font);
-    font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
     padding:16px 0;
     border:none;cursor:pointer;
     transition:color .3s;
@@ -326,11 +318,12 @@
   .hero-logos .sep{width:1px;height:20px;background:rgba(255,255,255,0.2)}
   .hero-meta{
     text-align:right;
-    font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
     color:rgba(255,255,255,0.4);
     line-height:1.7;
   }
-  .hero-meta strong{color:var(--blueprint);font-weight:800}
+  .hero-meta strong{color:var(--blueprint);font-weight:600}
 
   @media (max-width:900px){
     .chrome-top,.chrome-bottom{padding:20px 24px;font-size:9px}
@@ -339,6 +332,41 @@
     .hero-foot{flex-direction:column;align-items:flex-start;gap:12px}
     .hero-meta{text-align:left}
     .corner{display:none}
+  }
+
+  .scanline{
+    position:absolute;left:0;right:0;
+    height:2px;
+    background:linear-gradient(90deg,transparent,var(--blueprint),transparent);
+    opacity:.35;
+    top:0;
+    animation: scan 4s linear infinite;
+    pointer-events:none;
+    mix-blend-mode:screen;
+  }
+  @keyframes scan{
+    0%{top:0%}50%{top:100%}100%{top:0%}
+  }
+  /* Plano de planta PATE */
+  .intro-title{white-space:nowrap}
+  .ln{stroke:var(--blueprint);fill:none;stroke-width:.8;vector-effect:non-scaling-stroke}
+  .ln-dim{stroke:var(--blueprint-dim);fill:none;stroke-width:.8;vector-effect:non-scaling-stroke}
+  .zone{stroke:var(--blueprint-dim);fill:none;stroke-width:.8;stroke-dasharray:4 4;vector-effect:non-scaling-stroke}
+  .comp{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.4px;fill:var(--blueprint-dim)}
+  .cota{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:1.5px;fill:var(--blueprint)}
+
+  /* Riel de ganchos: la cadena avanza a paso de un gancho y un pulso recorre la línea */
+  .shackles{animation:shackleMove 1.1s linear infinite;animation-delay:3.6s}
+  @keyframes shackleMove{ from{transform:translateX(0)} to{transform:translateX(24px)} }
+  .rail-pulse{fill:var(--lcg-mint);animation:railPulse 2.6s linear infinite both;animation-delay:4.2s}
+  @keyframes railPulse{
+    0%{transform:translateX(0);opacity:0}
+    8%{opacity:1}
+    92%{opacity:1}
+    100%{transform:translateX(385px);opacity:0}
+  }
+
+  @media (max-width:900px){
     .hero{align-items:flex-start;overflow-y:auto}
     .hero-inner{max-height:none;padding:40px 8px}
   }
@@ -356,20 +384,6 @@
     .hero-rule{letter-spacing:3px}
     .hero-rule .line{flex-basis:32px}
     .hero-rule span:last-child{display:none}
-  }
-
-  .scanline{
-    position:absolute;left:0;right:0;
-    height:2px;
-    background:linear-gradient(90deg,transparent,var(--blueprint),transparent);
-    opacity:.35;
-    top:0;
-    animation: scan 4s linear infinite;
-    pointer-events:none;
-    mix-blend-mode:screen;
-  }
-  @keyframes scan{
-    0%{top:0%}50%{top:100%}100%{top:0%}
   }
 </style>
 </head>
