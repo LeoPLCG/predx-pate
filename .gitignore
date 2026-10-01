@@ -11,6 +11,9 @@
 !/presentacion/scripts/
 /presentacion/output/entrevistas/*
 !/presentacion/output/entrevistas/index.html
+!/presentacion/output/favicon.ico
+!/presentacion/output/favicon.png
+!/presentacion/output/apple-touch-icon.png
 /presentacion/slides/*
 !/presentacion/slides/logo-cliente.png
 !/presentacion/slides/logo-cliente-dark.png
