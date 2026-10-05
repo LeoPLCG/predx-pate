@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<title>Precio y valorización de productos · EE09 · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#6B7280;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-dark);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-teal)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:20px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-dark);margin-bottom:8px}
+.header h1{font-family:'Georgia',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.base{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--text-light);background:#f2faf6;border:1px solid #cde9dd;border-radius:20px;padding:6px 14px;margin-bottom:22px}
+.base b{color:var(--lcg-dark)}
+.base.warn{background:#fff8ec;border-color:#f1dcb4}.base.warn b{color:var(--amber)}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Georgia',serif;font-size:19px;margin:30px 0 12px;font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .v{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin:2px 0 6px;color:var(--text)}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5;margin-top:4px}
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.g2c{grid-template-columns:1fr}}
+.chart-card{border:1px solid var(--border-soft);border-radius:12px;padding:18px 18px 12px;margin-bottom:18px;min-width:0}
+.chart-card h3{font-family:'Georgia',serif;font-size:15.5px;font-weight:700}
+.chart-card .sub{font-size:12px;color:var(--text-muted);margin:4px 0 10px}
+.ee-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text-light);margin-bottom:6px}
+.ee-key{display:inline-flex;align-items:center;gap:6px}
+.ee-key i{display:inline-block}.ee-key i.ln{width:16px;height:2px;border-radius:1px}.ee-key i.bx{width:10px;height:10px;border-radius:2px}.ee-key i.dot{width:9px;height:9px;border-radius:50%;opacity:.6}
+.ee-canvas{position:relative}
+.ee-tip{position:absolute;pointer-events:none;background:#fff;border:1px solid #dfe3e6;border-radius:8px;box-shadow:0 4px 14px rgba(10,22,40,.10);padding:8px 10px;font-size:12px;min-width:120px;z-index:5;white-space:nowrap}
+.tt-h{font-size:11px;color:var(--text-muted);margin-bottom:4px}
+.tt-r{display:flex;align-items:center;gap:6px;line-height:1.6}.tt-r i{width:12px;height:2px;display:inline-block}.tt-r b{font-weight:700;color:var(--text)}.tt-r span{color:var(--text-light)}
+.ee-table{margin-top:8px;font-size:12px}
+.ee-table summary{cursor:pointer;color:var(--lcg-dark);font-weight:600;font-size:12px}
+.ee-table-box{max-height:260px;overflow:auto;margin-top:8px}
+.ee-table td{font-variant-numeric:tabular-nums}
+ul.find{padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--text-light)}
+ul.find li{margin-bottom:6px}ul.find b{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gaps td:nth-child(4){white-space:nowrap;font-weight:700}.gaps td:nth-child(5){white-space:nowrap}
+.table-wrap{overflow-x:auto}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.note{border-left:3px solid var(--lcg-teal);background:#f6faf8;border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text-light);line-height:1.7}
+.fuente{font-size:12px;color:var(--text-muted);margin-top:22px;line-height:1.6}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s8" class="back-link">Volver a Frío, Logística y Comercial · C3</a>
+  <div class="header"><div class="header-label">Estudio estadístico · EE09 · C3 Comercial, Precio y Clientes · O5 Subproductos</div><h1>Precio y valorización de productos</h1><p>¿Cuánto vale lo que sale de la planta y se vende todo lo que se produce?</p></div>
+  <div class="base"><b>Base media</b> · precio y kg vendidos y producidos por producto, mensual, ene-2025 a ago-2026</div>
+  <div class="kpis"><div class="kpi"><div class="v">$581.2 M</div><div class="l">ventas al año</div><div class="d">promedio 20 meses</div></div><div class="kpi"><div class="v">-15.9%</div><div class="l">precio de pechuga A</div><div class="d">$60.4 a $50.8 por kg</div></div><div class="kpi"><div class="v">239,400 kg</div><div class="l">pechuga producida sin venta</div><div class="d">acumulado 20 meses</div></div><div class="kpi"><div class="v">$15.3 M</div><div class="l">capital de trabajo</div><div class="d">pechuga y pasta, una vez</div></div></div>
+  <h2>Lo que muestran los datos</h2>
+  <div class="g2c"><div class="chart-card"><h3>Precio por kg de los productos principales, mensual</h3><div class="sub">Pesos por kg vendido.</div><div id="c1"></div></div><div class="chart-card"><h3>Producción menos venta acumulada, todos los productos</h3><div class="sub">Kg acumulados desde ene-2025.</div><div id="c2"></div></div></div>
+  <h2>Lo que encontramos</h2>
+  <ul class="find"><li>Pechuga A, pierna y muslo y pasta B suman <b>75% de la venta</b>. Pechuga sola es 33.6%.</li><li>El precio de <b>pechuga A</b> bajó de $60.4 (jun a sep 2025) a $50.8 por kg en 2026. Con el mismo volumen son $36.8 M menos de venta al año.</li><li>En 20 meses se produjeron <b>239,400 kg de pechuga</b> y 219,905 kg de pasta más de lo que se vendió. A precio de 2026 equivalen a $15.3 M.</li><li>Los precios de subproductos se mantienen estables: harina de carne y hueso entre $13.4 y $14.8 por kg.</li></ul>
+  <div class="table-wrap" style="margin-top:18px"><table><thead><tr><th>Producto</th><th>Venta anual</th><th>Mezcla</th></tr></thead><tbody><tr><td>Pechuga A</td><td class="num">$195.0 M</td><td class="num">33.6%</td></tr><tr><td>Pierna y muslo</td><td class="num">$135.9 M</td><td class="num">23.4%</td></tr><tr><td>Pasta B</td><td class="num">$105.7 M</td><td class="num">18.2%</td></tr><tr><td>Harina de carne y hueso</td><td class="num">$63.8 M</td><td class="num">11.0%</td></tr><tr><td>Aceite de gallina</td><td class="num">$41.5 M</td><td class="num">7.1%</td></tr><tr><td>Harina hidrolizada</td><td class="num">$15.1 M</td><td class="num">2.6%</td></tr><tr><td>Grasa a granel</td><td class="num">$9.3 M</td><td class="num">1.6%</td></tr><tr><td>Grasa en cubeta</td><td class="num">$5.3 M</td><td class="num">0.9%</td></tr></tbody></table></div>
+  <h2>Gaps accionables</h2>
+  <div class="table-wrap"><table class="gaps"><thead><tr><th>Acción</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Conciliar inventario de producto terminado contra producción y venta, con rotación por fecha de caducidad.</td><td>Diferencia ≤ 1 semana de producción</td><td>C1 y F3 · Almacén y Finanzas</td><td>$15.3 M una vez</td><td>0 a 3 meses</td></tr><tr><td>Contratos de pechuga con precio indexado y más clientes, con la facturación por cliente (BD09).</td><td>Dispersión de precio por cliente</td><td>C3 · Ventas</td><td>Habilita</td><td>3 a 6 meses</td></tr><tr><td>Margen por producto y cliente, incluyendo el flete de venta.</td><td>Margen neto por kg</td><td>C3 y F2 · Ventas y Finanzas</td><td>Habilita</td><td>1 a 3 meses</td></tr></tbody></table></div>
+  <script>window.EE_CHARTS=[{"id": "c1", "type": "line", "cfg": {"labels": ["Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"], "fmt": "money1", "series": [{"name": "Pechuga A", "data": [52.6, 55.3, 55.3, 55.2, 55.1, 60.5, 60.4, 60.5, 60.3, 58.3, 56.7, 54.3, 54.6, 51.9, 49.9, 49.9, 49.5, 49.9, 50.0, 50.5]}, {"name": "Pierna y muslo", "data": [36.3, 36.6, 36.8, 36.7, 36.8, 37.5, 37.8, 37.9, 38.0, 37.9, 37.8, 38.2, 37.8, 38.2, 38.0, 38.1, 37.7, 37.8, 36.9, 37.6]}, {"name": "Pasta B", "data": [14.1, 14.2, 14.1, 14.1, 14.3, 14.8, 14.9, 14.9, 14.9, 14.9, 14.5, 14.5, 14.1, 14.1, 14.2, 14.1, 14.2, 14.0, 13.3, 13.3]}, {"name": "Harina de carne y hueso", "data": [14.8, 14.7, 14.6, 14.4, 14.4, 13.9, 13.8, 13.9, 13.8, 13.8, 13.8, 13.8, 13.8, 13.6, 13.5, 13.4, 13.4, 13.6, 13.6, 13.6]}], "title": "Precio por kg de los productos principales, mensual", "table": {"head": ["Mes", "Pechuga A", "Pierna y muslo", "Pasta B", "Harina de carne y hueso"], "rows": [["Ene 25", "$52.6", "$36.3", "$14.1", "$14.8"], ["Feb 25", "$55.3", "$36.6", "$14.2", "$14.7"], ["Mar 25", "$55.3", "$36.8", "$14.1", "$14.6"], ["Abr 25", "$55.2", "$36.7", "$14.1", "$14.4"], ["May 25", "$55.1", "$36.8", "$14.3", "$14.4"], ["Jun 25", "$60.5", "$37.5", "$14.8", "$13.9"], ["Jul 25", "$60.4", "$37.8", "$14.9", "$13.8"], ["Ago 25", "$60.5", "$37.9", "$14.9", "$13.9"], ["Sep 25", "$60.3", "$38.0", "$14.9", "$13.8"], ["Oct 25", "$58.3", "$37.9", "$14.9", "$13.8"], ["Nov 25", "$56.7", "$37.8", "$14.5", "$13.8"], ["Dic 25", "$54.3", "$38.2", "$14.5", "$13.8"], ["Ene 26", "$54.6", "$37.8", "$14.1", "$13.8"], ["Feb 26", "$51.9", "$38.2", "$14.1", "$13.6"], ["Mar 26", "$49.9", "$38.0", "$14.2", "$13.5"], ["Abr 26", "$49.9", "$38.1", "$14.1", "$13.4"], ["May 26", "$49.5", "$37.7", "$14.2", "$13.4"], ["Jun 26", "$49.9", "$37.8", "$14.0", "$13.6"], ["Jul 26", "$50.0", "$36.9", "$13.3", "$13.6"], ["Ago 26", "$50.5", "$37.6", "$13.3", "$13.6"]]}}}, {"id": "c2", "type": "line", "cfg": {"labels": ["Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"], "fmt": "kg", "zero": true, "series": [{"name": "Producción menos venta", "data": [-138411, -56918, -99057, -50631, -143999, -134659, -67596, -93526, 6651, 56595, 15714, -24749, 89922, 110720, 309185, 244379, 284804, 315797, 465744, 420758]}], "title": "Producción menos venta acumulada, todos los productos", "table": {"head": ["Mes", "Producción menos venta"], "rows": [["Ene 25", "−138,411 kg"], ["Feb 25", "−56,918 kg"], ["Mar 25", "−99,057 kg"], ["Abr 25", "−50,631 kg"], ["May 25", "−143,999 kg"], ["Jun 25", "−134,659 kg"], ["Jul 25", "−67,596 kg"], ["Ago 25", "−93,526 kg"], ["Sep 25", "6,651 kg"], ["Oct 25", "56,595 kg"], ["Nov 25", "15,714 kg"], ["Dic 25", "−24,749 kg"], ["Ene 26", "89,922 kg"], ["Feb 26", "110,720 kg"], ["Mar 26", "309,185 kg"], ["Abr 26", "244,379 kg"], ["May 26", "284,804 kg"], ["Jun 26", "315,797 kg"], ["Jul 26", "465,744 kg"], ["Ago 26", "420,758 kg"]]}}}];</script>
+  <script src="ee-charts.js"></script>
+  <h2>Alcance de la base</h2>
+  <div class="note">Tenemos precio promedio mensual por producto, sin cliente, descuento ni nota de crédito. La diferencia entre producción y venta puede ser inventario, merma de almacén o un registro pendiente: se confirma con el conteo físico.</div>
+  <p class="fuente">Fuente: estudio EE09 sobre bases de PATE (BD08), ene-2025 a ago-2026. Impactos anuales con 21,980,130 aves recibidas en 2025 como base de volumen y $12.3 de contribución por ave.</p>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

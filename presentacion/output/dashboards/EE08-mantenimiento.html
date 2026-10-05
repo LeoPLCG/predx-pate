@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<title>Mantenimiento · EE08 · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#6B7280;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-dark);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-teal)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:20px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-dark);margin-bottom:8px}
+.header h1{font-family:'Georgia',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.base{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--text-light);background:#f2faf6;border:1px solid #cde9dd;border-radius:20px;padding:6px 14px;margin-bottom:22px}
+.base b{color:var(--lcg-dark)}
+.base.warn{background:#fff8ec;border-color:#f1dcb4}.base.warn b{color:var(--amber)}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Georgia',serif;font-size:19px;margin:30px 0 12px;font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .v{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin:2px 0 6px;color:var(--text)}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5;margin-top:4px}
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.g2c{grid-template-columns:1fr}}
+.chart-card{border:1px solid var(--border-soft);border-radius:12px;padding:18px 18px 12px;margin-bottom:18px;min-width:0}
+.chart-card h3{font-family:'Georgia',serif;font-size:15.5px;font-weight:700}
+.chart-card .sub{font-size:12px;color:var(--text-muted);margin:4px 0 10px}
+.ee-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text-light);margin-bottom:6px}
+.ee-key{display:inline-flex;align-items:center;gap:6px}
+.ee-key i{display:inline-block}.ee-key i.ln{width:16px;height:2px;border-radius:1px}.ee-key i.bx{width:10px;height:10px;border-radius:2px}.ee-key i.dot{width:9px;height:9px;border-radius:50%;opacity:.6}
+.ee-canvas{position:relative}
+.ee-tip{position:absolute;pointer-events:none;background:#fff;border:1px solid #dfe3e6;border-radius:8px;box-shadow:0 4px 14px rgba(10,22,40,.10);padding:8px 10px;font-size:12px;min-width:120px;z-index:5;white-space:nowrap}
+.tt-h{font-size:11px;color:var(--text-muted);margin-bottom:4px}
+.tt-r{display:flex;align-items:center;gap:6px;line-height:1.6}.tt-r i{width:12px;height:2px;display:inline-block}.tt-r b{font-weight:700;color:var(--text)}.tt-r span{color:var(--text-light)}
+.ee-table{margin-top:8px;font-size:12px}
+.ee-table summary{cursor:pointer;color:var(--lcg-dark);font-weight:600;font-size:12px}
+.ee-table-box{max-height:260px;overflow:auto;margin-top:8px}
+.ee-table td{font-variant-numeric:tabular-nums}
+ul.find{padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--text-light)}
+ul.find li{margin-bottom:6px}ul.find b{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gaps td:nth-child(4){white-space:nowrap;font-weight:700}.gaps td:nth-child(5){white-space:nowrap}
+.table-wrap{overflow-x:auto}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.note{border-left:3px solid var(--lcg-teal);background:#f6faf8;border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text-light);line-height:1.7}
+.fuente{font-size:12px;color:var(--text-muted);margin-top:22px;line-height:1.6}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s9" class="back-link">Volver a Mantenimiento · M5 y M6</a>
+  <div class="header"><div class="header-label">Estudio estadístico · EE08 · M5 Refacciones y Almacén MRO · M6 Costo y Desempeño de Mantenimiento</div><h1>Mantenimiento</h1><p>¿El gasto de mantenimiento es predecible y está ligado a la confiabilidad de la línea?</p></div>
+  <div class="base warn"><b>Base indicativa</b> · gasto mensual del centro de mantenimiento y de refacciones, ene-2025 a ago-2026; sin órdenes de trabajo</div>
+  <div class="kpis"><div class="kpi"><div class="v">$21.7 M</div><div class="l">refacciones al año</div><div class="d">promedio 20 meses</div></div><div class="kpi"><div class="v">$1.19 a $3.20</div><div class="l">mantenimiento y refacciones por ave</div><div class="d">rango mensual</div></div><div class="kpi"><div class="v">29%</div><div class="l">variación mes a mes</div><div class="d">coeficiente de variación</div></div><div class="kpi"><div class="v">$4.9 M</div><div class="l">valor anual indicativo</div><div class="d">meses al gasto mediano</div></div></div>
+  <h2>Lo que muestran los datos</h2>
+  <div><div class="chart-card"><h3>Gasto de mantenimiento por ave, mensual</h3><div class="sub">Cuenta de refacciones y centro de mantenimiento rastro. Pesos por ave.</div><div id="c1"></div></div></div>
+  <h2>Lo que encontramos</h2>
+  <ul class="find"><li>Refacciones cuesta <b>$21.7 M al año</b>. Por ave va de $0.46 a $2.03 según el mes, sin un patrón ligado al volumen.</li><li>El gasto conjunto de mantenimiento y refacciones varía <b>29%</b> mes a mes.</li><li>Hubo 68 días en que lo recibido quedó más de 10% debajo del programa. Sin bitácora de paros no se sabe cuántos fueron por falla de equipo.</li><li>Sin <b>órdenes de trabajo</b> no se calcula MTBF, MTTR ni el porcentaje de mantenimiento correctivo.</li></ul>
+  <h2>Gaps accionables</h2>
+  <div class="table-wrap"><table class="gaps"><thead><tr><th>Acción</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Registrar cada orden de trabajo con equipo, tipo, causa, horas y refacciones (BD10).</td><td>100% de OT registradas</td><td>M1 y M5 · Mantenimiento</td><td>Habilita</td><td>1 mes</td></tr><tr><td>Plan de compra de refacciones por criticidad de equipo, con mínimos y máximos.</td><td>Gasto por ave ≤ mediana</td><td>M5 · Mantenimiento y Compras</td><td>$4.9 M</td><td>3 a 6 meses</td></tr><tr><td>Plan preventivo de los equipos críticos de la línea con su calendario.</td><td>Preventivo ≥ 60% de las horas</td><td>M3 · Mantenimiento</td><td>Habilita</td><td>3 a 6 meses</td></tr></tbody></table></div>
+  <script>window.EE_CHARTS=[{"id": "c1", "type": "line", "cfg": {"labels": ["Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"], "fmt": "money2", "series": [{"name": "Refacciones", "data": [0.47, 1.11, 1.17, 1.42, 1.13, 0.88, 1.47, 0.5, 1.14, 0.46, 0.75, 2.03, 0.57, 1.78, 0.76, 0.7, 0.69, 1.08, 0.94, 1.38]}, {"name": "Centro de mantenimiento", "data": [0.72, 0.98, 0.73, 0.66, 0.74, 1.53, 1.1, 0.95, 0.73, 0.94, 0.72, 1.17, 0.67, 1.17, 0.7, 1.07, 0.83, 0.85, 0.58, 1.08]}], "title": "Gasto de mantenimiento por ave, mensual", "table": {"head": ["Mes", "Refacciones", "Centro de mantenimiento"], "rows": [["Ene 25", "$0.47", "$0.72"], ["Feb 25", "$1.11", "$0.98"], ["Mar 25", "$1.17", "$0.73"], ["Abr 25", "$1.42", "$0.66"], ["May 25", "$1.13", "$0.74"], ["Jun 25", "$0.88", "$1.53"], ["Jul 25", "$1.47", "$1.10"], ["Ago 25", "$0.50", "$0.95"], ["Sep 25", "$1.14", "$0.73"], ["Oct 25", "$0.46", "$0.94"], ["Nov 25", "$0.75", "$0.72"], ["Dic 25", "$2.03", "$1.17"], ["Ene 26", "$0.57", "$0.67"], ["Feb 26", "$1.78", "$1.17"], ["Mar 26", "$0.76", "$0.70"], ["Abr 26", "$0.70", "$1.07"], ["May 26", "$0.69", "$0.83"], ["Jun 26", "$1.08", "$0.85"], ["Jul 26", "$0.94", "$0.58"], ["Ago 26", "$1.38", "$1.08"]]}}}];</script>
+  <script src="ee-charts.js"></script>
+  <h2>Alcance de la base</h2>
+  <div class="note">El valor es indicativo: compara cada mes contra el gasto mediano. Con órdenes de trabajo y paros se mide la confiabilidad real y el costo de cada falla.</div>
+  <p class="fuente">Fuente: estudio EE08 sobre bases de PATE (BD08), ene-2025 a ago-2026. Impactos anuales con 21,980,130 aves recibidas en 2025 como base de volumen y $12.3 de contribución por ave.</p>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<title>Energía, agua y gas · EE07 · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#6B7280;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-dark);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-teal)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:20px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-dark);margin-bottom:8px}
+.header h1{font-family:'Georgia',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.base{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--text-light);background:#f2faf6;border:1px solid #cde9dd;border-radius:20px;padding:6px 14px;margin-bottom:22px}
+.base b{color:var(--lcg-dark)}
+.base.warn{background:#fff8ec;border-color:#f1dcb4}.base.warn b{color:var(--amber)}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Georgia',serif;font-size:19px;margin:30px 0 12px;font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .v{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin:2px 0 6px;color:var(--text)}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5;margin-top:4px}
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.g2c{grid-template-columns:1fr}}
+.chart-card{border:1px solid var(--border-soft);border-radius:12px;padding:18px 18px 12px;margin-bottom:18px;min-width:0}
+.chart-card h3{font-family:'Georgia',serif;font-size:15.5px;font-weight:700}
+.chart-card .sub{font-size:12px;color:var(--text-muted);margin:4px 0 10px}
+.ee-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text-light);margin-bottom:6px}
+.ee-key{display:inline-flex;align-items:center;gap:6px}
+.ee-key i{display:inline-block}.ee-key i.ln{width:16px;height:2px;border-radius:1px}.ee-key i.bx{width:10px;height:10px;border-radius:2px}.ee-key i.dot{width:9px;height:9px;border-radius:50%;opacity:.6}
+.ee-canvas{position:relative}
+.ee-tip{position:absolute;pointer-events:none;background:#fff;border:1px solid #dfe3e6;border-radius:8px;box-shadow:0 4px 14px rgba(10,22,40,.10);padding:8px 10px;font-size:12px;min-width:120px;z-index:5;white-space:nowrap}
+.tt-h{font-size:11px;color:var(--text-muted);margin-bottom:4px}
+.tt-r{display:flex;align-items:center;gap:6px;line-height:1.6}.tt-r i{width:12px;height:2px;display:inline-block}.tt-r b{font-weight:700;color:var(--text)}.tt-r span{color:var(--text-light)}
+.ee-table{margin-top:8px;font-size:12px}
+.ee-table summary{cursor:pointer;color:var(--lcg-dark);font-weight:600;font-size:12px}
+.ee-table-box{max-height:260px;overflow:auto;margin-top:8px}
+.ee-table td{font-variant-numeric:tabular-nums}
+ul.find{padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--text-light)}
+ul.find li{margin-bottom:6px}ul.find b{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gaps td:nth-child(4){white-space:nowrap;font-weight:700}.gaps td:nth-child(5){white-space:nowrap}
+.table-wrap{overflow-x:auto}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.note{border-left:3px solid var(--lcg-teal);background:#f6faf8;border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text-light);line-height:1.7}
+.fuente{font-size:12px;color:var(--text-muted);margin-top:22px;line-height:1.6}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s12" class="back-link">Volver a Soporte Transversal · S1</a>
+  <div class="header"><div class="header-label">Estudio estadístico · EE07 · S1 Servicios Industriales y Ambiente</div><h1>Energía, agua y gas</h1><p>¿Cuánto cuesta la energía por ave y está bajo control?</p></div>
+  <div class="base warn"><b>Base baja</b> · gasto mensual en pesos, ene-2025 a ago-2026; sin kWh, m³ ni litros</div>
+  <div class="kpis"><div class="kpi"><div class="v">$1.03 a $1.27</div><div class="l">energía eléctrica por ave</div><div class="d">mediana 2025 contra promedio 2026</div></div><div class="kpi"><div class="v">$28.0 M</div><div class="l">energía eléctrica al año</div><div class="d">ritmo 2026</div></div><div class="kpi"><div class="v">$0.73</div><div class="l">gas por ave</div><div class="d">2025: $0.71; estable</div></div><div class="kpi"><div class="v">$5.3 M</div><div class="l">valor anual</div><div class="d">regresar a $ por ave de 2025</div></div></div>
+  <h2>Lo que muestran los datos</h2>
+  <div class="g2c"><div class="chart-card"><h3>Energía eléctrica y gas por ave, mensual</h3><div class="sub">Pesos por ave procesada.</div><div id="c1"></div></div><div class="chart-card"><h3>Centros de calderas y refrigeración por ave</h3><div class="sub">Pesos por ave procesada.</div><div id="c2"></div></div></div>
+  <h2>Lo que encontramos</h2>
+  <ul class="find"><li>La energía eléctrica por ave pasó de <b>$1.03</b> (mediana 2025) a <b>$1.27</b> (promedio 2026), un alza de 23%.</li><li>El gas por ave se mantuvo entre $0.71 y $0.73. Con el mismo volumen de proceso, el alza viene de tarifa o de demanda eléctrica.</li><li>Marzo 2026 marca el pico con $1.85 por ave, que puede ser un cargo extraordinario o un ajuste de facturación.</li><li>Los centros de calderas y refrigeración por ave van de $0.43 a $1.63 y de $0.60 a $1.28 según el mes.</li></ul>
+  <h2>Gaps accionables</h2>
+  <div class="table-wrap"><table class="gaps"><thead><tr><th>Acción</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Revisión de tarifa eléctrica, demanda máxima contratada y factor de potencia con los recibos disponibles.</td><td>Energía ≤ $1.03 por ave</td><td>S1 · Servicios Industriales</td><td>$5.3 M</td><td>0 a 3 meses</td></tr><tr><td>Submedición de kWh por área: refrigeración, calderas, rendering y PTAR.</td><td>kWh por ave por área</td><td>S1 · Mantenimiento</td><td>Habilita</td><td>3 a 6 meses</td></tr><tr><td>Aclarar el cargo de marzo 2026 con el proveedor de energía.</td><td>Conciliación del recibo</td><td>S1 · Administración</td><td>Habilita</td><td>1 mes</td></tr></tbody></table></div>
+  <script>window.EE_CHARTS=[{"id": "c1", "type": "line", "cfg": {"labels": ["Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"], "fmt": "money2", "series": [{"name": "Energía eléctrica", "data": [0.48, 1.06, 0.8, 0.81, 0.81, 0.84, 1.13, 1.11, 1.21, 1.02, 1.21, 1.04, 1.12, 1.29, 1.85, 1.2, 1.14, 1.14, 1.16, 1.29]}, {"name": "Gas", "data": [0.76, 0.44, 0.35, 1.17, 0.76, 0.79, 0.68, 0.71, 0.65, 0.66, 0.78, 0.76, 0.84, 0.98, 0.67, 0.68, 0.66, 0.61, 0.68, 0.76]}], "title": "Energía eléctrica y gas por ave, mensual", "table": {"head": ["Mes", "Energía eléctrica", "Gas"], "rows": [["Ene 25", "$0.48", "$0.76"], ["Feb 25", "$1.06", "$0.44"], ["Mar 25", "$0.80", "$0.35"], ["Abr 25", "$0.81", "$1.17"], ["May 25", "$0.81", "$0.76"], ["Jun 25", "$0.84", "$0.79"], ["Jul 25", "$1.13", "$0.68"], ["Ago 25", "$1.11", "$0.71"], ["Sep 25", "$1.21", "$0.65"], ["Oct 25", "$1.02", "$0.66"], ["Nov 25", "$1.21", "$0.78"], ["Dic 25", "$1.04", "$0.76"], ["Ene 26", "$1.12", "$0.84"], ["Feb 26", "$1.29", "$0.98"], ["Mar 26", "$1.85", "$0.67"], ["Abr 26", "$1.20", "$0.68"], ["May 26", "$1.14", "$0.66"], ["Jun 26", "$1.14", "$0.61"], ["Jul 26", "$1.16", "$0.68"], ["Ago 26", "$1.29", "$0.76"]]}}}, {"id": "c2", "type": "line", "cfg": {"labels": ["Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"], "fmt": "money2", "series": [{"name": "Calderas", "data": [0.76, 0.82, 0.43, 1.63, 0.8, 0.82, 0.94, 0.89, 0.7, 0.83, 0.86, 0.84, 1.02, 1.03, 0.74, 0.88, 0.76, 0.71, 0.85, 0.86]}, {"name": "Refrigeración", "data": [0.6, 0.74, 0.7, 0.69, 0.72, 0.65, 1.23, 0.89, 0.86, 0.8, 1.13, 0.95, 0.88, 0.92, 1.28, 0.85, 0.85, 0.8, 0.84, 0.87]}], "title": "Centros de calderas y refrigeración por ave", "table": {"head": ["Mes", "Calderas", "Refrigeración"], "rows": [["Ene 25", "$0.76", "$0.60"], ["Feb 25", "$0.82", "$0.74"], ["Mar 25", "$0.43", "$0.70"], ["Abr 25", "$1.63", "$0.69"], ["May 25", "$0.80", "$0.72"], ["Jun 25", "$0.82", "$0.65"], ["Jul 25", "$0.94", "$1.23"], ["Ago 25", "$0.89", "$0.89"], ["Sep 25", "$0.70", "$0.86"], ["Oct 25", "$0.83", "$0.80"], ["Nov 25", "$0.86", "$1.13"], ["Dic 25", "$0.84", "$0.95"], ["Ene 26", "$1.02", "$0.88"], ["Feb 26", "$1.03", "$0.92"], ["Mar 26", "$0.74", "$1.28"], ["Abr 26", "$0.88", "$0.85"], ["May 26", "$0.76", "$0.85"], ["Jun 26", "$0.71", "$0.80"], ["Jul 26", "$0.85", "$0.84"], ["Ago 26", "$0.86", "$0.87"]]}}}];</script>
+  <script src="ee-charts.js"></script>
+  <h2>Alcance de la base</h2>
+  <div class="note">Solo tenemos el gasto en pesos por cuenta contable. Sin kWh, m³ de agua ni litros de gas no se separa el efecto de tarifa del de consumo. Con los recibos (BD11) se mide la eficiencia por ave.</div>
+  <p class="fuente">Fuente: estudio EE07 sobre bases de PATE (BD08), ene-2025 a ago-2026. Impactos anuales con 21,980,130 aves recibidas en 2025 como base de volumen y $12.3 de contribución por ave.</p>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

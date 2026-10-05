@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<title>DOA, decomisos y calidad del ave · EE03 · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#6B7280;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-dark);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-teal)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:20px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-dark);margin-bottom:8px}
+.header h1{font-family:'Georgia',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.base{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--text-light);background:#f2faf6;border:1px solid #cde9dd;border-radius:20px;padding:6px 14px;margin-bottom:22px}
+.base b{color:var(--lcg-dark)}
+.base.warn{background:#fff8ec;border-color:#f1dcb4}.base.warn b{color:var(--amber)}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Georgia',serif;font-size:19px;margin:30px 0 12px;font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .v{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin:2px 0 6px;color:var(--text)}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5;margin-top:4px}
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.g2c{grid-template-columns:1fr}}
+.chart-card{border:1px solid var(--border-soft);border-radius:12px;padding:18px 18px 12px;margin-bottom:18px;min-width:0}
+.chart-card h3{font-family:'Georgia',serif;font-size:15.5px;font-weight:700}
+.chart-card .sub{font-size:12px;color:var(--text-muted);margin:4px 0 10px}
+.ee-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text-light);margin-bottom:6px}
+.ee-key{display:inline-flex;align-items:center;gap:6px}
+.ee-key i{display:inline-block}.ee-key i.ln{width:16px;height:2px;border-radius:1px}.ee-key i.bx{width:10px;height:10px;border-radius:2px}.ee-key i.dot{width:9px;height:9px;border-radius:50%;opacity:.6}
+.ee-canvas{position:relative}
+.ee-tip{position:absolute;pointer-events:none;background:#fff;border:1px solid #dfe3e6;border-radius:8px;box-shadow:0 4px 14px rgba(10,22,40,.10);padding:8px 10px;font-size:12px;min-width:120px;z-index:5;white-space:nowrap}
+.tt-h{font-size:11px;color:var(--text-muted);margin-bottom:4px}
+.tt-r{display:flex;align-items:center;gap:6px;line-height:1.6}.tt-r i{width:12px;height:2px;display:inline-block}.tt-r b{font-weight:700;color:var(--text)}.tt-r span{color:var(--text-light)}
+.ee-table{margin-top:8px;font-size:12px}
+.ee-table summary{cursor:pointer;color:var(--lcg-dark);font-weight:600;font-size:12px}
+.ee-table-box{max-height:260px;overflow:auto;margin-top:8px}
+.ee-table td{font-variant-numeric:tabular-nums}
+ul.find{padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--text-light)}
+ul.find li{margin-bottom:6px}ul.find b{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gaps td:nth-child(4){white-space:nowrap;font-weight:700}.gaps td:nth-child(5){white-space:nowrap}
+.table-wrap{overflow-x:auto}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.note{border-left:3px solid var(--lcg-teal);background:#f6faf8;border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text-light);line-height:1.7}
+.fuente{font-size:12px;color:var(--text-muted);margin-top:22px;line-height:1.6}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s6" class="back-link">Volver a Abasto de Parvadas · A2 y A3</a>
+  <div class="header"><div class="header-label">Estudio estadístico · EE03 · A2 Captura y Transporte · A3 Recepción y Bioseguridad · O4 Calidad</div><h1>DOA, decomisos y calidad del ave</h1><p>¿Cuántas aves llegan muertas o se decomisan, y qué lo explica?</p></div>
+  <div class="base"><b>Base alta</b> · 4,738 viajes con granja, chofer, causa de decomiso y fechas, ene-2025 a ago-2026</div>
+  <div class="kpis"><div class="kpi"><div class="v">2.71%</div><div class="l">aves ahogadas (DOA)</div><div class="d">1,004,754 aves en 20 meses</div></div><div class="kpi"><div class="v">3.23% vs 1.17%</div><div class="l">DOA con pernocta</div><div class="d">contra carga del mismo día</div></div><div class="kpi"><div class="v">4.93%</div><div class="l">DOA La Esperanza</div><div class="d">21% de las aves, 39% de las ahogadas</div></div><div class="kpi"><div class="v">$1.9 M</div><div class="l">valor anual</div><div class="d">DOA a la mediana de granjas</div></div></div>
+  <h2>Lo que muestran los datos</h2>
+  <div><div class="chart-card"><h3>DOA por tipo de carga y temporada</h3><div class="sub">Calor: abril a julio y octubre.</div><div id="c1"></div></div><div class="chart-card"><h3>DOA mensual y aves enviadas no recibidas</h3><div class="sub">Porcentaje sobre aves recibidas y enviadas.</div><div id="c2"></div></div><div class="chart-card"><h3>DOA de las 12 granjas con más volumen</h3><div class="sub">Línea: mediana de granjas con 20 viajes o más.</div><div id="c3"></div></div></div>
+  <h2>Lo que encontramos</h2>
+  <ul class="find"><li>El <b>74% de los viajes</b> se carga el día anterior al sacrificio. Esos viajes tienen 3.23% de DOA contra 1.17% en carga del mismo día.</li><li>El efecto se repite dentro de cada granja: en 44 de 45 granjas con ambos tipos de viaje, la pernocta sube el DOA. La diferencia ponderada es 1.37 pp.</li><li><b>Calor y pernocta se suman</b>: 4.22% de DOA en meses de calor con pernocta, contra 1.03% en meses frescos con carga del día.</li><li><b>La Esperanza</b> concentra 21% de las aves y 39% de las ahogadas, con 4.93% de DOA en 947 viajes.</li><li>Entre 25 choferes con 30 viajes o más, el DOA va de 1.9% a 6.9%. El detalle por nombre queda en la base de trabajo.</li><li>Los <b>decomisos</b> suman 0.77%. Ascitis es la causa principal con 156,599 aves, señal de salud de la parvada que conviene regresar a cada accionista.</li><li><b>373,075 aves enviadas</b> no aparecen como recibidas (1.0%), sin una conciliación documentada por viaje.</li></ul>
+  <h2>Gaps accionables</h2>
+  <div class="table-wrap"><table class="gaps"><thead><tr><th>Acción</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Programar la carga para sacrificio del mismo día o limitar la espera en camión, empezando por los meses de calor.</td><td>DOA ≤ 2.01%</td><td>A2 · Abasto y Transporte</td><td>$1.9 M</td><td>0 a 3 meses</td></tr><tr><td>Protocolo específico para La Esperanza: horario de carga, densidad por jaula y sombra y ventilación en la espera.</td><td>DOA La Esperanza ≤ 3.0%</td><td>A2 y A3 · Abasto con el accionista</td><td>Incluido arriba</td><td>0 a 3 meses</td></tr><tr><td>Tablero mensual de DOA por chofer y transportista, con retroalimentación y capacitación de manejo.</td><td>Brecha entre choferes ≤ 1.5 pp</td><td>A2 · Abasto</td><td>Incluido arriba</td><td>1 mes</td></tr><tr><td>Conciliar aves enviadas contra recibidas en cada viaje, con conteo en granja y en andén.</td><td>Diferencia ≤ 0.3%</td><td>A3 · Abasto y Administración</td><td>$1.8 M sin conciliar</td><td>1 mes</td></tr></tbody></table></div>
+  <script>window.EE_CHARTS=[{"id": "c1", "type": "columns", "cfg": {"labels": ["Meses frescos", "Meses de calor"], "fmt": "pct2", "series": [{"name": "Carga del mismo día", "data": [1.03, 1.35]}, {"name": "Pernocta", "data": [2.39, 4.22]}], "title": "DOA por tipo de carga y temporada", "table": {"head": ["Categoría", "Carga del mismo día", "Pernocta"], "rows": [["Meses frescos", "1.03%", "2.39%"], ["Meses de calor", "1.35%", "4.22%"]]}}}, {"id": "c2", "type": "line", "cfg": {"labels": ["Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"], "fmt": "pct2", "zero": true, "series": [{"name": "DOA", "data": [1.27, 1.9, 1.79, 2.85, 5.17, 2.41, 3.6, 2.07, 1.85, 4.38, 2.16, 1.98, 2.69, 1.67, 2.27, 3.02, 4.27, 2.58, 3.18, 2.68]}, {"name": "Enviadas no recibidas", "data": [0.77, 1.41, 0.35, 0.52, 1.08, 0.46, 1.16, 1.45, 1.11, 1.42, 1.04, 1.06, 1.41, 0.49, 0.54, 0.76, 1.76, 0.77, 0.98, 1.36]}], "title": "DOA mensual y aves enviadas no recibidas", "table": {"head": ["Mes", "DOA", "Enviadas no recibidas"], "rows": [["Ene 25", "1.27%", "0.77%"], ["Feb 25", "1.90%", "1.41%"], ["Mar 25", "1.79%", "0.35%"], ["Abr 25", "2.85%", "0.52%"], ["May 25", "5.17%", "1.08%"], ["Jun 25", "2.41%", "0.46%"], ["Jul 25", "3.60%", "1.16%"], ["Ago 25", "2.07%", "1.45%"], ["Sep 25", "1.85%", "1.11%"], ["Oct 25", "4.38%", "1.42%"], ["Nov 25", "2.16%", "1.04%"], ["Dic 25", "1.98%", "1.06%"], ["Ene 26", "2.69%", "1.41%"], ["Feb 26", "1.67%", "0.49%"], ["Mar 26", "2.27%", "0.54%"], ["Abr 26", "3.02%", "0.76%"], ["May 26", "4.27%", "1.76%"], ["Jun 26", "2.58%", "0.77%"], ["Jul 26", "3.18%", "0.98%"], ["Ago 26", "2.68%", "1.36%"]]}}}, {"id": "c3", "type": "hbars", "cfg": {"labels": ["La Esperanza", "La Estacion", "Santa Fe", "San Francisco", "Cedros", "Capiro", "La Jara", "Olivares", "Olivos", "El Chispeadero", "San Juan", "El Pastor"], "values": [4.93, 2.9, 1.99, 2.19, 3.13, 1.68, 3.01, 1.76, 2.77, 1.4, 1.49, 2.57], "fmt": "pct2", "endLabels": true, "labelWidth": 120, "name": "DOA", "ref": {"value": 2.01, "label": "Mediana 2.01%"}, "title": "DOA de las 12 granjas con más volumen", "table": {"head": ["Categoría", "DOA"], "rows": [["La Esperanza", "4.93%"], ["La Estacion", "2.90%"], ["Santa Fe", "1.99%"], ["San Francisco", "2.19%"], ["Cedros", "3.13%"], ["Capiro", "1.68%"], ["La Jara", "3.01%"], ["Olivares", "1.76%"], ["Olivos", "2.77%"], ["El Chispeadero", "1.40%"], ["San Juan", "1.49%"], ["El Pastor", "2.57%"]]}}}];</script>
+  <script src="ee-charts.js"></script>
+  <h2>Alcance de la base</h2>
+  <div class="note">No hay hora de carga ni de llegada. La pernocta se identifica porque la fecha de carga es anterior a la de sacrificio. El valor por ave usa la contribución de PATE; el accionista recupera además el kilo que hoy no se le paga por las aves ahogadas.</div>
+  <p class="fuente">Fuente: estudio EE03 sobre bases de PATE (BD01), ene-2025 a ago-2026. Impactos anuales con 21,980,130 aves recibidas en 2025 como base de volumen y $12.3 de contribución por ave.</p>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

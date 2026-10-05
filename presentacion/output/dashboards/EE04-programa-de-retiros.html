@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<title>Cumplimiento del programa de retiros · EE04 · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#6B7280;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-dark);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-teal)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:20px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-dark);margin-bottom:8px}
+.header h1{font-family:'Georgia',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.base{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--text-light);background:#f2faf6;border:1px solid #cde9dd;border-radius:20px;padding:6px 14px;margin-bottom:22px}
+.base b{color:var(--lcg-dark)}
+.base.warn{background:#fff8ec;border-color:#f1dcb4}.base.warn b{color:var(--amber)}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Georgia',serif;font-size:19px;margin:30px 0 12px;font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .v{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin:2px 0 6px;color:var(--text)}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5;margin-top:4px}
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.g2c{grid-template-columns:1fr}}
+.chart-card{border:1px solid var(--border-soft);border-radius:12px;padding:18px 18px 12px;margin-bottom:18px;min-width:0}
+.chart-card h3{font-family:'Georgia',serif;font-size:15.5px;font-weight:700}
+.chart-card .sub{font-size:12px;color:var(--text-muted);margin:4px 0 10px}
+.ee-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text-light);margin-bottom:6px}
+.ee-key{display:inline-flex;align-items:center;gap:6px}
+.ee-key i{display:inline-block}.ee-key i.ln{width:16px;height:2px;border-radius:1px}.ee-key i.bx{width:10px;height:10px;border-radius:2px}.ee-key i.dot{width:9px;height:9px;border-radius:50%;opacity:.6}
+.ee-canvas{position:relative}
+.ee-tip{position:absolute;pointer-events:none;background:#fff;border:1px solid #dfe3e6;border-radius:8px;box-shadow:0 4px 14px rgba(10,22,40,.10);padding:8px 10px;font-size:12px;min-width:120px;z-index:5;white-space:nowrap}
+.tt-h{font-size:11px;color:var(--text-muted);margin-bottom:4px}
+.tt-r{display:flex;align-items:center;gap:6px;line-height:1.6}.tt-r i{width:12px;height:2px;display:inline-block}.tt-r b{font-weight:700;color:var(--text)}.tt-r span{color:var(--text-light)}
+.ee-table{margin-top:8px;font-size:12px}
+.ee-table summary{cursor:pointer;color:var(--lcg-dark);font-weight:600;font-size:12px}
+.ee-table-box{max-height:260px;overflow:auto;margin-top:8px}
+.ee-table td{font-variant-numeric:tabular-nums}
+ul.find{padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--text-light)}
+ul.find li{margin-bottom:6px}ul.find b{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gaps td:nth-child(4){white-space:nowrap;font-weight:700}.gaps td:nth-child(5){white-space:nowrap}
+.table-wrap{overflow-x:auto}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.note{border-left:3px solid var(--lcg-teal);background:#f6faf8;border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text-light);line-height:1.7}
+.fuente{font-size:12px;color:var(--text-muted);margin-top:22px;line-height:1.6}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s6" class="back-link">Volver a Abasto de Parvadas · A1</a>
+  <div class="header"><div class="header-label">Estudio estadístico · EE04 · A1 Programación de Retiros con Accionistas · TX Gobierno</div><h1>Cumplimiento del programa de retiros</h1><p>¿Llegan las aves que se programaron y cada accionista entrega conforme a su participación?</p></div>
+  <div class="base"><b>Base alta</b> · programado y recibido diario ene-2025 a sep-2026, entrega por accionista ene a sep 2026, lista de espera</div>
+  <div class="kpis"><div class="kpi"><div class="v">96.9%</div><div class="l">recibido contra programado</div><div class="d">417 días con programa</div></div><div class="kpi"><div class="v">65%</div><div class="l">días dentro de ±5%</div><div class="d">error diario promedio 5.7%</div></div><div class="kpi"><div class="v">26%</div><div class="l">días más de 5% abajo</div><div class="d">solo 9% arriba</div></div><div class="kpi"><div class="v">997,488</div><div class="l">aves bajo programa al año</div><div class="d">se traslapa con EE02</div></div></div>
+  <h2>Lo que muestran los datos</h2>
+  <div><div class="chart-card"><h3>Participación accionaria contra gallinas entregadas, 2026</h3><div class="sub">Porcentaje del total, ene a sep de 2026. Accionistas codificados.</div><div id="c1"></div></div><div class="chart-card"><h3>Desviación diaria de recibido contra programado</h3><div class="sub">Número de días por rango.</div><div id="c2"></div></div><div class="chart-card"><h3>Recibido contra programado, mensual</h3><div class="sub">Porcentaje del programa. Línea punteada: 100%.</div><div id="c3"></div></div></div>
+  <h2>Lo que encontramos</h2>
+  <ul class="find"><li>En 417 días con programa, PATE recibió <b>96.9%</b> de lo programado. El error diario promedio es 5.7%.</li><li>El <b>26% de los días</b> queda más de 5% abajo del programa y solo el 9% queda arriba. El faltante suma cerca de 997,488 aves al año.</li><li>La entrega por accionista no sigue la participación: <b>Accionista 01</b> tiene 70.3% de las acciones y entrega 60.8%. Accionista 03 tiene 4.4% y entrega 11.3%. Accionista 10 tiene 0.3% y entrega 4.2%.</li><li>Dos accionistas con 2.9% de las acciones en conjunto no entregaron aves en 2026.</li><li>Productores independientes aportan 10.25% del volumen 2026 y la <b>lista de espera</b> suma al menos 494,000 aves.</li></ul>
+  <h2>Gaps accionables</h2>
+  <div class="table-wrap"><table class="gaps"><thead><tr><th>Acción</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Programa semanal con confirmación a 48 horas y sustitución desde la lista de espera cuando un proveedor baja.</td><td>Días dentro de ±5% ≥ 85%</td><td>A1 · Abasto</td><td>Incluido en EE02</td><td>0 a 3 meses</td></tr><tr><td>Registrar la causa de cada incumplimiento: granja no lista, transporte o planta.</td><td>100% de desviaciones con causa</td><td>A1 · Abasto</td><td>Habilita</td><td>1 mes</td></tr><tr><td>Política de cupo por accionista ligada a su participación, con reglas para ceder cupo no usado.</td><td>Desviación cupo contra acciones ≤ 3 pp</td><td>TX · Gobierno y Consejo</td><td>Habilita</td><td>3 a 6 meses</td></tr></tbody></table></div>
+  <script>window.EE_CHARTS=[{"id": "c1", "type": "hbars", "cfg": {"labels": ["Accionista 01", "Accionista 02", "Accionista 03", "Accionista 04", "Accionista 05", "Accionista 06", "Accionista 07", "Accionista 08", "Accionista 09", "Accionista 10"], "fmt": "pct1", "labelWidth": 110, "series": [{"name": "Participación accionaria", "data": [70.33, 5.66, 4.4, 3.76, 3.22, 3.15, 3.1, 1.71, 1.17, 0.32]}, {"name": "Gallinas entregadas", "data": [60.8, 3.3, 11.3, 0.23, 1.66, 7.09, 0.42, 0.0, 0.0, 4.21]}], "title": "Participación accionaria contra gallinas entregadas, 2026", "table": {"head": ["Categoría", "Participación accionaria", "Gallinas entregadas"], "rows": [["Accionista 01", "70.3%", "60.8%"], ["Accionista 02", "5.7%", "3.3%"], ["Accionista 03", "4.4%", "11.3%"], ["Accionista 04", "3.8%", "0.2%"], ["Accionista 05", "3.2%", "1.7%"], ["Accionista 06", "3.1%", "7.1%"], ["Accionista 07", "3.1%", "0.4%"], ["Accionista 08", "1.7%", "0.0%"], ["Accionista 09", "1.2%", "0.0%"], ["Accionista 10", "0.3%", "4.2%"]]}}}, {"id": "c2", "type": "columns", "cfg": {"labels": ["< −15%", "−15 a −10%", "−10 a −5%", "−5 a 0%", "0 a +5%", "+5 a +10%", "> +10%"], "values": [39, 29, 40, 175, 96, 30, 8], "fmt": "int", "name": "Días", "title": "Desviación diaria de recibido contra programado", "table": {"head": ["Categoría", "Días"], "rows": [["< −15%", "39"], ["−15 a −10%", "29"], ["−10 a −5%", "40"], ["−5 a 0%", "175"], ["0 a +5%", "96"], ["+5 a +10%", "30"], ["> +10%", "8"]]}}}, {"id": "c3", "type": "line", "cfg": {"labels": ["Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26", "Sep 26"], "fmt": "pct1", "series": [{"name": "Cumplimiento", "data": [98.3, 97.1, 97.1, 98.0, 95.4, 97.2, 83.4, 98.3, 98.0, 98.5, 94.9, 95.3, 91.4, 98.0, 101.6, 97.8, 100.6, 99.0, 98.9, 97.9]}], "ref": {"value": 100, "label": "Programa 100%"}, "title": "Recibido contra programado, mensual", "table": {"head": ["Mes", "Cumplimiento"], "rows": [["Ene 25", "98.3%"], ["Feb 25", "97.1%"], ["Mar 25", "97.1%"], ["Abr 25", "98.0%"], ["May 25", "95.4%"], ["Jun 25", "97.2%"], ["Jul 25", "83.4%"], ["Ago 25", "98.3%"], ["Oct 25", "98.0%"], ["Nov 25", "98.5%"], ["Dic 25", "94.9%"], ["Ene 26", "95.3%"], ["Feb 26", "91.4%"], ["Mar 26", "98.0%"], ["Abr 26", "101.6%"], ["May 26", "97.8%"], ["Jun 26", "100.6%"], ["Jul 26", "99.0%"], ["Ago 26", "98.9%"], ["Sep 26", "97.9%"]]}}}];</script>
+  <script src="ee-charts.js"></script>
+  <h2>Alcance de la base</h2>
+  <div class="note">La programación semanal viene en hojas por semana y los nombres de granja requieren homologación para cruzarla viaje por viaje. Usamos el programado diario del reporte de rendimiento. Los accionistas se muestran codificados por confidencialidad.</div>
+  <p class="fuente">Fuente: estudio EE04 sobre bases de PATE (BD02 y BD05), ene-2025 a sep-2026. Impactos anuales con 21,980,130 aves recibidas en 2025 como base de volumen y $12.3 de contribución por ave.</p>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

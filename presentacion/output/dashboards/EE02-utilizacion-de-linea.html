@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<title>Utilización de línea · EE02 · PATE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap');
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#6B7280;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
+.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+@media(max-width:768px){.page{padding:24px 16px}}
+.logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
+.logos img:first-child{height:22px}.logos img:last-child{height:60px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-dark);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--lcg-teal)}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:20px}
+.header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-dark);margin-bottom:8px}
+.header h1{font-family:'Georgia',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
+.base{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--text-light);background:#f2faf6;border:1px solid #cde9dd;border-radius:20px;padding:6px 14px;margin-bottom:22px}
+.base b{color:var(--lcg-dark)}
+.base.warn{background:#fff8ec;border-color:#f1dcb4}.base.warn b{color:var(--amber)}
+.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
+h2{font-family:'Georgia',serif;font-size:19px;margin:30px 0 12px;font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
+.kpi .v{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin:2px 0 6px;color:var(--text)}
+.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
+.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5;margin-top:4px}
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.g2c{grid-template-columns:1fr}}
+.chart-card{border:1px solid var(--border-soft);border-radius:12px;padding:18px 18px 12px;margin-bottom:18px;min-width:0}
+.chart-card h3{font-family:'Georgia',serif;font-size:15.5px;font-weight:700}
+.chart-card .sub{font-size:12px;color:var(--text-muted);margin:4px 0 10px}
+.ee-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text-light);margin-bottom:6px}
+.ee-key{display:inline-flex;align-items:center;gap:6px}
+.ee-key i{display:inline-block}.ee-key i.ln{width:16px;height:2px;border-radius:1px}.ee-key i.bx{width:10px;height:10px;border-radius:2px}.ee-key i.dot{width:9px;height:9px;border-radius:50%;opacity:.6}
+.ee-canvas{position:relative}
+.ee-tip{position:absolute;pointer-events:none;background:#fff;border:1px solid #dfe3e6;border-radius:8px;box-shadow:0 4px 14px rgba(10,22,40,.10);padding:8px 10px;font-size:12px;min-width:120px;z-index:5;white-space:nowrap}
+.tt-h{font-size:11px;color:var(--text-muted);margin-bottom:4px}
+.tt-r{display:flex;align-items:center;gap:6px;line-height:1.6}.tt-r i{width:12px;height:2px;display:inline-block}.tt-r b{font-weight:700;color:var(--text)}.tt-r span{color:var(--text-light)}
+.ee-table{margin-top:8px;font-size:12px}
+.ee-table summary{cursor:pointer;color:var(--lcg-dark);font-weight:600;font-size:12px}
+.ee-table-box{max-height:260px;overflow:auto;margin-top:8px}
+.ee-table td{font-variant-numeric:tabular-nums}
+ul.find{padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--text-light)}
+ul.find li{margin-bottom:6px}ul.find b{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
+td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gaps td:nth-child(4){white-space:nowrap;font-weight:700}.gaps td:nth-child(5){white-space:nowrap}
+.table-wrap{overflow-x:auto}
+p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
+.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
+.note{border-left:3px solid var(--lcg-teal);background:#f6faf8;border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text-light);line-height:1.7}
+.fuente{font-size:12px;color:var(--text-muted);margin-top:22px;line-height:1.6}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
+  <a href="../predx_template.html#s7" class="back-link">Volver a Proceso Industrial · O1</a>
+  <div class="header"><div class="header-label">Estudio estadístico · EE02 · O1 Sacrificio y Capacidad de Línea</div><h1>Utilización de línea</h1><p>¿Cuántas aves procesa la planta por día contra lo que ya demostró que puede procesar?</p></div>
+  <div class="base warn"><b>Base parcial</b> · aves por día; sin horas reales ni bitácora de paros</div>
+  <div class="kpis"><div class="kpi"><div class="v">85,106</div><div class="l">aves por día</div><div class="d">promedio lunes a viernes</div></div><div class="kpi"><div class="v">110,831</div><div class="l">máximo demostrado</div><div class="d">P90: 96,204</div></div><div class="kpi"><div class="v">28%</div><div class="l">días bajo 80,000 aves</div><div class="d">de 440 días</div></div><div class="kpi"><div class="v">$6.1 M</div><div class="l">valor anual</div><div class="d">lista de espera procesada en viernes</div></div></div>
+  <h2>Lo que muestran los datos</h2>
+  <div class="g2c"><div class="chart-card"><h3>Aves procesadas por día de la semana, promedio</h3><div class="sub">Lunes a viernes, ene-2025 a sep-2026.</div><div id="c1"></div></div><div class="chart-card"><h3>Distribución de días por aves procesadas</h3><div class="sub">Número de días en cada rango.</div><div id="c2"></div></div></div>
+  <h2>Lo que encontramos</h2>
+  <ul class="find"><li>A 9,500 aves por hora, el promedio diario equivale a <b>9.0 horas</b> de línea a velocidad nominal.</li><li>La planta ya procesó <b>110,831 aves</b> en un día y el P90 es 96,204. El 28% de los días quedó debajo de 80,000.</li><li>Los <b>viernes</b> procesan 15,474 aves menos que el promedio de lunes a jueves. Son cerca de 742,757 aves al año de capacidad sin usar.</li><li>La lista de espera 2026 registra al menos <b>494,000 aves</b> de productores marcadas como «sin espacio».</li><li>Cada ave adicional cuesta $7.21 de proceso variable y deja $12.3 de contribución.</li></ul>
+  <h2>Gaps accionables</h2>
+  <div class="table-wrap"><table class="gaps"><thead><tr><th>Acción</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Nivelar la programación semanal y asignar los viernes a la lista de espera.</td><td>Viernes ≥ 85,000 aves</td><td>A1 · Abasto y Programación</td><td>$6.1 M</td><td>0 a 3 meses</td></tr><tr><td>Registrar horas reales de línea por día y bitácora de paros por causa (BD03 y BD04).</td><td>OEE medido cada semana</td><td>O1 · Producción y Mantenimiento</td><td>Habilita</td><td>1 mes</td></tr><tr><td>Confirmar con TIF la velocidad autorizada y la capacidad por etapa: colgado, evisceración, enfriamiento y deshuese.</td><td>Cuello de botella identificado</td><td>O1 · Gerencia de Planta</td><td>Habilita</td><td>1 mes</td></tr></tbody></table></div>
+  <script>window.EE_CHARTS=[{"id": "c1", "type": "columns", "cfg": {"labels": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"], "values": [85834, 88837, 89534, 88657, 72741], "fmt": "int", "capLabels": true, "name": "Aves por día", "title": "Aves procesadas por día de la semana, promedio", "table": {"head": ["Categoría", "Aves por día"], "rows": [["Lunes", "85,834"], ["Martes", "88,837"], ["Miércoles", "89,534"], ["Jueves", "88,657"], ["Viernes", "72,741"]]}}}, {"id": "c2", "type": "columns", "cfg": {"labels": ["20–30k", "30–40k", "40–50k", "50–60k", "60–70k", "70–80k", "80–90k", "90–100k", "100–110k", "110–120k"], "values": [1, 0, 2, 8, 40, 74, 122, 190, 2, 1], "fmt": "int", "name": "Días", "title": "Distribución de días por aves procesadas", "table": {"head": ["Categoría", "Días"], "rows": [["20–30k", "1"], ["30–40k", "0"], ["40–50k", "2"], ["50–60k", "8"], ["60–70k", "40"], ["70–80k", "74"], ["80–90k", "122"], ["90–100k", "190"], ["100–110k", "2"], ["110–120k", "1"]]}}}];</script>
+  <script src="ee-charts.js"></script>
+  <h2>Alcance de la base</h2>
+  <div class="note">Sin horas de operación ni paros, medimos la utilización contra la capacidad que la planta ya demostró. El valor usa solo las aves documentadas en lista de espera, aunque la capacidad libre de los viernes es mayor.</div>
+  <p class="fuente">Fuente: estudio EE02 sobre bases de PATE (BD05), ene-2025 a sep-2026. Impactos anuales con 21,980,130 aves recibidas en 2025 como base de volumen y $12.3 de contribución por ave.</p>
+  <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
+</div>
+</body>
+</html>

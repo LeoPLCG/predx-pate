@@ -269,6 +269,9 @@ button,input,select,textarea{font-family:inherit}
 cite{font-family:'Courier New',monospace}
 .pdf-placeholder{height:85vh;min-height:900px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed var(--navy3);border-radius:8px;background:var(--navy2);color:var(--gray);font-size:14px;line-height:1.6}
 </style>
+<!--ee:css-->
+<style>.mini-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:4px 0 14px}.mini-kpi{border:1px solid var(--border-soft);border-radius:10px;padding:10px 12px;background:#fff}.mini-kpi .v{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--white);line-height:1.2}.mini-kpi .l{font-size:10.5px;color:var(--gray);margin-top:3px;line-height:1.4}</style>
+<!--/ee:css-->
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}</script>
@@ -620,7 +623,10 @@ cite{font-family:'Courier New',monospace}
         <div class="card-label">Proceso de Levantamiento</div>
         <div class="card-text">
           El PreDx analiza la cadena de valor end-to-end de PATE usando el <b>Modelo de Madurez NMO</b> (5 niveles × 5 dimensiones: Estructura, Procesos, Productividad &amp; Costos, Tablero &amp; Visibilidad, Calidad &amp; Mejora), cuantifica el impacto económico de las ineficiencias con benchmarks de industria, y compara AS-IS vs. TO-BE de clase mundial.<br><br>
-          Cada calificación se respalda con al menos una fuente; ante contradicciones se registra la más conservadora. Agenda: <b>26 sesiones</b> (26 entrevistas + 1 Gemba Walk).
+          Cada calificación se respalda con al menos una fuente; ante contradicciones se registra la más conservadora. Agenda: <b>27 sesiones</b> (26 entrevistas y 1 Gemba Walk).
+<!--ee:met-->
+          <br><br><b>11 estudios estadísticos</b> sobre 4,738 viajes, 440 días de rendimiento y 20 meses de costos (ene-2025 a ago-2026).
+<!--/ee:met-->
         </div>
       </div>
       <div class="card card-teal">
@@ -910,23 +916,50 @@ cite{font-family:'Courier New',monospace}
   <div class="content" id="nmo-list-v1">
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>A1 · Programación de Retiros con Accionistas</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-A1-->
+        <li><b>Cumplimiento del programa</b>: PATE recibió 96.9% de lo programado en 417 días; el 26% de los días quedó más de 5% abajo (ene-2025 a sep-2026).</li>
+        <li><b>Cupo por accionista</b>: Accionista 01 tiene 70.3% de las acciones y entregó 60.8% de las gallinas; Accionista 03 tiene 4.4% y entregó 11.3% (ene a sep 2026).</li>
+        <li><b>Lista de espera</b>: al menos 494,000 aves de productores marcadas como «sin espacio» en 2026.</li>
+<!--/ee:li-A1-->
         <li><b>Hipótesis H02</b>: Desfases en el programa de retiros generan días de baja utilización y picos con horas extra. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>Iván de Jesús Reynaga Navarro</b> (Abastos, mar 06-oct-2026 12:00).</li>
       </ul>
-      <a href="dashboards/A1-programa-retiros.html" class="dashboard-link">Ver estudio estadístico · Cumplimiento programa de retiros</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Abastos · bases BD01, BD02, BD13 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-A1-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">96.9%</div><div class="l">recibido contra programado</div></div><div class="mini-kpi"><div class="v">65%</div><div class="l">días dentro de ±5%</div></div><div class="mini-kpi"><div class="v">494,000</div><div class="l">aves en lista de espera</div></div></div>
+<!--/ee:kpi-A1-->
+      <a href="dashboards/EE04-programa-de-retiros.html" class="dashboard-link">Ver estudio EE04</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Abastos · bases BD01, BD02, BD13 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-A1-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE04 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Abastos.</p>
+<!--/ee:fu-A1-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>A2 · Captura y Transporte</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-A2-->
+        <li><b>DOA por pernocta</b>: el 74% de los viajes se carga el día anterior y llega con 3.23% de ahogadas contra 1.17% en carga del mismo día (4,738 viajes, ene-2025 a ago-2026).</li>
+        <li><b>Calor y pernocta se suman</b>: 4.22% de DOA en meses de calor con pernocta contra 1.03% en meses frescos con carga del día.</li>
+        <li><b>Choferes</b>: entre 25 choferes con 30 viajes o más, el DOA va de 1.9% a 6.9%.</li>
+<!--/ee:li-A2-->
         <li><b>Hipótesis H03</b>: DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H07</b>: Los decomisos se concentran en ciertas granjas o lotes; la retroalimentación a accionistas reduciría pérdidas. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>Iván de Jesús Reynaga Navarro</b> (Abastos, mar 06-oct-2026 12:00).</li>
       </ul>
-      <a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Abastos · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-A2-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">2.71%</div><div class="l">DOA en 20 meses</div></div><div class="mini-kpi"><div class="v">3.23% vs 1.17%</div><div class="l">pernocta contra mismo día</div></div><div class="mini-kpi"><div class="v">$1.9 M</div><div class="l">valor anual</div></div></div>
+<!--/ee:kpi-A2-->
+      <a href="dashboards/EE03-doa-y-decomisos.html" class="dashboard-link">Ver estudio EE03</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Abastos · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-A2-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE03 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Abastos.</p>
+<!--/ee:fu-A2-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>A3 · Recepción, Bienestar y Bioseguridad</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-A3-->
+        <li><b>La Esperanza</b> concentra 21% de las aves recibidas y 39% de las ahogadas, con 4.93% de DOA en 947 viajes (ene-2025 a ago-2026).</li>
+        <li><b>Aves enviadas no recibidas</b>: 373,075 aves (1.0%) sin conciliación documentada por viaje, equivalentes a $1.8 M.</li>
+        <li><b>Decomisos</b>: 0.77% de las aves; ascitis es la causa principal con 156,599 aves.</li>
+<!--/ee:li-A3-->
         <li><b>Hipótesis H03</b>: DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H07</b>: Los decomisos se concentran en ciertas granjas o lotes; la retroalimentación a accionistas reduciría pérdidas. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>Baudelio Morales Sánchez</b> (Colgado y sacrificio, mar 06-oct-2026 12:00).</li>
@@ -934,8 +967,14 @@ cite{font-family:'Courier New',monospace}
         <li>Pendiente de evidencia de la entrevista con <b>Luis Humberto Vázquez Ortíz</b> (TIF (Tipo Inspección Federal), mié 07-oct-2026 15:00).</li>
         <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
       </ul>
-      <a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Colgado y sacrificio, Vigilancia y Báscula, TIF (Tipo Inspección Federal) · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-A3-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">4.93%</div><div class="l">DOA La Esperanza</div></div><div class="mini-kpi"><div class="v">373,075</div><div class="l">aves enviadas no recibidas</div></div><div class="mini-kpi"><div class="v">0.77%</div><div class="l">decomisos</div></div></div>
+<!--/ee:kpi-A3-->
+      <a href="dashboards/EE03-doa-y-decomisos.html" class="dashboard-link">Ver estudio EE03</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Colgado y sacrificio, Vigilancia y Báscula, TIF (Tipo Inspección Federal) · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-A3-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE03 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Colgado y sacrificio, Vigilancia y Báscula, TIF (Tipo Inspección Federal).</p>
+<!--/ee:fu-A3-->
     </div></div>
   </div>
 </section>
@@ -947,6 +986,11 @@ cite{font-family:'Courier New',monospace}
   <div class="content" id="nmo-list-v2">
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O1 · Sacrificio y Capacidad de Línea</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-O1-->
+        <li><b>Aves por día</b>: la planta procesa 85,106 aves de lunes a viernes y el 28% de 440 días quedó debajo de 80,000 (ene-2025 a sep-2026).</li>
+        <li><b>Viernes</b>: procesan 15,474 aves menos que el promedio de lunes a jueves, cerca de 742,757 aves al año de capacidad sin usar.</li>
+        <li><b>Capacidad demostrada</b>: 110,831 aves en un día; a 9,500 aves por hora el promedio equivale a 9.0 horas de línea.</li>
+<!--/ee:li-O1-->
         <li><b>Hipótesis H01</b>: La velocidad efectiva promedio está por debajo de la capacidad nominal por ganchos vacíos, microparos, esperas de abasto y arranques. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>Alejandro Mercado</b> (Gerencia General, lun 05-oct-2026 13:00 (estructura) + mar 06-oct-2026 09:00 (entrevista)).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Gonzalo Eduardo Hernándes Serratos</b> (Producción, mar 06-oct-2026 11:00).</li>
@@ -955,11 +999,22 @@ cite{font-family:'Courier New',monospace}
         <li>Pendiente de evidencia de la entrevista de <b>Eviscerado</b> (responsable por confirmar, mar 06-oct-2026 16:00).</li>
         <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
       </ul>
-      <a href="dashboards/O1-utilizacion-linea.html" class="dashboard-link">Ver estudio estadístico · Utilización de línea, velocidad real y paros</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Gerencia General, Producción, Mejora continua y eficiencia operativa, Colgado y sacrificio, Eviscerado · bases BD03, BD04 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-O1-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">85,106</div><div class="l">aves por día</div></div><div class="mini-kpi"><div class="v">110,831</div><div class="l">máximo demostrado</div></div><div class="mini-kpi"><div class="v">$6.1 M</div><div class="l">valor anual</div></div></div>
+<!--/ee:kpi-O1-->
+      <a href="dashboards/EE02-utilizacion-de-linea.html" class="dashboard-link">Ver estudio EE02</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Gerencia General, Producción, Mejora continua y eficiencia operativa, Colgado y sacrificio, Eviscerado · bases BD03, BD04 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-O1-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE02 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Gerencia General, Producción, Mejora continua y eficiencia operativa, Colgado y sacrificio, Eviscerado.</p>
+<!--/ee:fu-O1-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O2 · Rendimientos y Balance de Masa</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-O2-->
+        <li><b>Rendimiento de carne</b>: 41.8% del kg deshuesado, con desviación diaria de 1.62 pp; en el 90% de los días va de 39.2% a 44.2% (440 días, ene-2025 a sep-2026).</li>
+        <li><b>Contra el peso</b>: la correlación entre peso promedio del ave y carne recuperada es -0.18; la variación viene del proceso de deshuese y recuperación.</li>
+        <li><b>Valor</b>: llevar los días bajo la mediana a la mediana recupera 228 t de carne al año ($3.3 M).</li>
+<!--/ee:li-O2-->
         <li><b>Hipótesis H06</b>: El balance de masa no cierra por pesajes faltantes o bases húmedas/secas mezcladas, ocultando mermas reales. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H04</b>: El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H03</b>: DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura. Pendiente de validar con datos.</li>
@@ -969,11 +1024,22 @@ cite{font-family:'Courier New',monospace}
         <li>Pendiente de evidencia de la entrevista con <b>José Manuel Zavala Gutiérrez</b> (Rendimiento, mié 07-oct-2026 16:00).</li>
         <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
       </ul>
-      <a href="dashboards/O2-balance-de-masa.html" class="dashboard-link">Ver estudio estadístico · Balance de masa y rendimientos (canal / carne / subproductos)</a><a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Producción, Eviscerado, Aseguramiento de calidad, Rendimiento · bases BD01, BD05, BD06 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-O2-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">41.8%</div><div class="l">carne por kg deshuesado</div></div><div class="mini-kpi"><div class="v">1.62 pp</div><div class="l">desviación diaria</div></div><div class="mini-kpi"><div class="v">$3.3 M</div><div class="l">valor anual</div></div></div>
+<!--/ee:kpi-O2-->
+      <a href="dashboards/EE01-balance-de-masa.html" class="dashboard-link">Ver estudio EE01</a><a href="dashboards/EE03-doa-y-decomisos.html" class="dashboard-link">Ver estudio EE03</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Producción, Eviscerado, Aseguramiento de calidad, Rendimiento · bases BD01, BD05, BD06 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-O2-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE01 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Producción, Eviscerado, Aseguramiento de calidad, Rendimiento.</p>
+<!--/ee:fu-O2-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O3 · Deshuese y Valor Agregado</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-O3-->
+        <li><b>Dotación de estaciones</b>: 119 estaciones por día en promedio, con correlación de 0.14 contra las aves del día (ene-2025 a sep-2026).</li>
+        <li><b>Productividad</b>: mediana de 740 aves por estación al día y cuartil superior de 791; con la mediana propia sobran 7.3 estaciones diarias.</li>
+        <li><b>Costo de deshuese</b>: $5.17 por ave en 2025 y $5.27 en 2026, el mayor del proceso.</li>
+<!--/ee:li-O3-->
         <li><b>Hipótesis H06</b>: El balance de masa no cierra por pesajes faltantes o bases húmedas/secas mezcladas, ocultando mermas reales. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H04</b>: El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H15</b>: Rotación y ausentismo en deshuese reducen productividad por la curva de aprendizaje. Pendiente de validar con datos.</li>
@@ -981,8 +1047,14 @@ cite{font-family:'Courier New',monospace}
         <li>Pendiente de evidencia de la entrevista con <b>Ernesto Javier Gómez Medina</b> (Deshuese, pastas y empaque, mar 06-oct-2026 13:00).</li>
         <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
       </ul>
-      <a href="dashboards/O2-balance-de-masa.html" class="dashboard-link">Ver estudio estadístico · Balance de masa y rendimientos (canal / carne / subproductos)</a><a href="dashboards/O3-productividad-deshuese.html" class="dashboard-link">Ver estudio estadístico · Productividad de deshuese (kg/hh)</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mejora continua y eficiencia operativa, Deshuese, pastas y empaque · bases BD01, BD05, BD07, BD12 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-O3-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">740</div><div class="l">aves por estación al día</div></div><div class="mini-kpi"><div class="v">7.3</div><div class="l">estaciones de más por día</div></div><div class="mini-kpi"><div class="v">$7.3 M</div><div class="l">valor anual</div></div></div>
+<!--/ee:kpi-O3-->
+      <a href="dashboards/EE01-balance-de-masa.html" class="dashboard-link">Ver estudio EE01</a><a href="dashboards/EE05-productividad-deshuese.html" class="dashboard-link">Ver estudio EE05</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mejora continua y eficiencia operativa, Deshuese, pastas y empaque · bases BD01, BD05, BD07, BD12 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-O3-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE05 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Mejora continua y eficiencia operativa, Deshuese, pastas y empaque.</p>
+<!--/ee:fu-O3-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O4 · Calidad, Inocuidad y TIF</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
@@ -995,7 +1067,7 @@ cite{font-family:'Courier New',monospace}
         <li>Pendiente de evidencia de la entrevista con <b>Luis Humberto Vázquez Ortíz</b> (TIF (Tipo Inspección Federal), mié 07-oct-2026 15:00).</li>
         <li>Pendiente de observación en el Gemba Walk de planta (lun 05-oct-2026, 16:00).</li>
       </ul>
-      <a href="dashboards/A2-doa-decomisos.html" class="dashboard-link">Ver estudio estadístico · DOA, decomisos y calidad de ave recibida</a>
+      <a href="dashboards/EE03-doa-y-decomisos.html" class="dashboard-link">Ver estudio EE03</a>
       <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Eviscerado, Higiene y sanidad, SGIA, Aseguramiento de calidad, TIF (Tipo Inspección Federal) · bases BD01, BD06 (entrega solicitada vie 09-oct-2026).</p>
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>O5 · Subproductos y Rendering</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
@@ -1005,7 +1077,7 @@ cite{font-family:'Courier New',monospace}
         <li><b>Hipótesis H11</b>: La intensidad energética (rastro y rendering) está por encima de los rangos MTD tras normalizar por t canal / t materia prima. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>Daniel Delgado</b> (Grasas, mar 06-oct-2026 15:00).</li>
       </ul>
-      <a href="dashboards/O2-balance-de-masa.html" class="dashboard-link">Ver estudio estadístico · Balance de masa y rendimientos (canal / carne / subproductos)</a><a href="dashboards/S1-energia-agua-gas.html" class="dashboard-link">Ver estudio estadístico · Consumos de energía, agua y gas</a><a href="dashboards/O5-precio-subproductos.html" class="dashboard-link">Ver estudio estadístico · Precio neto y valorización de subproductos</a>
+      <a href="dashboards/EE01-balance-de-masa.html" class="dashboard-link">Ver estudio EE01</a><a href="dashboards/EE07-energia.html" class="dashboard-link">Ver estudio EE07</a><a href="dashboards/EE09-precio-y-productos.html" class="dashboard-link">Ver estudio EE09</a>
       <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Grasas · bases BD01, BD05, BD09, BD11 (entrega solicitada vie 09-oct-2026).</p>
     </div></div>
   </div>
@@ -1035,12 +1107,23 @@ cite{font-family:'Courier New',monospace}
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>C3 · Comercial, Precio y Clientes</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-C3-->
+        <li><b>Precio de pechuga A</b>: bajó 15.9%, de $60.4 por kg (jun a sep 2025) a $50.8 en 2026; con el mismo volumen son $36.8 M menos de venta al año.</li>
+        <li><b>Producción sin venta</b>: en 20 meses se produjeron 239,400 kg de pechuga y 219,905 kg de pasta más de lo vendido, $15.3 M a precio de 2026.</li>
+        <li><b>Mezcla</b>: pechuga A, pierna y muslo y pasta B suman 75% de la venta anual de $581.2 M.</li>
+<!--/ee:li-C3-->
         <li><b>Hipótesis H10</b>: Existe diferencia material entre el precio realizado de subproductos y su mejor destino alternativo, o flujos que hoy se disponen con costo. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H08</b>: El precio de la carne de gallina se ancla a sustitutos (p. ej., pasta de pollo importada) y el margen es sensible a esa referencia y al tipo de cambio. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>José Roberto Preciado Arriaga</b> (Ventas, almacenes y logística, mar 06-oct-2026 15:00).</li>
       </ul>
-      <a href="dashboards/O5-precio-subproductos.html" class="dashboard-link">Ver estudio estadístico · Precio neto y valorización de subproductos</a><a href="dashboards/F3-cxc-cxp.html" class="dashboard-link">Ver estudio estadístico · CxC &amp; CxP (Cartera)</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Ventas, almacenes y logística · bases BD09, BD14, BD15 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-C3-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">-15.9%</div><div class="l">precio de pechuga A</div></div><div class="mini-kpi"><div class="v">239,400 kg</div><div class="l">pechuga sin venta</div></div><div class="mini-kpi"><div class="v">$15.3 M</div><div class="l">capital de trabajo</div></div></div>
+<!--/ee:kpi-C3-->
+      <a href="dashboards/EE09-precio-y-productos.html" class="dashboard-link">Ver estudio EE09</a><a href="dashboards/EE11-cxc-cxp.html" class="dashboard-link">Ver estudio EE11</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Ventas, almacenes y logística · bases BD09, BD14, BD15 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-C3-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE09 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Ventas, almacenes y logística.</p>
+<!--/ee:fu-C3-->
     </div></div>
   </div>
 </section>
@@ -1062,7 +1145,7 @@ cite{font-family:'Courier New',monospace}
         <li><b>Hipótesis H13</b>: El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
       </ul>
-      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
+      <a href="dashboards/EE08-mantenimiento.html" class="dashboard-link">Ver estudio EE08</a>
       <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M3 · Mantenimiento Preventivo, Predictivo y Autónomo</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
@@ -1071,7 +1154,7 @@ cite{font-family:'Courier New',monospace}
         <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Gabriel Armando Galván Arriaga</b> (Refrigeración, mar 06-oct-2026 14:00).</li>
       </ul>
-      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
+      <a href="dashboards/EE08-mantenimiento.html" class="dashboard-link">Ver estudio EE08</a>
       <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento, Refrigeración · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M4 · Confiabilidad y Análisis de Fallas</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
@@ -1079,24 +1162,47 @@ cite{font-family:'Courier New',monospace}
         <li><b>Hipótesis H13</b>: El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
       </ul>
-      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
+      <a href="dashboards/EE08-mantenimiento.html" class="dashboard-link">Ver estudio EE08</a>
       <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M5 · Refacciones y Almacén MRO</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-M5-->
+        <li><b>Refacciones</b>: $21.7 M al año; por ave va de $0.46 a $2.03 según el mes, sin patrón ligado al volumen (ene-2025 a ago-2026).</li>
+        <li><b>Sin órdenes de trabajo</b>: no se calcula MTBF, MTTR ni el porcentaje de mantenimiento correctivo.</li>
+<!--/ee:li-M5-->
         <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Ana Carolina Loza Rubio</b> (Compras, mié 07-oct-2026 10:00).</li>
       </ul>
+<!--ee:kpi-M5-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">$21.7 M</div><div class="l">refacciones al año</div></div><div class="mini-kpi"><div class="v">$0.46 a $2.03</div><div class="l">refacciones por ave</div></div><div class="mini-kpi"><div class="v">$4.9 M</div><div class="l">valor anual indicativo</div></div></div>
+<!--/ee:kpi-M5-->
+<!--ee:lk-M5-->
+      <a href="dashboards/EE08-mantenimiento.html" class="dashboard-link">Ver estudio EE08</a>
+<!--/ee:lk-M5-->
       
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento, Compras.</p>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento, Compras.</p>:ee-orig-->
+<!--ee:fu-M5-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE08 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Mantenimiento, Compras..</p>
+<!--/ee:fu-M5-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>M6 · Costo y Desempeño de Mantenimiento</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-M6-->
+        <li><b>Gasto por ave</b>: mantenimiento y refacciones van de $1.19 a $3.20 por ave al mes y varían 29% mes a mes (ene-2025 a ago-2026).</li>
+        <li><b>Paros sin registro</b>: hubo 68 días con lo recibido más de 10% debajo del programa; sin bitácora no se sabe cuántos fueron por falla de equipo.</li>
+<!--/ee:li-M6-->
         <li><b>Hipótesis H13</b>: El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>José de Jesús Vega Meza</b> (Mantenimiento, mar 06-oct-2026 14:00).</li>
       </ul>
-      <a href="dashboards/M4-confiabilidad-mantenimiento.html" class="dashboard-link">Ver estudio estadístico · Mantenimiento (MTBF / MTTR / % correctivo)</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-M6-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">$1.19 a $3.20</div><div class="l">gasto por ave al mes</div></div><div class="mini-kpi"><div class="v">29%</div><div class="l">variación mes a mes</div></div><div class="mini-kpi"><div class="v">$4.9 M</div><div class="l">valor anual indicativo</div></div></div>
+<!--/ee:kpi-M6-->
+      <a href="dashboards/EE08-mantenimiento.html" class="dashboard-link">Ver estudio EE08</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Mantenimiento · bases BD04, BD10 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-M6-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE08 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Mantenimiento.</p>
+<!--/ee:fu-M6-->
     </div></div>
   </div>
 </section>
@@ -1108,29 +1214,59 @@ cite{font-family:'Courier New',monospace}
   <div class="content" id="nmo-list-v5">
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>F1 · Costeo por Ave y por Kg</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-F1-->
+        <li><b>Costo fijo y variable</b>: el costo de proceso se explica como $18.7 M fijos al mes más $7.21 por ave (ene-2025 a ago-2026).</li>
+        <li><b>Costo por ave</b>: mediana de $17.40, con rango de $14.47 a $23.44 en 20 meses; depende del volumen procesado.</li>
+<!--/ee:li-F1-->
         <li><b>Hipótesis H16</b>: El costo del servicio de retiro al accionista no está separado del resultado industrial, generando subsidios cruzados no visibles. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista de <b>Contraloría</b> (responsable por confirmar, mar 06-oct-2026 10:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Bernardina Aceves Galindo</b> (Contabilidad, mié 07-oct-2026 11:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Ana Isabel Macías Ruíz</b> (Nómina, mié 07-oct-2026 13:00).</li>
       </ul>
-      <a href="dashboards/F1-costo-por-ave.html" class="dashboard-link">Ver estudio estadístico · Costo por ave y por kg</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Contraloría, Contabilidad, Nómina · bases BD08, BD09, BD16 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-F1-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">$17.40</div><div class="l">costo de proceso por ave</div></div><div class="mini-kpi"><div class="v">$18.7 M</div><div class="l">costo fijo al mes</div></div><div class="mini-kpi"><div class="v">$21.6 M</div><div class="l">techo anual, no se suma</div></div></div>
+<!--/ee:kpi-F1-->
+      <a href="dashboards/EE06-costo-por-ave.html" class="dashboard-link">Ver estudio EE06</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Contraloría, Contabilidad, Nómina · bases BD08, BD09, BD16 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-F1-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE06 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Contraloría, Contabilidad, Nómina.</p>
+<!--/ee:fu-F1-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>F2 · Rentabilidad por Segmento y Servicio al Accionista</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-F2-->
+        <li><b>Meses con margen negativo</b>: el margen de contribución por ave fue negativo en 4 de 20 meses: dic-25 (−$6.24), feb-26 (−$3.53), abr-26 (−$0.67) y ago-26 (−$0.83).</li>
+        <li><b>Materia prima por ave</b>: bajó de $10.04 en dic-25 a $5.74 en ago-26 y el margen no se recuperó, porque el costo de proceso subió en los mismos meses.</li>
+<!--/ee:li-F2-->
         <li><b>Hipótesis H16</b>: El costo del servicio de retiro al accionista no está separado del resultado industrial, generando subsidios cruzados no visibles. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista de <b>Contraloría</b> (responsable por confirmar, mar 06-oct-2026 10:00).</li>
       </ul>
-      <a href="dashboards/F1-costo-por-ave.html" class="dashboard-link">Ver estudio estadístico · Costo por ave y por kg</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Contraloría · bases BD08, BD09, BD16 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-F2-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">$1.98</div><div class="l">margen por ave</div></div><div class="mini-kpi"><div class="v">4 de 20</div><div class="l">meses con margen negativo</div></div><div class="mini-kpi"><div class="v">$12.3</div><div class="l">contribución por ave</div></div></div>
+<!--/ee:kpi-F2-->
+      <a href="dashboards/EE06-costo-por-ave.html" class="dashboard-link">Ver estudio EE06</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Contraloría · bases BD08, BD09, BD16 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-F2-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE06 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Contraloría.</p>
+<!--/ee:fu-F2-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>F3 · Capital de Trabajo, Tesorería y Activos</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-F3-->
+        <li><b>Base pendiente</b>: el estudio de cuentas por cobrar y por pagar requiere BD14 (cartera de clientes), BD15 (proveedores y accionistas) y BD16 (liquidación por lote).</li>
+        <li><b>Capital de trabajo</b>: cada día de cobro vale cerca de $1.6 M sobre ventas de $581.2 M al año; la producción sin venta de 20 meses equivale a $15.3 M (EE09).</li>
+<!--/ee:li-F3-->
         <li>Pendiente de evidencia de la entrevista con <b>Ana Carolina Loza Rubio</b> (Compras, mié 07-oct-2026 10:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Sarai Castellanos Navarro</b> (Tesorería, mié 07-oct-2026 11:00).</li>
       </ul>
-      <a href="dashboards/F3-cxc-cxp.html" class="dashboard-link">Ver estudio estadístico · CxC &amp; CxP (Cartera)</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Compras, Tesorería · bases BD09, BD14, BD15 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-F3-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">$581.2 M</div><div class="l">ventas al año</div></div><div class="mini-kpi"><div class="v">$1.6 M</div><div class="l">por día de cobro</div></div><div class="mini-kpi"><div class="v">$15.3 M</div><div class="l">producción sin venta</div></div></div>
+<!--/ee:kpi-F3-->
+      <a href="dashboards/EE11-cxc-cxp.html" class="dashboard-link">Ver estudio EE11</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Compras, Tesorería · bases BD09, BD14, BD15 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-F3-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE11 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Compras, Tesorería.</p>
+<!--/ee:fu-F3-->
     </div></div>
   </div>
 </section>
@@ -1172,17 +1308,32 @@ cite{font-family:'Courier New',monospace}
   <div class="content" id="nmo-list-v7">
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>S1 · Servicios Industriales y Ambiente</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-S1-->
+        <li><b>Energía eléctrica por ave</b>: pasó de $1.03 (mediana 2025) a $1.27 (promedio 2026), un alza de 23%; marzo 2026 marca el pico con $1.85.</li>
+        <li><b>Gas por ave</b>: se mantuvo entre $0.71 y $0.73; el alza viene de tarifa o de demanda eléctrica.</li>
+<!--/ee:li-S1-->
         <li><b>Hipótesis H11</b>: La intensidad energética (rastro y rendering) está por encima de los rangos MTD tras normalizar por t canal / t materia prima. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H12</b>: El consumo y la descarga de agua por t canal son altos; hay oportunidad de reducción sin comprometer inocuidad. Pendiente de validar con datos.</li>
         <li>Pendiente de evidencia de la entrevista con <b>Gabriel Armando Galván Arriaga</b> (Refrigeración, mar 06-oct-2026 14:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Pedro Gómez Díaz</b> (Higiene y sanidad, mié 07-oct-2026 10:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Ana Laura Villalobos Sánchez</b> (Medio ambiente, mié 07-oct-2026 12:00).</li>
       </ul>
-      <a href="dashboards/S1-energia-agua-gas.html" class="dashboard-link">Ver estudio estadístico · Consumos de energía, agua y gas</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Refrigeración, Higiene y sanidad, Medio ambiente · bases BD05, BD11 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-S1-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">$1.03 a $1.27</div><div class="l">energía eléctrica por ave</div></div><div class="mini-kpi"><div class="v">$28.0 M</div><div class="l">energía al año</div></div><div class="mini-kpi"><div class="v">$5.3 M</div><div class="l">valor anual</div></div></div>
+<!--/ee:kpi-S1-->
+      <a href="dashboards/EE07-energia.html" class="dashboard-link">Ver estudio EE07</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Refrigeración, Higiene y sanidad, Medio ambiente · bases BD05, BD11 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-S1-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE07 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Refrigeración, Higiene y sanidad, Medio ambiente.</p>
+<!--/ee:fu-S1-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>S2 · Capital Humano y Seguridad</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
+<!--ee:li-S2-->
+        <li><b>Horas extra dobles</b>: 13.0% de los sueldos, $14.5 M al año; nunca bajan de 8.3% (ene-2025 a ago-2026).</li>
+        <li><b>Premios de asistencia y puntualidad</b>: 18.4% de los sueldos ($20.6 M al año), con variación de 0.17 pp entre meses.</li>
+        <li><b>Meta</b>: con horas extra a 8% de los sueldos el ahorro es $5.5 M al año; a 5% sería $8.9 M.</li>
+<!--/ee:li-S2-->
         <li><b>Hipótesis H04</b>: El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H15</b>: Rotación y ausentismo en deshuese reducen productividad por la curva de aprendizaje. Pendiente de validar con datos.</li>
         <li><b>Hipótesis H14</b>: La dotación indirecta y de apoyo es alta respecto de la directa; la supervisión y polivalencia son limitadas. Pendiente de validar con datos.</li>
@@ -1190,8 +1341,14 @@ cite{font-family:'Courier New',monospace}
         <li>Pendiente de evidencia de la entrevista con <b>Jesús Emmanuel Valle Sánchez</b> (RR.HH., mié 07-oct-2026 14:00).</li>
         <li>Pendiente de evidencia de la entrevista con <b>Jose Manuel Orozco Fonseca</b> (Seguridad e higiene, mié 07-oct-2026 14:00).</li>
       </ul>
-      <a href="dashboards/O3-productividad-deshuese.html" class="dashboard-link">Ver estudio estadístico · Productividad de deshuese (kg/hh)</a><a href="dashboards/S2-plantilla-rotacion.html" class="dashboard-link">Ver estudio estadístico · Plantilla, ausentismo, horas extra y rotación</a>
-      <p class="card-text" style="margin-top:14px">Fuente: entrevistas con Nómina, RR.HH., Seguridad e higiene · bases BD07, BD12, BD13 (entrega solicitada vie 09-oct-2026).</p>
+<!--ee:kpi-S2-->
+      <div class="mini-kpis"><div class="mini-kpi"><div class="v">13.0%</div><div class="l">horas extra sobre sueldos</div></div><div class="mini-kpi"><div class="v">$14.5 M</div><div class="l">horas extra al año</div></div><div class="mini-kpi"><div class="v">$5.5 M</div><div class="l">valor anual</div></div></div>
+<!--/ee:kpi-S2-->
+      <a href="dashboards/EE05-productividad-deshuese.html" class="dashboard-link">Ver estudio EE05</a><a href="dashboards/EE10-plantilla-y-horas-extra.html" class="dashboard-link">Ver estudio EE10</a>
+      <!--ee-orig:<p class="card-text" style="margin-top:14px">Fuente: entrevistas con Nómina, RR.HH., Seguridad e higiene · bases BD07, BD12, BD13 (entrega solicitada vie 09-oct-2026).</p>:ee-orig-->
+<!--ee:fu-S2-->
+      <p class="card-text" style="margin-top:14px">Fuente: estudio EE10 sobre bases de PATE, ene-2025 a ago-2026 · entrevistas con Nómina, RR.HH., Seguridad e higiene.</p>
+<!--/ee:fu-S2-->
     </div></div>
     <div class="nmo-card"><div class="nmo-hdr" onclick="toggleNmo(this)"><div><b>TX · Gobierno y Gestión</b> <span class="nmo-level-badge lvl-Pendiente">Nivel Pendiente</span></div><span class="nmo-arrow">▶</span></div><div class="nmo-body">
       <ul class="findings-list">
@@ -1231,10 +1388,18 @@ cite{font-family:'Courier New',monospace}
   <div class="hero"><div class="tag">Resumen Ejecutivo de Hallazgos</div><h1>Lo que <span>Encontramos</span></h1>
     <p class="sub">Síntesis de todo el levantamiento: madurez por grupo, hallazgos clave y oportunidades. Se integra al cerrar entrevistas, Gemba Walk y análisis de datos.</p></div>
   <div class="content">
+<!--ee:res-->
+    <div class="sec-header"><div class="act">Estudios estadísticos · ene-2025 a ago-2026</div><h2 style="font-size:18px">Lo que dicen los datos</h2></div>
+    <p class="narrative">Procesamos 4,738 viajes de abasto, 440 días de rendimiento y 20 meses de costos de PATE. Cada ave que entra y se procesa, o que se pierde, vale <b>$12.3</b> de contribución. Comparamos cada indicador contra el mejor desempeño que la propia planta ya demostró.</p>
+    <div class="stat-hero-grid"><div class="stat-hero-card" style="--c:#00806A"><div class="lbl">Escenario conservador</div><div class="num">$16.5 M</div><div class="desc">al año · EE01, EE02, EE03 y EE07, que no se traslapan entre sí</div></div><div class="stat-hero-card" style="--c:#3E63B0"><div class="lbl">Escenario ampliado</div><div class="num">$34.2 M</div><div class="desc">al año · suma EE05, EE10 y EE08, que comparten base de mano de obra y gasto</div></div><div class="stat-hero-card" style="--c:#9A6B00"><div class="lbl">Capital de trabajo</div><div class="num">$15.3 M</div><div class="desc">una sola vez · pechuga y pasta producidas sin venta en 20 meses (EE09)</div></div></div>
+    <div class="card mb32"><div class="card-label">Conclusiones</div><ol class="findings-list"><li><b>El volumen es la palanca mayor.</b> El costo de proceso se comporta como fijo ($18.7 M al mes más $7.21 por ave). Hay 494,000 aves en lista de espera y los viernes procesan 15,474 aves menos que el resto de la semana.</li><li><b>Hace falta control de la espera del ave en camión.</b> El 74% de los viajes se carga el día anterior y esos viajes tienen 3.23% de ahogadas contra 1.17% en carga del mismo día.</li><li><b>Hace falta control estadístico del rendimiento diario.</b> La carne recuperada varía 1.62 pp entre días y el peso del ave explica poco de esa variación.</li><li><b>La dotación de deshuese no sigue al volumen del día.</b> La correlación entre aves y estaciones es 0.14. Con la productividad mediana de la planta sobran 7.3 estaciones diarias.</li><li><b>Falta trazabilidad de consumos y de mantenimiento.</b> La energía por ave subió 23% y el gasto de mantenimiento varía 29% mes a mes sin órdenes de trabajo que lo expliquen.</li></ol></div>
+    <table class="mb32"><thead><tr><th>Estudio</th><th>Brecha</th><th>Dato</th><th>Impacto anual</th><th>Base</th></tr></thead><tbody><tr><td><a href="dashboards/EE01-balance-de-masa.html" style="color:var(--teal-dark);font-weight:700">EE01</a></td><td>Rendimiento de carne</td><td>1.62 pp de variación diaria</td><td><b>$3.3 M</b></td><td>Alta</td></tr><tr><td><a href="dashboards/EE02-utilizacion-de-linea.html" style="color:var(--teal-dark);font-weight:700">EE02</a></td><td>Volumen y viernes</td><td>15,474 aves menos cada viernes</td><td><b>$6.1 M</b></td><td>Parcial</td></tr><tr><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>DOA</td><td>2.71% contra 2.01% de la granja mediana</td><td><b>$1.9 M</b></td><td>Alta</td></tr><tr><td><a href="dashboards/EE07-energia.html" style="color:var(--teal-dark);font-weight:700">EE07</a></td><td>Energía eléctrica</td><td>+23% por ave en 2026</td><td><b>$5.3 M</b></td><td>Baja</td></tr><tr><td><a href="dashboards/EE05-productividad-deshuese.html" style="color:var(--teal-dark);font-weight:700">EE05</a></td><td>Dotación de deshuese</td><td>7.3 estaciones sobre la mediana por día</td><td><b>$7.3 M</b></td><td>Media</td></tr><tr><td><a href="dashboards/EE10-plantilla-y-horas-extra.html" style="color:var(--teal-dark);font-weight:700">EE10</a></td><td>Horas extra</td><td>13.0% de la nómina contra meta de 8%</td><td><b>$5.5 M</b></td><td>Baja</td></tr><tr><td><a href="dashboards/EE08-mantenimiento.html" style="color:var(--teal-dark);font-weight:700">EE08</a></td><td>Mantenimiento</td><td>Variación de 29% en gasto por ave</td><td><b>$4.9 M</b></td><td>Indicativa</td></tr></tbody></table>
+    <p class="card-text mb32">EE06 marca un techo de $21.6 M al año si cada mes operara al costo de proceso mediano. Ese techo contiene EE05, EE07, EE08 y EE10, por eso no se suma. EE04 comparte volumen con EE02 y EE11 no tiene base todavía. Impactos anuales con 21,980,130 aves recibidas en 2025 como base de volumen. Fuente: estudios EE01 a EE11 sobre bases de PATE, ene-2025 a ago-2026.</p>
+<!--/ee:res-->
     <div class="kpi-grid mb32">
       <div class="kpi-card"><div class="kpi-label">NMO Promedio</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">26 pilares + gestión</div></div>
       <div class="kpi-card"><div class="kpi-label">Oportunidades</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">20 candidatas en validación</div></div>
-      <div class="kpi-card"><div class="kpi-label">Impacto estimado</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Con datos reales del cliente</div></div>
+      <div class="kpi-card"><div class="kpi-label">Impacto estimado</div><div class="kpi-val">$16.5 M</div><div class="kpi-desc">escenario conservador al año · ampliado $34.2 M</div></div>
       <div class="kpi-card"><div class="kpi-label">Sesiones procesadas</div><div class="kpi-val">0 / 27</div><div class="kpi-desc">Entrevistas + Gemba Walk</div></div>
     </div>
     <table class="mb32"><thead><tr><th>Grupo</th><th>Pilares</th><th>NMO</th><th>Hallazgo clave</th><th>Oportunidades</th></tr></thead><tbody>
@@ -1256,10 +1421,13 @@ cite{font-family:'Courier New',monospace}
   <div class="hero"><div class="tag">Mapa de Oportunidades</div><h1>Inventario <span>Priorizado</span></h1>
     <p class="sub">Impacto × viabilidad. Quick Wins vs. Estructurales.</p></div>
   <div class="content">
+<!--ee:mapa-->
+    <p class="narrative">Impacto anual de los estudios estadísticos, ene-2025 a ago-2026. Las oportunidades sin estudio quedan por cuantificar con entrevistas y bases pendientes.</p>
     <table>
-      <thead><tr><th>ID</th><th>Oportunidad</th><th>Pilar</th><th>Impacto</th><th>Urgencia</th><th>Viabilidad</th><th>Tipo</th></tr></thead>
-      <tbody><tr><td>OPP-001</td><td>Pendiente · se identificará al procesar entrevistas y documentos</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr></tbody>
+      <thead><tr><th>ID</th><th>Oportunidad</th><th>Pilar</th><th>Impacto anual</th><th>Fuente</th><th>Viabilidad</th><th>Tipo</th></tr></thead>
+      <tbody><tr><td>OPP-001</td><td>La velocidad efectiva promedio está por debajo de la capacidad nominal por ganchos vacíos, microparos, esperas de abasto y arranques.</td><td>O1</td><td><b>$6.1 M</b></td><td><a href="dashboards/EE02-utilizacion-de-linea.html" style="color:var(--teal-dark);font-weight:700">EE02</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-002</td><td>Desfases en el programa de retiros generan días de baja utilización y picos con horas extra.</td><td>A1, S2</td><td><b>Incluido en EE02</b></td><td><a href="dashboards/EE04-programa-de-retiros.html" style="color:var(--teal-dark);font-weight:700">EE04</a></td><td>Quick Win</td><td>Quick Win</td></tr><tr><td>OPP-003</td><td>DOA, fracturas y merma de peso vivo aumentan con distancia, tiempo de espera, calor y método de captura.</td><td>A2, A3</td><td><b>$1.9 M</b></td><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-004</td><td>El rendimiento de carne varía significativamente entre operadores, mesas y turnos; nivelar al cuartil superior interno libera kg sin materia prima adicional.</td><td>O3, O2</td><td><b>$3.3 M (hasta $5.9 M)</b></td><td><a href="dashboards/EE01-balance-de-masa.html" style="color:var(--teal-dark);font-weight:700">EE01</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-005</td><td>Carne residual en armazones se destina a harina de menor valor; su recuperación podría elevar el ingreso por ave (sujeto a viabilidad técnica, sanitaria y de mercado).</td><td>O3, O5</td><td><b>Por cuantificar</b></td><td>·</td><td>Compleja</td><td>Estratégico</td></tr><tr><td>OPP-006</td><td>El balance de masa no cierra por pesajes faltantes o bases húmedas/secas mezcladas, ocultando mermas reales.</td><td>O2</td><td><b>Habilita</b></td><td><a href="dashboards/EE01-balance-de-masa.html" style="color:var(--teal-dark);font-weight:700">EE01</a></td><td>Quick Win</td><td>Quick Win</td></tr><tr><td>OPP-007</td><td>Los decomisos se concentran en ciertas granjas o lotes; la retroalimentación a accionistas reduciría pérdidas.</td><td>O4, O2</td><td><b>Por cuantificar · decomisos 0.77%</b></td><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>Quick Win</td><td>Quick Win</td></tr><tr><td>OPP-008</td><td>El precio de la carne de gallina se ancla a sustitutos (p. ej., pasta de pollo importada) y el margen es sensible a esa referencia y al tipo de cambio.</td><td>C3</td><td><b>Exposición $36.8 M de venta</b></td><td><a href="dashboards/EE09-precio-y-productos.html" style="color:var(--teal-dark);font-weight:700">EE09</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-009</td><td>La concentración de clientes embutidores y la ausencia de contratos elevan riesgo de margen y de inventario.</td><td>C3, O4, C2</td><td><b>Por cuantificar</b></td><td>·</td><td>Quick Win</td><td>Quick Win</td></tr><tr><td>OPP-010</td><td>Existe diferencia material entre el precio realizado de subproductos y su mejor destino alternativo, o flujos que hoy se disponen con costo.</td><td>O5</td><td><b>Por cuantificar</b></td><td>·</td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-011</td><td>La intensidad energética (rastro y rendering) está por encima de los rangos MTD tras normalizar por t canal / t materia prima.</td><td>S1, O5</td><td><b>$5.3 M</b></td><td><a href="dashboards/EE07-energia.html" style="color:var(--teal-dark);font-weight:700">EE07</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-012</td><td>El consumo y la descarga de agua por t canal son altos; hay oportunidad de reducción sin comprometer inocuidad.</td><td>S1</td><td><b>Por cuantificar</b></td><td>·</td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-013</td><td>El mantenimiento es predominantemente reactivo; fallas en equipos críticos causan paros no programados relevantes.</td><td>O1, M1, M2, M3, M4</td><td><b>$4.9 M indicativo</b></td><td><a href="dashboards/EE08-mantenimiento.html" style="color:var(--teal-dark);font-weight:700">EE08</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-014</td><td>La dotación indirecta y de apoyo es alta respecto de la directa; la supervisión y polivalencia son limitadas.</td><td>S2</td><td><b>$7.3 M</b></td><td><a href="dashboards/EE05-productividad-deshuese.html" style="color:var(--teal-dark);font-weight:700">EE05</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-015</td><td>Rotación y ausentismo en deshuese reducen productividad por la curva de aprendizaje.</td><td>S2, O3</td><td><b>$5.5 M</b></td><td><a href="dashboards/EE10-plantilla-y-horas-extra.html" style="color:var(--teal-dark);font-weight:700">EE10</a></td><td>Moderada</td><td>Estructural</td></tr><tr><td>OPP-016</td><td>El costo del servicio de retiro al accionista no está separado del resultado industrial, generando subsidios cruzados no visibles.</td><td>A2, F1, F2</td><td><b>Techo $21.6 M, no se suma</b></td><td><a href="dashboards/EE06-costo-por-ave.html" style="color:var(--teal-dark);font-weight:700">EE06</a></td><td>Compleja</td><td>Estratégico</td></tr><tr><td>OPP-017</td><td>Días de inventario elevados o capacidad de cámaras restringida limitan flujo y elevan merma.</td><td>C1</td><td><b>$15.3 M una vez</b></td><td><a href="dashboards/EE09-precio-y-productos.html" style="color:var(--teal-dark);font-weight:700">EE09</a></td><td>Quick Win</td><td>Quick Win</td></tr><tr><td>OPP-018</td><td>Báscula, producción y ventas no concilian; la calidad del dato limita la gestión por indicadores.</td><td>T2, A2</td><td><b>$1.8 M sin conciliar</b></td><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>Quick Win</td><td>Quick Win</td></tr><tr><td>OPP-019</td><td>Eventos sanitarios regionales generan picos no planeados de retiro que tensan capacidad y logística.</td><td>A1, A3</td><td><b>Por cuantificar</b></td><td>·</td><td>Quick Win</td><td>Quick Win</td></tr><tr><td>OPP-020</td><td>El cumplimiento de tiempos de sacrificio, temperatura y PCC es heterogéneo entre turnos.</td><td>A3, O4, C1</td><td><b>Por cuantificar</b></td><td>·</td><td>Quick Win</td><td>Quick Win</td></tr></tbody>
     </table>
+<!--/ee:mapa-->
   </div>
 </section>
 
@@ -1274,6 +1442,12 @@ cite{font-family:'Courier New',monospace}
       <div class="kpi-card"><div class="kpi-label">Inversión</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">A estimar con el equipo y presupuesto de implementación</div></div>
       <div class="kpi-card"><div class="kpi-label">ROI Estimado</div><div class="kpi-val">Pendiente</div><div class="kpi-desc">Se calculará sobre el inventario de oportunidades priorizado</div></div>
     </div>
+<!--ee:road-->
+    <div class="sec-header"><div class="act">0 a 3 meses</div><h2 style="font-size:18px">Iniciativas de arranque · 25 gaps de los estudios</h2></div>
+    <div style="overflow-x:auto"><table class="mb32"><thead><tr><th>Iniciativa</th><th>Estudio</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Control estadístico diario de gramos por ave por producto, con límites por peso promedio y revisión en junta de arranque.</td><td><a href="dashboards/EE01-balance-de-masa.html" style="color:var(--teal-dark);font-weight:700">EE01</a></td><td>Días bajo la mediana ≤ 25%</td><td>O2 · Producción y Calidad</td><td><b>$3.3 M</b></td><td>0 a 3 meses</td></tr><tr><td>Auditar la recuperación de pasta B en los días de menor rendimiento: ajuste de separadora y repaso de estructuras.</td><td><a href="dashboards/EE01-balance-de-masa.html" style="color:var(--teal-dark);font-weight:700">EE01</a></td><td>Pasta B ≥ 352 g por ave</td><td>O3 · Deshuese</td><td><b>hasta $5.9 M</b></td><td>1 a 3 meses</td></tr><tr><td>Pesaje por lote de vivo, canal, carne y hueso para atribuir rendimiento a proveedor, granja y turno (BD05).</td><td><a href="dashboards/EE01-balance-de-masa.html" style="color:var(--teal-dark);font-weight:700">EE01</a></td><td>100% de lotes con balance</td><td>O2 · Producción</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Nivelar la programación semanal y asignar los viernes a la lista de espera.</td><td><a href="dashboards/EE02-utilizacion-de-linea.html" style="color:var(--teal-dark);font-weight:700">EE02</a></td><td>Viernes ≥ 85,000 aves</td><td>A1 · Abasto y Programación</td><td><b>$6.1 M</b></td><td>0 a 3 meses</td></tr><tr><td>Registrar horas reales de línea por día y bitácora de paros por causa (BD03 y BD04).</td><td><a href="dashboards/EE02-utilizacion-de-linea.html" style="color:var(--teal-dark);font-weight:700">EE02</a></td><td>OEE medido cada semana</td><td>O1 · Producción y Mantenimiento</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Confirmar con TIF la velocidad autorizada y la capacidad por etapa: colgado, evisceración, enfriamiento y deshuese.</td><td><a href="dashboards/EE02-utilizacion-de-linea.html" style="color:var(--teal-dark);font-weight:700">EE02</a></td><td>Cuello de botella identificado</td><td>O1 · Gerencia de Planta</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Programar la carga para sacrificio del mismo día o limitar la espera en camión, empezando por los meses de calor.</td><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>DOA ≤ 2.01%</td><td>A2 · Abasto y Transporte</td><td><b>$1.9 M</b></td><td>0 a 3 meses</td></tr><tr><td>Protocolo específico para La Esperanza: horario de carga, densidad por jaula y sombra y ventilación en la espera.</td><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>DOA La Esperanza ≤ 3.0%</td><td>A2 y A3 · Abasto con el accionista</td><td><b>Incluido arriba</b></td><td>0 a 3 meses</td></tr><tr><td>Tablero mensual de DOA por chofer y transportista, con retroalimentación y capacitación de manejo.</td><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>Brecha entre choferes ≤ 1.5 pp</td><td>A2 · Abasto</td><td><b>Incluido arriba</b></td><td>1 mes</td></tr><tr><td>Conciliar aves enviadas contra recibidas en cada viaje, con conteo en granja y en andén.</td><td><a href="dashboards/EE03-doa-y-decomisos.html" style="color:var(--teal-dark);font-weight:700">EE03</a></td><td>Diferencia ≤ 0.3%</td><td>A3 · Abasto y Administración</td><td><b>$1.8 M sin conciliar</b></td><td>1 mes</td></tr><tr><td>Programa semanal con confirmación a 48 horas y sustitución desde la lista de espera cuando un proveedor baja.</td><td><a href="dashboards/EE04-programa-de-retiros.html" style="color:var(--teal-dark);font-weight:700">EE04</a></td><td>Días dentro de ±5% ≥ 85%</td><td>A1 · Abasto</td><td><b>Incluido en EE02</b></td><td>0 a 3 meses</td></tr><tr><td>Registrar la causa de cada incumplimiento: granja no lista, transporte o planta.</td><td><a href="dashboards/EE04-programa-de-retiros.html" style="color:var(--teal-dark);font-weight:700">EE04</a></td><td>100% de desviaciones con causa</td><td>A1 · Abasto</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Tabla de dotación diaria: estaciones según aves programadas a 740 aves por estación, con reasignación a empaque y pastas.</td><td><a href="dashboards/EE05-productividad-deshuese.html" style="color:var(--teal-dark);font-weight:700">EE05</a></td><td>Estaciones = aves ÷ 740 ± 3</td><td>O3 y S2 · Deshuese y Capital Humano</td><td><b>$7.3 M</b></td><td>1 a 3 meses</td></tr><tr><td>Medición por mesa y turno de kg de carne por estación-hora, con estándar visible en piso (BD07).</td><td><a href="dashboards/EE05-productividad-deshuese.html" style="color:var(--teal-dark);font-weight:700">EE05</a></td><td>Dispersión entre mesas ≤ 10%</td><td>O3 · Deshuese</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Evitar sábados de bajo volumen o consolidarlos en días completos.</td><td><a href="dashboards/EE05-productividad-deshuese.html" style="color:var(--teal-dark);font-weight:700">EE05</a></td><td>Sin turnos bajo 600 aves por estación</td><td>A1 y O3 · Programación</td><td><b>Incluido arriba</b></td><td>0 a 3 meses</td></tr><tr><td>Presupuesto flexible por centro de costo con costo estándar por ave y revisión mensual de desviaciones.</td><td><a href="dashboards/EE06-costo-por-ave.html" style="color:var(--teal-dark);font-weight:700">EE06</a></td><td>Costo de proceso ≤ $17.40 por ave</td><td>F1 · Administración y Finanzas</td><td><b>techo $21.6 M</b></td><td>1 a 3 meses</td></tr><tr><td>Cierre mensual con margen por ave y alerta cuando quede debajo de cero.</td><td><a href="dashboards/EE06-costo-por-ave.html" style="color:var(--teal-dark);font-weight:700">EE06</a></td><td>0 meses con margen negativo</td><td>F2 · Finanzas</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Normalizar el costo por semanas de nómina pagadas en el mes para comparar meses de 4 y 5 semanas.</td><td><a href="dashboards/EE06-costo-por-ave.html" style="color:var(--teal-dark);font-weight:700">EE06</a></td><td>Costo por ave semanal</td><td>F1 · Contabilidad</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Revisión de tarifa eléctrica, demanda máxima contratada y factor de potencia con los recibos disponibles.</td><td><a href="dashboards/EE07-energia.html" style="color:var(--teal-dark);font-weight:700">EE07</a></td><td>Energía ≤ $1.03 por ave</td><td>S1 · Servicios Industriales</td><td><b>$5.3 M</b></td><td>0 a 3 meses</td></tr><tr><td>Aclarar el cargo de marzo 2026 con el proveedor de energía.</td><td><a href="dashboards/EE07-energia.html" style="color:var(--teal-dark);font-weight:700">EE07</a></td><td>Conciliación del recibo</td><td>S1 · Administración</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Registrar cada orden de trabajo con equipo, tipo, causa, horas y refacciones (BD10).</td><td><a href="dashboards/EE08-mantenimiento.html" style="color:var(--teal-dark);font-weight:700">EE08</a></td><td>100% de OT registradas</td><td>M1 y M5 · Mantenimiento</td><td><b>Habilita</b></td><td>1 mes</td></tr><tr><td>Conciliar inventario de producto terminado contra producción y venta, con rotación por fecha de caducidad.</td><td><a href="dashboards/EE09-precio-y-productos.html" style="color:var(--teal-dark);font-weight:700">EE09</a></td><td>Diferencia ≤ 1 semana de producción</td><td>C1 y F3 · Almacén y Finanzas</td><td><b>$15.3 M una vez</b></td><td>0 a 3 meses</td></tr><tr><td>Margen por producto y cliente, incluyendo el flete de venta.</td><td><a href="dashboards/EE09-precio-y-productos.html" style="color:var(--teal-dark);font-weight:700">EE09</a></td><td>Margen neto por kg</td><td>C3 y F2 · Ventas y Finanzas</td><td><b>Habilita</b></td><td>1 a 3 meses</td></tr><tr><td>Autorizar horas extra contra el programa de aves del día y el tiempo real de línea.</td><td><a href="dashboards/EE10-plantilla-y-horas-extra.html" style="color:var(--teal-dark);font-weight:700">EE10</a></td><td>Horas extra ≤ 8% de sueldos</td><td>S2 · Capital Humano y Producción</td><td><b>$5.5 M</b></td><td>1 a 3 meses</td></tr><tr><td>Entregar plantilla por área, altas y bajas, horas y faltas (BD12 y BD13) para medir rotación y ausentismo.</td><td><a href="dashboards/EE10-plantilla-y-horas-extra.html" style="color:var(--teal-dark);font-weight:700">EE10</a></td><td>Rotación y ausentismo mensual</td><td>S2 · Capital Humano</td><td><b>Habilita</b></td><td>1 mes</td></tr></tbody></table></div>
+    <div class="sec-header"><div class="act">3 a 6 meses</div><h2 style="font-size:18px">Iniciativas estructurales · 6 gaps de los estudios</h2></div>
+    <div style="overflow-x:auto"><table class="mb32"><thead><tr><th>Iniciativa</th><th>Estudio</th><th>Meta</th><th>Pilar y dueño</th><th>Impacto anual</th><th>Plazo</th></tr></thead><tbody><tr><td>Política de cupo por accionista ligada a su participación, con reglas para ceder cupo no usado.</td><td><a href="dashboards/EE04-programa-de-retiros.html" style="color:var(--teal-dark);font-weight:700">EE04</a></td><td>Desviación cupo contra acciones ≤ 3 pp</td><td>TX · Gobierno y Consejo</td><td><b>Habilita</b></td><td>3 a 6 meses</td></tr><tr><td>Submedición de kWh por área: refrigeración, calderas, rendering y PTAR.</td><td><a href="dashboards/EE07-energia.html" style="color:var(--teal-dark);font-weight:700">EE07</a></td><td>kWh por ave por área</td><td>S1 · Mantenimiento</td><td><b>Habilita</b></td><td>3 a 6 meses</td></tr><tr><td>Plan de compra de refacciones por criticidad de equipo, con mínimos y máximos.</td><td><a href="dashboards/EE08-mantenimiento.html" style="color:var(--teal-dark);font-weight:700">EE08</a></td><td>Gasto por ave ≤ mediana</td><td>M5 · Mantenimiento y Compras</td><td><b>$4.9 M</b></td><td>3 a 6 meses</td></tr><tr><td>Plan preventivo de los equipos críticos de la línea con su calendario.</td><td><a href="dashboards/EE08-mantenimiento.html" style="color:var(--teal-dark);font-weight:700">EE08</a></td><td>Preventivo ≥ 60% de las horas</td><td>M3 · Mantenimiento</td><td><b>Habilita</b></td><td>3 a 6 meses</td></tr><tr><td>Contratos de pechuga con precio indexado y más clientes, con la facturación por cliente (BD09).</td><td><a href="dashboards/EE09-precio-y-productos.html" style="color:var(--teal-dark);font-weight:700">EE09</a></td><td>Dispersión de precio por cliente</td><td>C3 · Ventas</td><td><b>Habilita</b></td><td>3 a 6 meses</td></tr><tr><td>Ligar premios a ausentismo y productividad medidos por área.</td><td><a href="dashboards/EE10-plantilla-y-horas-extra.html" style="color:var(--teal-dark);font-weight:700">EE10</a></td><td>Premio variable por resultado</td><td>S2 · Capital Humano</td><td><b>Habilita</b></td><td>3 a 6 meses</td></tr></tbody></table></div>
+<!--/ee:road-->
     <div class="card">
       <div class="card-label">Roadmap &amp; Propuesta</div>
       <div class="card-text">Pendiente. Se construye en el Acto 5 del storyline (alcance, beneficios, metodología de implementación, cronograma, inversión y ROI), después de validar hallazgos y priorizar oportunidades.</div>
