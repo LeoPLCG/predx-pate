@@ -256,6 +256,8 @@
     var m = { l: 58, r: 16, t: 14, b: 44 }, pw = W - m.l - m.r, ph = H - m.t - m.b;
     var xs = cfg.points.map(function (p) { return p[0]; }), ys = cfg.points.map(function (p) { return p[1]; });
     if (cfg.fit) cfg.fit.forEach(function (p) { xs.push(p[0]); ys.push(p[1]); });
+    (cfg.fits || []).forEach(function (l) { l.p.forEach(function (p) { xs.push(p[0]); ys.push(p[1]); }); });
+    if (cfg.ref) ys.push(cfg.ref.value);
     var tx = niceTicks(Math.min.apply(null, xs), Math.max.apply(null, xs), 5), ty = niceTicks(Math.min.apply(null, ys), Math.max.apply(null, ys), 5);
     var x = function (v) { return m.l + (v - tx[0]) / (tx[tx.length - 1] - tx[0]) * pw; };
     var y = function (v) { return m.t + ph - (v - ty[0]) / (ty[ty.length - 1] - ty[0]) * ph; };
@@ -267,6 +269,8 @@
     var c = PAL[0];
     cfg.points.forEach(function (p) { el('circle', { cx: x(p[0]), cy: y(p[1]), r: 3.5, fill: c, 'fill-opacity': .45 }, svg); });
     if (cfg.fit) el('line', { x1: x(cfg.fit[0][0]), y1: y(cfg.fit[0][1]), x2: x(cfg.fit[1][0]), y2: y(cfg.fit[1][1]), stroke: PAL[1], 'stroke-width': 2, 'stroke-linecap': 'round' }, svg);
+    (cfg.fits || []).forEach(function (l) { el('line', { x1: x(l.p[0][0]), y1: y(l.p[0][1]), x2: x(l.p[1][0]), y2: y(l.p[1][1]), stroke: l.color, 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-dasharray': l.dash }, svg); });
+    refLine(svg, m, W, y, cfg.ref, f);
     var mark = el('circle', { r: 5, fill: c, stroke: SURF, 'stroke-width': 2, opacity: 0 }, svg);
     var hit = el('rect', { x: m.l, y: m.t, width: pw, height: ph, fill: 'transparent', tabindex: 0 }, svg);
     function near(px, py) {
@@ -277,7 +281,7 @@
     function at(i) {
       var p = cfg.points[i];
       mark.setAttribute('cx', x(p[0])); mark.setAttribute('cy', y(p[1])); mark.setAttribute('opacity', 1);
-      showTip(f, x(p[0]) / W * f.wrap.clientWidth, y(p[1]) / H * H, cfg.pointTitle || 'Día',
+      showTip(f, x(p[0]) / W * f.wrap.clientWidth, y(p[1]) / H * H, p.length > 2 ? (cfg.pointPrefix || '') + p[2] : (cfg.pointTitle || 'Día'),
         [{ value: fy(p[1]), name: cfg.yname }, { value: fx(p[0]), name: cfg.xname }]);
     }
     hit.addEventListener('pointermove', function (e) {
