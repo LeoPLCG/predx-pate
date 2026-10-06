@@ -21,3 +21,12 @@
 !/presentacion/slides/logo-lcg-light.png
 /presentacion/scripts/node_modules/
 /presentacion/scripts/.tmp/
+
+# Bases de MAREL: qc_inspections.csv pesa ~325 MB (GitHub rechaza >100 MB) y el repo es público.
+# Ya quedan fuera por la lista blanca; estas reglas lo dejan explícito.
+/estudios-estadisticos/EE_Produccion_MAREL/*.csv
+/estudios-estadisticos/EE_Produccion_MAREL/*.xlsx
+
+# Material interno del cliente: transcripciones crudas y mapa de sistemas. Ya quedan fuera por la lista blanca.
+/entrevistas/raw/
+/documentos/raw/TI/
