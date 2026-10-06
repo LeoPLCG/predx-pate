@@ -208,8 +208,10 @@
     cfg.kind = 'bar';
     if (!cfg.series) cfg.series = [{ name: cfg.name || '', data: cfg.values }];
     var f = frame(id, cfg), W = Math.max(300, f.wrap.clientWidth), k = cfg.series.length;
-    var row = k > 1 ? 34 : 24, n = cfg.labels.length, lw = cfg.labelWidth || 150;
-    var m = { l: lw, r: 64, t: cfg.ref ? 22 : 8, b: 26 }, H = m.t + m.b + n * row, pw = W - m.l - m.r;
+    var n = cfg.labels.length, lw = cfg.labelWidth || 150;
+    var stacked = lw > W * 0.32;                       // pantalla angosta: el nombre va arriba de su barra
+    var row = (k > 1 ? 34 : 24) + (stacked ? 16 : 0);
+    var m = { l: stacked ? 8 : lw, r: 64, t: cfg.ref ? 22 : 8, b: 26 }, H = m.t + m.b + n * row, pw = W - m.l - m.r;
     var vals = [0]; cfg.series.forEach(function (s) { vals = vals.concat(s.data); });
     if (cfg.ref) vals.push(cfg.ref.value);
     var ticks = niceTicks(0, Math.max.apply(null, vals), 4), x1 = ticks[ticks.length - 1];
@@ -221,8 +223,9 @@
       txt(svg, x(v), H - m.b + 16, f1(v), { 'text-anchor': 'middle', 'font-variant-numeric': 'tabular-nums' });
     });
     cfg.labels.forEach(function (l, i) {
-      var cy = m.t + row * (i + .5);
-      txt(svg, m.l - 8, cy + 4, l, { 'text-anchor': 'end', fill: INK });
+      var cy = stacked ? m.t + row * i + 16 + (row - 16) / 2 : m.t + row * (i + .5);
+      if (stacked) txt(svg, m.l, m.t + row * i + 13, l, { fill: INK });
+      else txt(svg, m.l - 8, cy + 4, l, { 'text-anchor': 'end', fill: INK });
       cfg.series.forEach(function (s, si) {
         var v = s.data[i], c = s.color || PAL[si], top = cy - (k * bh + (k - 1) * 2) / 2 + si * (bh + 2);
         var w = Math.max(0, x(v) - m.l), r = Math.min(4, w, bh / 2);
