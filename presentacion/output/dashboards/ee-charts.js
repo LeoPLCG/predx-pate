@@ -16,7 +16,9 @@
     money2: function (v) { return (v < 0 ? '−$' : '$') + nf(2).format(Math.abs(v)); },
     money1: function (v) { return (v < 0 ? '−$' : '$') + nf(1).format(Math.abs(v)); },
     kg: function (v) { return (v < 0 ? '−' : '') + nf(0).format(Math.abs(v)) + ' kg'; },
-    g: function (v) { return nf(0).format(v) + ' g'; }
+    g: function (v) { return nf(0).format(v) + ' g'; },
+    mill2: function (v) { return nf(2).format(v / 1e6) + ' M'; },
+    pctS: function (v) { return (v > 0 ? '+' : v < 0 ? '−' : '') + nf(1).format(Math.abs(v)) + '%'; }
   };
   function fmt(name) { return FMT[name] || FMT.int; }
 
@@ -293,10 +295,115 @@
     f.wrap.appendChild(svg);
   }
 
-  var KINDS = { line: line, columns: columns, hbars: hbars, scatter: scatter };
-  function renderAll() {
-    (window.EE_CHARTS || []).forEach(function (c) { KINDS[c.type](c.id, JSON.parse(JSON.stringify(c.cfg))); });
+  /* Combinada: barras de dos años por mes con etiqueta de valor y la variación % en el eje derecho */
+  function combo(id, cfg) {
+    cfg.legendItems = cfg.bars.map(function (b, i) { return { name: b.name, color: b.color || [PAL[2], PAL[0]][i], kind: 'bx' }; })
+      .concat([{ name: cfg.line.name, color: cfg.line.color || PAL[1], kind: 'ln' }]);
+    var f = frame(id, cfg), W = Math.max(300, f.wrap.clientWidth), H = cfg.height || 300;
+    var m = { l: 58, r: 52, t: 26, b: 30 }, pw = W - m.l - m.r, ph = H - m.t - m.b;
+    var vals = [0]; cfg.bars.forEach(function (b) { vals = vals.concat(b.data); });
+    var tl = niceTicks(0, Math.max.apply(null, vals) * 1.12, 5), yl1 = tl[tl.length - 1];
+    var pv = cfg.line.data.concat([0]), tr = niceTicks(Math.min.apply(null, pv), Math.max.apply(null, pv), 4);
+    var r0 = tr[0], r1 = tr[tr.length - 1];
+    var yl = function (v) { return m.t + ph - v / yl1 * ph; }, yr = function (v) { return m.t + ph - (v - r0) / (r1 - r0) * ph; };
+    var n = cfg.labels.length, band = pw / n, k = cfg.bars.length, bw = Math.min(26, (band * 0.72 - (k - 1) * 2) / k);
+    var cxb = function (i) { return m.l + band * (i + .5); };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: '100%', height: H, role: 'img', 'aria-label': cfg.title || '' });
+    var fl = fmt(cfg.fmt), fr = fmt(cfg.fmtR || 'pctS'), flab = fmt(cfg.labFmt || cfg.fmt);
+    axesY(svg, m, W, H, tl, yl, fl);
+    tr.forEach(function (v) { txt(svg, W - m.r + 8, yr(v) + 4, fr(v), { 'text-anchor': 'start', 'font-variant-numeric': 'tabular-nums', fill: cfg.line.color || PAL[1] }); });
+    if (r0 < 0 && r1 > 0) el('line', { x1: m.l, x2: W - m.r, y1: yr(0), y2: yr(0), stroke: cfg.line.color || PAL[1], 'stroke-width': 1, 'stroke-dasharray': '3 4', opacity: .5 }, svg);
+    axesX(svg, cfg.labels, cxb, H, m, pw);
+    var narrow = bw < 24, labs = [];
+    cfg.bars.forEach(function (b, bi) {
+      var c = b.color || [PAL[2], PAL[0]][bi];
+      b.data.forEach(function (v, i) {
+        var x0 = cxb(i) - (k * bw + (k - 1) * 2) / 2 + bi * (bw + 2), top = yl(v), h = Math.max(0, m.t + ph - top), r = Math.min(4, h, bw / 2);
+        el('path', { d: 'M' + x0 + ',' + (m.t + ph) + 'V' + (top + r) + 'Q' + x0 + ',' + top + ' ' + (x0 + r) + ',' + top + 'H' + (x0 + bw - r) +
+          'Q' + (x0 + bw) + ',' + top + ' ' + (x0 + bw) + ',' + (top + r) + 'V' + (m.t + ph) + 'Z', fill: c }, svg);
+        labs.push([x0 + bw / 2, top, v]);
+      });
+    });
+    var lc = cfg.line.color || PAL[1], d = '';
+    cfg.line.data.forEach(function (v, i) { d += (i ? 'L' : 'M') + cxb(i).toFixed(1) + ',' + yr(v).toFixed(1); });
+    el('path', { d: d, fill: 'none', stroke: lc, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+    cfg.line.data.forEach(function (v, i) { el('circle', { cx: cxb(i), cy: yr(v), r: 4, fill: lc, stroke: SURF, 'stroke-width': 2 }, svg); });
+    var HALO = { stroke: SURF, 'stroke-width': 3, 'paint-order': 'stroke', 'stroke-linejoin': 'round' };
+    labs.forEach(function (p) {
+      if (narrow) txt(svg, p[0] + 3.5, p[1] - 4, flab(p[2]), Object.assign({ 'text-anchor': 'start', fill: INK, 'font-size': 9, transform: 'rotate(-90 ' + (p[0] + 3.5) + ' ' + (p[1] - 4) + ')' }, HALO));
+      else txt(svg, p[0], p[1] - 5, flab(p[2]), Object.assign({ 'text-anchor': 'middle', fill: INK, 'font-size': 9.5 }, HALO));
+    });
+    cfg.labels.forEach(function (l, i) {
+      var hit = el('rect', { x: m.l + band * i, y: m.t, width: band, height: ph, fill: 'transparent', tabindex: 0 }, svg);
+      var on = function () {
+        var rows = cfg.bars.map(function (b, bi) { return { color: b.color || [PAL[2], PAL[0]][bi], value: fl(b.data[i]), name: b.name }; });
+        rows.push({ color: lc, value: fr(cfg.line.data[i]), name: cfg.line.name });
+        showTip(f, cxb(i) / W * f.wrap.clientWidth, m.t, cfg.tipLabels ? cfg.tipLabels[i] : l, rows);
+      };
+      hit.addEventListener('pointermove', on); hit.addEventListener('focus', on);
+      hit.addEventListener('pointerleave', function () { hideTip(f); }); hit.addEventListener('blur', function () { hideTip(f); });
+    });
+    f.wrap.appendChild(svg);
   }
+
+  /* Banda: dos líneas (a = aportación, b = costo) con la diferencia sombreada; verde si a > b, terracota si a < b */
+  function band(id, cfg) {
+    cfg.legendItems = [{ name: cfg.a.name, color: PAL[0], kind: 'ln' }, { name: cfg.b.name, color: PAL[1], kind: 'ln' },
+      { name: 'Margen positivo', color: 'rgba(0,128,106,.22)', kind: 'bx' }, { name: 'Margen negativo', color: 'rgba(194,85,46,.25)', kind: 'bx' }];
+    var f = frame(id, cfg), W = Math.max(280, f.wrap.clientWidth), H = cfg.height || 250;
+    var m = { l: 52, r: 14, t: 14, b: 30 }, pw = W - m.l - m.r, ph = H - m.t - m.b;
+    var A = cfg.a.data, Bv = cfg.b.data, n = cfg.labels.length;
+    var ticks = niceTicks(cfg.yMin !== undefined ? cfg.yMin : Math.min.apply(null, A.concat(Bv)), cfg.yMax !== undefined ? cfg.yMax : Math.max.apply(null, A.concat(Bv)), 4);
+    var y0 = ticks[0], y1 = ticks[ticks.length - 1];
+    var x = function (i) { return m.l + (n === 1 ? pw / 2 : i * pw / (n - 1)); }, y = function (v) { return m.t + ph - (v - y0) / (y1 - y0) * ph; };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: '100%', height: H, role: 'img', 'aria-label': cfg.title || '' });
+    var f1 = fmt(cfg.fmt);
+    axesY(svg, m, W, H, ticks, y, f1);
+    axesX(svg, cfg.labels, x, H, m, pw);
+    for (var i = 0; i < n - 1; i++) {
+      var d0 = A[i] - Bv[i], d1 = A[i + 1] - Bv[i + 1];
+      var segs = [];
+      if (d0 * d1 >= 0) segs.push([i, i + 1, d0 + d1 >= 0]);
+      else { var t = d0 / (d0 - d1); segs.push([i, i + t, d0 > 0]); segs.push([i + t, i + 1, d1 > 0]); }
+      segs.forEach(function (s) {
+        var lerp = function (arr, p) { var a = Math.floor(p), fr = p - a; return a >= n - 1 ? arr[n - 1] : arr[a] + (arr[a + 1] - arr[a]) * fr; };
+        var px = function (p) { return m.l + p * pw / (n - 1); };
+        var pts = [[px(s[0]), y(lerp(A, s[0]))], [px(s[1]), y(lerp(A, s[1]))], [px(s[1]), y(lerp(Bv, s[1]))], [px(s[0]), y(lerp(Bv, s[0]))]];
+        el('path', { d: 'M' + pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join('L') + 'Z',
+          fill: s[2] ? 'rgba(0,128,106,.22)' : 'rgba(194,85,46,.25)' }, svg);
+      });
+    }
+    [[A, PAL[0]], [Bv, PAL[1]]].forEach(function (p) {
+      var d = ''; p[0].forEach(function (v, i) { d += (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1); });
+      el('path', { d: d, fill: 'none', stroke: p[1], 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+    });
+    var cross = el('line', { y1: m.t, y2: H - m.b, stroke: AXIS, 'stroke-width': 1, opacity: 0 }, svg);
+    var hit = el('rect', { x: m.l, y: m.t, width: pw, height: ph, fill: 'transparent', tabindex: 0 }, svg);
+    function at(i) {
+      cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('opacity', .6);
+      showTip(f, x(i) / W * f.wrap.clientWidth, m.t, cfg.tipLabels ? cfg.tipLabels[i] : cfg.labels[i], [
+        { color: PAL[0], value: f1(A[i]), name: cfg.a.name }, { color: PAL[1], value: f1(Bv[i]), name: cfg.b.name },
+        { value: f1(A[i] - Bv[i]), name: 'margen por ave' }]);
+    }
+    hit.addEventListener('pointermove', function (e) {
+      var r = svg.getBoundingClientRect(), px = (e.clientX - r.left) / r.width * W;
+      at(Math.max(0, Math.min(n - 1, Math.round((px - m.l) / pw * (n - 1)))));
+    });
+    hit.addEventListener('pointerleave', function () { cross.setAttribute('opacity', 0); hideTip(f); });
+    hit.addEventListener('focus', function () { at(n - 1); });
+    hit.addEventListener('blur', function () { cross.setAttribute('opacity', 0); hideTip(f); });
+    f.wrap.appendChild(svg);
+  }
+
+  var KINDS = { line: line, columns: columns, hbars: hbars, scatter: scatter, combo: combo, band: band };
+  function renderAll() {
+    (window.EE_CHARTS || []).forEach(function (c) {
+      var host = document.getElementById(c.id);
+      if (!host || (host.offsetParent === null && host.getClientRects().length === 0 && document.getElementById(c.id).closest('.section'))) return;   // sección oculta: se dibuja al mostrarla
+      KINDS[c.type](c.id, JSON.parse(JSON.stringify(c.cfg)));
+    });
+  }
+  window.EE_RENDER = renderAll;
   var t;
   window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(renderAll, 150); });
   document.addEventListener('DOMContentLoaded', renderAll);
