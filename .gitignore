@@ -34,3 +34,12 @@
 # Bases del cliente en PDF y correos (.eml): nunca se suben. Ya quedan fuera por la lista blanca.
 /documentos/raw/bbdd/**/*.pdf
 /documentos/raw/bbdd/**/*.eml
+
+# Entrevistas: audios, transcripciones, notas y fichas nunca se suben. Ya quedan fuera por la lista blanca.
+/entrevistas/**/raw/**
+/entrevistas/**/*.txt
+/entrevistas/**/*.docx
+/entrevistas/**/*.pdf
+/entrevistas/**/*.m4a
+/entrevistas/**/*.mp3
+/entrevistas/**/*.wav
