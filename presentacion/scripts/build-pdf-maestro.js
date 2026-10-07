@@ -14,7 +14,7 @@
  * con el documento anfitrión), así su contenido fluye en la MISMA página
  * que el pilar que los enlaza cuando hay espacio.
  *
- * Los 5 PDF ya existentes (Agenda, Gemba Walk, Span de Control, Encuesta
+ * Los PDF ya existentes (Agenda, Span de Control, Encuesta
  * Growth Management, Propuesta de Proyecto) NO se inyectan como HTML —
  * siguen fusionándose como páginas PDF reales con pdf-lib, en el punto
  * cronológico exacto. Como una página no puede ser mitad HTML nativo mitad
@@ -60,7 +60,7 @@ const TMP_DIR = path.join(SCRIPTS_DIR, '.tmp');
 const TMP_FILE = path.join(TMP_DIR, 'pdf-build-temp.html');
 
 // Tamaño único del documento final (pt) — coincide con el tamaño nativo de
-// los 5 PDF ya existentes (960×540pt, 16:9).
+// los PDF ya existentes (960×540pt, 16:9). El Gemba Walk se inyecta como HTML (visor de láminas).
 const TARGET_W_PT = 960;
 const TARGET_H_PT = 540;
 const MARGIN_PT = 28;
@@ -76,14 +76,13 @@ const VIEWPORT_W_PX = Math.round(TARGET_W_PT * PT_TO_PX);
 const VIEWPORT_H_PX = Math.round(TARGET_H_PT * PT_TO_PX);
 const PX_TO_PT = 72 / 96;
 
-// Las 5 páginas PDF ya existentes, fusionadas como páginas reales en el
+// Las páginas PDF ya existentes, fusionadas como páginas reales en el
 // punto exacto donde el sitio las enlaza — nunca se inyectan como HTML.
 // Clave = nombre de archivo tal como aparece en el href/src del sitio.
 const REAL_PDF_FILES = {
   'Agenda_PATE.pdf': 'Agenda_PATE.pdf',
   'Encuesta_Growth_Management_PATE.pdf': 'Encuesta_Growth_Management_PATE.pdf',
   'estructura-span-control.html': 'Span_Control_PATE.pdf',
-  'A3-gemba-walk.html': 'Gemba_Walk_PATE.pdf',
   'propuesta-proyecto.html': 'Propuesta_de_Proyecto_PATE.pdf',
 };
 

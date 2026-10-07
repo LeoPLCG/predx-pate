@@ -43,3 +43,6 @@
 /entrevistas/**/*.m4a
 /entrevistas/**/*.mp3
 /entrevistas/**/*.wav
+
+# Maquetas de diseño de los estudios: material interno, no se publica.
+/estudios-estadisticos/_maquetas/

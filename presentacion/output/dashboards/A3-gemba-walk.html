@@ -3,37 +3,77 @@
 <head>
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <link rel="icon" href="../favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
-<title>Hallazgos del Gemba Walk · PATE</title>
+<title>Gemba Walk · PATE</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap');
-:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#8896A6;--border-soft:rgba(10,22,40,0.09);--amber:#b06a00}
+:root{--lcg-dark:#005C4B;--lcg-teal:#00B388;--teal-ink:#00806A;--text:#1D1D1B;--text-light:#4a4a4a;--text-muted:#6B7787;--border-soft:rgba(10,22,40,0.09);--ok-bg:#E6F4EE;--ok-ink:#00664F}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:#F0F0F0;color:var(--text)}
-.page{max-width:1100px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.page{max-width:1180px;margin:0 auto 3px;background:white;padding:48px 64px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
 @media(max-width:768px){.page{padding:24px 16px}}
 .logos{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #eee}
 .logos img:first-child{height:22px}.logos img:last-child{height:60px}
 .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--lcg-teal);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:24px}
 .back-link:hover{color:var(--lcg-dark)}
-.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:28px}
+.header{border-bottom:3px solid var(--lcg-teal);padding-bottom:16px;margin-bottom:22px}
 .header-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--lcg-teal);margin-bottom:8px}
 .header h1{font-family:'Georgia',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px}
-.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px}
-.status{border-left:4px solid var(--amber);background:#fff8ec;padding:14px 18px;border-radius:8px;font-size:13.5px;color:#5a4300;line-height:1.6;margin-bottom:26px}
-h2{font-family:'Georgia',serif;font-size:19px;margin:26px 0 12px;font-weight:700}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.kpi{border:1px solid var(--border-soft);border-radius:12px;padding:16px}
-.kpi .l{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark)}
-.kpi .v{font-family:'Playfair Display',serif;font-size:24px;margin:6px 0}
-.kpi .d{font-size:11.5px;color:var(--text-muted);line-height:1.5}
+.header p{font-size:15px;color:var(--text-light);line-height:1.6;margin-top:8px;max-width:820px}
+.gw-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:22px;font-size:13px;color:var(--text-light)}
+.gw-pill{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;background:var(--ok-bg);color:var(--ok-ink)}
+.gw-area{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;border:1px solid var(--border-soft);color:var(--text)}
+.gw-meta .lbl{font-weight:700;color:var(--lcg-dark);margin-left:6px}
+.gw-viewer{position:relative}
+.gw-stage{position:relative;background:#0E2A24;border-radius:10px;overflow:hidden;aspect-ratio:16/9;touch-action:pan-y}
+.gw-slide{margin:0}
+.gw-slide .gw-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;background:#fff}
+.gw-slide figcaption{display:none}
+.gw-bar{display:flex;align-items:center;gap:10px;padding:10px 2px 0}
+.gw-nav{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,92,75,.25);background:#fff;color:var(--lcg-dark);font-size:22px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.gw-nav:hover{border-color:var(--teal-ink);color:var(--teal-ink);background:var(--ok-bg)}.gw-nav:focus-visible{outline:3px solid var(--lcg-teal);outline-offset:2px}
+.gw-count{min-width:56px;text-align:center;font-size:14px;font-weight:700;color:var(--lcg-dark);font-variant-numeric:tabular-nums}
+.gw-zoomhint{margin-left:auto;font-size:12px;color:var(--text-muted)}
+.gw-cap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;padding:14px 2px 6px}
+.gw-cap h2{font-family:'Georgia',serif;font-size:19px;font-weight:700;color:var(--text)}
+.gw-cap h2 .ar{display:block;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--lcg-teal);margin-bottom:4px}
+.gw-chips{display:flex;flex-wrap:wrap;gap:6px}
+.gw-chip{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;background:var(--ok-bg);color:var(--ok-ink);border:1px solid transparent}
+.gw-chip:hover{border-color:var(--teal-ink)}
+.gw-chip.ver{background:#fff;color:var(--teal-ink);border-color:rgba(0,128,106,.4);font-weight:600}
+.gw-chip.na{background:#F3F4F6;color:var(--text-muted)}
+.gw-strip{display:flex;gap:10px;overflow-x:auto;padding:10px 2px 12px;scroll-snap-type:x proximity}
+.gw-th{flex:0 0 auto;width:150px;border:2px solid transparent;border-radius:8px;padding:0;background:#fff;cursor:pointer;text-align:left;scroll-snap-align:center;overflow:hidden;box-shadow:0 0 0 1px var(--border-soft)}
+.gw-th img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.gw-th span{display:block;font-size:11px;color:var(--text-light);padding:5px 7px 6px;line-height:1.35}
+.gw-th span b{color:var(--lcg-dark);font-variant-numeric:tabular-nums}
+.gw-th[aria-current="true"]{border-color:var(--lcg-teal)}
+.gw-th:focus-visible{outline:3px solid var(--lcg-teal);outline-offset:2px}
+@media(max-width:768px){.gw-th{width:116px}.gw-zoomhint{font-size:11px}.gw-chip .pn{display:none}.gw-cap h2{font-size:17px}}
+h3.sec{font-family:'Georgia',serif;font-size:18px;margin:26px 0 10px}
+.gw-tbl-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
 th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--lcg-dark);border-bottom:2px solid var(--lcg-teal);padding:8px}
 td{border-bottom:1px solid #eee;padding:8px;vertical-align:top;line-height:1.5}
-p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
-.card{background:#fff;border:1px solid var(--border-soft);border-radius:12px;padding:20px}
-.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+td.n{font-variant-numeric:tabular-nums;font-weight:700;color:var(--lcg-dark)}
+td a.tl{color:var(--text);font-weight:600;text-decoration:none}td a.tl:hover{color:var(--teal-ink)}
+p.t{font-size:12.5px;color:var(--text-muted);line-height:1.6;margin-top:14px}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--text-muted)}
+.gw-lb{position:fixed;inset:0;background:rgba(8,20,17,.96);z-index:1000;display:flex;flex-direction:column}
+.gw-lb[hidden]{display:none}
+.gw-lb-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top,0px));color:#fff}
+.gw-lb-bar .tt{flex:1;min-width:0;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gw-lb-bar .ct{font-size:12.5px;font-variant-numeric:tabular-nums;opacity:.85}
+.gw-lb button{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:8px;height:36px;min-width:36px;padding:0 10px;font-size:15px;cursor:pointer}
+.gw-lb button:hover{background:rgba(255,255,255,.22)}.gw-lb button:focus-visible{outline:2px solid var(--lcg-teal);outline-offset:2px}
+.gw-lb-stage{flex:1;overflow:auto;display:flex;touch-action:pan-x pan-y pinch-zoom;cursor:zoom-in}
+.gw-lb-stage.z{cursor:grab}.gw-lb-stage.drag{cursor:grabbing}
+.gw-lb-stage img{margin:auto;flex:none;display:block;background:#fff;user-select:none;-webkit-user-drag:none}
+.gw-lb-side{position:absolute;top:50%;transform:translateY(-50%)}
+.gw-lb .gw-lb-side{width:44px;height:44px;border-radius:50%;font-size:20px;padding:0}
+.gw-lb-prev{left:12px}.gw-lb-next{right:12px}
+@media print{.gw-bar,.gw-strip,.gw-lb,.back-link{display:none!important}.gw-stage{aspect-ratio:auto;background:none}.gw-slide,.gw-slide[hidden]{display:block!important;break-inside:avoid;margin-bottom:18px}.gw-slide .gw-img{position:static;height:auto}.gw-slide figcaption{display:block;font-size:12px;margin-top:6px}.page{box-shadow:none;padding:0}}
 </style>
 </head>
 <body>
@@ -41,10 +81,120 @@ p.t{font-size:13.5px;color:var(--text-light);line-height:1.7}
 <div class="page">
   <div class="logos"><img src="../logo-lcg.png" alt="London Consulting Group"><img src="../logo-cliente-dark.png" alt="PATE"></div>
   <a href="../predx_template.html#sag" class="back-link">Volver a la Agenda</a>
-  <div class="header"><div class="header-label">Gemba Walk · Pilares A3, O1 a O4, C1 y C2</div><h1>Hallazgos del Gemba Walk</h1><p>Registro fotográfico y hallazgos del recorrido de planta del lun 05-oct-2026, 16:00.</p></div>
-  <div class="status">Pendiente. Coloca el archivo <b>Gemba_Walk_PATE.pdf</b> en <code>presentacion/output/</code> y esta página lo muestra aquí.</div>
-  <div class="card"><iframe src="../Gemba_Walk_PATE.pdf" title="Hallazgos del Gemba Walk" style="width:100%;height:85vh;min-height:900px;border:none;border-radius:8px;display:block"></iframe></div>
+  <div class="header"><div class="header-label">Gemba Walk · mar 06-oct-2026</div><h1>Hallazgos del Gemba Walk</h1><p>Recorrido de planta con el equipo de PATE. Cada lámina reúne lo que observamos en piso, lo que dijo el equipo en la línea y, donde aplica, el estudio estadístico que lo dimensiona.</p></div>
+  <div class="gw-meta"><span class="gw-pill">Realizado</span><span class="lbl">Áreas recorridas</span><span class="gw-area">Deshuese 2</span><span class="gw-area">Eviscerado</span><span class="gw-area">Producción</span><span class="gw-area">Mantenimiento</span></div>
+  <div class="gw-viewer">
+    <div class="gw-stage">
+      <figure class="gw-slide" id="gemba-1" data-t="Lámina 1 · Hallazgos del Gemba Walk"><img class="gw-img" src="../assets/gemba/gemba-01.webp" width="1920" height="1080" loading="eager" decoding="async" alt="Lámina 1 de 9. Hallazgos Gemba Walk."><figcaption><span class="d-title"><span class="ar">Portada · lámina 1</span>Hallazgos del Gemba Walk</span><span class="d-chips"><span class="gw-chip na">Portada</span></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-2" data-t="Lámina 2 · Deshuese 2 · Sistema de remuneración variable" hidden><img class="gw-img" src="../assets/gemba/gemba-02.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 2 de 9. Deshuese 2. Línea 1. Sistema de remuneración variable. «Mira, este es el reporte que sacamos de MAREL para el sistema de bonos del equipo de deshuese 2. Nadie se lo ganó el mes pasado». Encargado de Sistemas (TI). De 4 pantallas que revisamos en la línea, 3 no funcionaban. «No, en mi área no hay bonos. Pagan 96 y 100 pesos aproximadamente por puntualidad y asistencia. Solo Deshuese tiene bonos». Eviscerados. Estudio Estadístico LCG. 2025 1,807,261 · 2026 1,761,377. Bajó 45,884 aves, −2.5% contra el mismo mes del año pasado. La columna de nombres del reporte de bonos está tapada."><figcaption><span class="d-title"><span class="ar">Deshuese 2 · lámina 2</span>Sistema de remuneración variable</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-3" data-t="Lámina 3 · Deshuese 2 · Seguimiento y programación del personal" hidden><img class="gw-img" src="../assets/gemba/gemba-03.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 3 de 9. Deshuese 2. Línea 1. Sistema de seguimiento y programación del personal. «La mejor posición para estar en la línea es pegado al final, cerca de calidad porque el sistema si no va en el orden de pechuga, pierna, pierna, tiene errores de lectura y te puede perjudicar en tu rendimiento». Operario de deshuese 2. Al final de cada una de las 4 líneas, hay un colaborador (de producción) que revisa la calidad y registra defectos. Hay una pantalla central en la que se puede ver el seguimiento, no necesariamente la ve el operador. «Si nos dan la carga completa (12 jaulas por día), nosotros podemos avanzar con el ritmo y la productividad muy cercana a los objetivos». Gerente Producción."><figcaption><span class="d-title"><span class="ar">Deshuese 2 · lámina 3</span>Seguimiento y programación del personal</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T1 · Sistemas Transaccionales">T1<span class="pn"> · Sistemas Transaccionales</span></a></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-4" data-t="Lámina 4 · Deshuese 2 · Reporte MAREL por línea y por hora" hidden><img class="gw-img" src="../assets/gemba/gemba-04.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 4 de 9. Deshuese 2. Reporte MAREL. «Todavía no lo tenemos para todas las áreas de producción (registro en Excel de ausentismo pasado de papel a Excel), iniciamos con Eviscerado, pero es parte de los proyectos tenerlo». Producción. 1. Línea 3 opera a un tercio de su capacidad. Promedio de canal: 694 kg/h, contra 1,688 a 2,096 kg/h en las líneas 1, 2 y 4 (−63%). De 6 a 10 am prácticamente no produjo (78 y 4 kg/h a las 8 y 9 am). En el día procesó ≈4.9 t de canal, contra ≈18 t promedio de las otras líneas. Son ≈13 t perdidas en un solo turno. 2. Arranque y cierre sin ritmo, y variabilidad dentro del turno. La primera hora (6 am) rinde menos del 10% del ritmo normal en las 4 líneas, y a las 3 pm cae a 200-600 kg/h. Fuera de la comida, una misma línea oscila hasta 60% hora contra hora (línea 4: de 1,875 a 3,051 kg/h). Sin un estándar por hora no se puede gestionar la velocidad efectiva, que es la palanca número uno del margen. El usuario de Windows en la captura está tapado."><figcaption><span class="d-title"><span class="ar">Deshuese 2 · lámina 4</span>Reporte MAREL por línea y por hora</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a><span class="gw-chip ver">ver <span class="sg" data-sg="EE15">estudio estadístico EE15</span> en T2</span></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-5" data-t="Lámina 5 · Deshuese 2 · Estándares de producción en MAREL" hidden><img class="gw-img" src="../assets/gemba/gemba-05.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 5 de 9. Deshuese 2. Reporte MAREL (estándares de producción). «Desde 2012 (14 años), me parece que es cuándo se implemento MAREL, no se han retado los estándares, no se si deberían de ser más altos o más bajos, pero así han permanecido». Encargado de Sistemas (TI). 1. Se recupera la pechuga, pero se pierde el resto del ave. El rendimiento primario (pechuga) está en meta: promedio de 18.16% contra 18.00%. El rendimiento total promedia 30.59%, contra 35% de estándar y 37% de meta. Faltan 6.4 puntos de carne vendible por ave, y casi todas las estaciones quedan entre 26% y 33%. La fuga está en pierna y recorte, no en pechuga: es carne que se queda en el hueso. 2. Estándares desalineados y datos poco confiables. El estándar de throughput (19 kg/h) está por debajo del real (24), así que no exige nada. Mientras tanto, la meta de pechuga (18%) queda debajo del benchmark de deshuese manual (18.6-20.3%). Sin metas exigentes ni datos limpios, el sistema no sirve para gestionar al operador por desempeño. Los nombres de operarios y el usuario de Windows en la captura están tapados."><figcaption><span class="d-title"><span class="ar">Deshuese 2 · lámina 5</span>Estándares de producción en MAREL</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a><span class="gw-chip ver">ver EE05 en O3</span><span class="gw-chip ver">ver EE15 en T2</span></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-6" data-t="Lámina 6 · Producción · Registros manuales y grupos de WhatsApp" hidden><img class="gw-img" src="../assets/gemba/gemba-06.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 6 de 9. Registros manuales y WhatsApp, Producción. Registros manuales y grupos de whatsapp para gestionar. «Definitivamente me gustaría poder usar menos papel, estamos abiertos a actualizarnos. Estos papeles, ni yo, ni mi equipo los digitalizamos, pero lo pasamos a [Producción] y creo que ellos si los pasan a exceles». Deshuese, Pastas y Empaque. 21 archivos de registro diario en deshuese, pastas y empaque (con información duplicada en 6 de ellos). Reporte de calidad en papel, pasado por whatsapp. 16 archivos de registro (con 4 duplicando la misma información parcial) en eviscerado. «Yo si vengo los sábados, mi equipo no, pero yo si, para ponerme al día con todos los registros en papel que tenemos». Eviscerado."><figcaption><span class="d-title"><span class="ar">Producción · lámina 6</span>Registros manuales y grupos de WhatsApp</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T3 · Tableros, Analítica y Automatización">T3<span class="pn"> · Tableros, Analítica y Automatización</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O1 · Sacrificio y Capacidad de Línea">O1<span class="pn"> · Sacrificio y Capacidad de Línea</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-7" data-t="Lámina 7 · Mantenimiento · Registros manuales y grupos de WhatsApp" hidden><img class="gw-img" src="../assets/gemba/gemba-07.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 7 de 9. Registros manuales y WhatsApp, Mantenimiento. Registros manuales y grupos de whatsapp para gestionar. «Reistros en sistema, solo los hacemos de los mantenimientos preventivos, los correctivos, solo existen en pape. En este momento no podría responder cuánto tiempo promedio nos tardamos en cada mantenimiento, ni cuál es más recurrente o frecuente, tampoco si hay alguna correlación específica con determinados operarios o líneas». Mantenimiento. No se registran los insumos utilizados en cada uno de los mantenimientos. Los registros de los mantenimientos correctivos solo viven en papel. Los nombres en el chat y en la hoja de tiempos muertos están tapados."><figcaption><span class="d-title"><span class="ar">Mantenimiento · lámina 7</span>Registros manuales y grupos de WhatsApp</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s9" title="M2 · Planeación y Programación del Trabajo">M2<span class="pn"> · Planeación y Programación del Trabajo</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-8" data-t="Lámina 8 · Eviscerado · Vacaciones, dotación y carga de aves" hidden><img class="gw-img" src="../assets/gemba/gemba-08.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 8 de 9. Eviscerado. Seguimiento programación de vacaciones, programación de personal y carga de aves. «Si hay 9 jaulas o si hay 12 programadas, mi dotación completa es de 37 personas. Las vacaciones las programo por meses con mi gente y eso busco que se cumpla en los tiempos definidos. Casi no cambiamos las fechas de vacaciones programadas aunque baje la carga, solo que sea una directriz general de mi jefe». Eviscerado. Estudio Estadístico generado por LCG. 1) Las vacaciones no siguen a la carga. El volumen tuvo 5 valles en 2026 (ene, feb, abr, may, ago), que eran ventanas naturales para descansar. Aun así, a octubre quedan 205 de 628 días pendientes (33%). Siete personas no han tomado ningún día. Ese saldo caerá en oct-dic sin importar el volumen, con ≈3 personas fuera cada día. 2) El pendiente está concentrado y es un riesgo. Ocho personas acumulan 84% de los días pendientes. Hay un arrastre de 2025 (un colaborador, 6 días; resaltado en la hoja). Esto es exposición legal, porque la LFT, art. 81, pide otorgarlas dentro de los 6 meses posteriores al aniversario. También es un costo: los picos se cubren con horas extra ($9.30 M, +4.8%) mientras los valles se pagan con la plantilla completa. *Solo se lleva en papel. La gráfica muestra los días pendientes de Colaborador 1 a Colaborador 8; los nombres de la hoja de vacaciones están tapados."><figcaption><span class="d-title"><span class="ar">Eviscerado · lámina 8</span>Vacaciones, dotación y carga de aves</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s12" title="S2 · Capital Humano y Seguridad">S2<span class="pn"> · Capital Humano y Seguridad</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O1 · Sacrificio y Capacidad de Línea">O1<span class="pn"> · Sacrificio y Capacidad de Línea</span></a></span></figcaption></figure>
+      <figure class="gw-slide" id="gemba-9" data-t="Lámina 9 · Eviscerado · Personas contra aves procesadas" hidden><img class="gw-img" src="../assets/gemba/gemba-09.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lámina 9 de 9. Eviscerado. Ratio de personas vs aves procesadas. Estudio Estadístico generado por LCG. Miles de aves por persona de Eviscerado, por mes. La plantilla creció 13% y el volumen de agosto quedó igual que en enero (aprox 47,000 aves), así que cada persona procesa 12% menos aves. Brecha: a 53 mil aves por persona (el nivel de marzo y julio), agosto se cubría con unas 33 personas, no 38. «Ahorita tengo una persona de ventas, embarques en mi área porque la castigaron, pero mi dotación completa es de 37 personas, pero tengo una vacante». Eviscerado."><figcaption><span class="d-title"><span class="ar">Eviscerado · lámina 9</span>Personas contra aves procesadas</span><span class="d-chips"><a class="gw-chip" href="../predx_template.html#s12" title="S2 · Capital Humano y Seguridad">S2<span class="pn"> · Capital Humano y Seguridad</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O1 · Sacrificio y Capacidad de Línea">O1<span class="pn"> · Sacrificio y Capacidad de Línea</span></a><span class="gw-chip ver">ver EE12 en O1</span></span></figcaption></figure>
+    </div>
+    <div class="gw-bar"><button type="button" class="gw-nav gw-prev" aria-label="Lámina anterior">&#8249;</button><span class="gw-count" aria-live="polite">1 / 9</span><button type="button" class="gw-nav gw-next" aria-label="Lámina siguiente">&#8250;</button><span class="gw-zoomhint">Clic en la lámina para ampliar</span></div>
+    <div class="gw-cap"><h2></h2><div class="gw-chips"></div></div>
+    <div class="gw-strip" role="list">
+      <button type="button" class="gw-th" aria-label="Lámina 1: Hallazgos del Gemba Walk" aria-current="true"><img src="../assets/gemba/gemba-01-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>1</b> · Hallazgos del Gemba Walk</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 2: Sistema de remuneración variable" aria-current="false"><img src="../assets/gemba/gemba-02-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>2</b> · Sistema de remuneración variable</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 3: Seguimiento y programación del personal" aria-current="false"><img src="../assets/gemba/gemba-03-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>3</b> · Seguimiento y programación del personal</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 4: Reporte MAREL por línea y por hora" aria-current="false"><img src="../assets/gemba/gemba-04-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>4</b> · Reporte MAREL por línea y por hora</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 5: Estándares de producción en MAREL" aria-current="false"><img src="../assets/gemba/gemba-05-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>5</b> · Estándares de producción en MAREL</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 6: Registros manuales y grupos de WhatsApp" aria-current="false"><img src="../assets/gemba/gemba-06-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>6</b> · Registros manuales y grupos de WhatsApp</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 7: Registros manuales y grupos de WhatsApp" aria-current="false"><img src="../assets/gemba/gemba-07-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>7</b> · Registros manuales y grupos de WhatsApp</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 8: Vacaciones, dotación y carga de aves" aria-current="false"><img src="../assets/gemba/gemba-08-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>8</b> · Vacaciones, dotación y carga de aves</span></button>
+      <button type="button" class="gw-th" aria-label="Lámina 9: Personas contra aves procesadas" aria-current="false"><img src="../assets/gemba/gemba-09-thumb.webp" width="320" height="180" loading="lazy" decoding="async" alt=""><span><b>9</b> · Personas contra aves procesadas</span></button>
+    </div>
+  </div>
+  <h3 class="sec">Láminas y pilares</h3>
+  <div class="gw-tbl-wrap"><table><thead><tr><th>#</th><th>Lámina</th><th>Área</th><th>Pilares y estudios</th></tr></thead><tbody>
+<tr><td class="n">1</td><td><a class="tl" href="#gemba-1">Hallazgos del Gemba Walk</a></td><td>Portada</td><td><div class="gw-chips"><span class="gw-chip na">Portada</span></div></td></tr>
+<tr><td class="n">2</td><td><a class="tl" href="#gemba-2">Sistema de remuneración variable</a></td><td>Deshuese 2</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a></div></td></tr>
+<tr><td class="n">3</td><td><a class="tl" href="#gemba-3">Seguimiento y programación del personal</a></td><td>Deshuese 2</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T1 · Sistemas Transaccionales">T1<span class="pn"> · Sistemas Transaccionales</span></a></div></td></tr>
+<tr><td class="n">4</td><td><a class="tl" href="#gemba-4">Reporte MAREL por línea y por hora</a></td><td>Deshuese 2</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a><span class="gw-chip ver">ver EE15 en T2</span></div></td></tr>
+<tr><td class="n">5</td><td><a class="tl" href="#gemba-5">Estándares de producción en MAREL</a></td><td>Deshuese 2</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a><span class="gw-chip ver">ver EE05 en O3</span><span class="gw-chip ver">ver EE15 en T2</span></div></td></tr>
+<tr><td class="n">6</td><td><a class="tl" href="#gemba-6">Registros manuales y grupos de WhatsApp</a></td><td>Producción</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T3 · Tableros, Analítica y Automatización">T3<span class="pn"> · Tableros, Analítica y Automatización</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O1 · Sacrificio y Capacidad de Línea">O1<span class="pn"> · Sacrificio y Capacidad de Línea</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O3 · Deshuese y Valor Agregado">O3<span class="pn"> · Deshuese y Valor Agregado</span></a></div></td></tr>
+<tr><td class="n">7</td><td><a class="tl" href="#gemba-7">Registros manuales y grupos de WhatsApp</a></td><td>Mantenimiento</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s9" title="M2 · Planeación y Programación del Trabajo">M2<span class="pn"> · Planeación y Programación del Trabajo</span></a><a class="gw-chip" href="../predx_template.html#s11" title="T2 · Calidad y Conciliación del Dato">T2<span class="pn"> · Calidad y Conciliación del Dato</span></a></div></td></tr>
+<tr><td class="n">8</td><td><a class="tl" href="#gemba-8">Vacaciones, dotación y carga de aves</a></td><td>Eviscerado</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s12" title="S2 · Capital Humano y Seguridad">S2<span class="pn"> · Capital Humano y Seguridad</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O1 · Sacrificio y Capacidad de Línea">O1<span class="pn"> · Sacrificio y Capacidad de Línea</span></a></div></td></tr>
+<tr><td class="n">9</td><td><a class="tl" href="#gemba-9">Personas contra aves procesadas</a></td><td>Eviscerado</td><td><div class="gw-chips"><a class="gw-chip" href="../predx_template.html#s12" title="S2 · Capital Humano y Seguridad">S2<span class="pn"> · Capital Humano y Seguridad</span></a><a class="gw-chip" href="../predx_template.html#s7" title="O1 · Sacrificio y Capacidad de Línea">O1<span class="pn"> · Sacrificio y Capacidad de Línea</span></a><span class="gw-chip ver">ver EE12 en O1</span></div></td></tr>
+  </tbody></table></div>
+  <p class="t">Fuente: Gemba Walk de LCG con el equipo de PATE, mar 06-oct-2026. Las láminas se publican como se presentaron; la única modificación es tapar los nombres de personas. Usa las flechas del teclado para avanzar y la tecla Esc para cerrar la vista ampliada.</p>
   <div class="footer"><span>London Consulting Group &copy; 2026</span><span>Confidencial · NDA · LCG y PATE</span></div>
 </div>
+<div class="gw-lb" hidden role="dialog" aria-modal="true" aria-label="Lámina ampliada">
+  <div class="gw-lb-bar"><span class="tt"></span><span class="ct"></span><button type="button" class="gw-lb-out" aria-label="Alejar">&#8722;</button><button type="button" class="gw-lb-in" aria-label="Acercar">+</button><button type="button" class="gw-lb-close" aria-label="Cerrar">&#10005;</button></div>
+  <div class="gw-lb-stage"><img alt=""></div>
+  <button type="button" class="gw-lb-side gw-lb-prev" aria-label="Lámina anterior">&#8249;</button><button type="button" class="gw-lb-side gw-lb-next" aria-label="Lámina siguiente">&#8250;</button>
+</div>
+<script>
+(function(){
+  var figs=[].slice.call(document.querySelectorAll('.gw-slide')),N=figs.length,i=0;
+  var ths=[].slice.call(document.querySelectorAll('.gw-th')),strip=document.querySelector('.gw-strip');
+  var cnt=document.querySelector('.gw-count'),capH=document.querySelector('.gw-cap h2'),capC=document.querySelector('.gw-cap .gw-chips');
+  var lb=document.querySelector('.gw-lb'),lbImg=lb.querySelector('img'),lbSt=lb.querySelector('.gw-lb-stage'),lbT=lb.querySelector('.tt'),lbC=lb.querySelector('.ct');
+  var zoom=1,opener=null;
+  function preload(k){k=(k+N)%N;var im=figs[k].querySelector('img');if(!im.dataset.pre){im.dataset.pre=1;var x=new Image();x.src=im.getAttribute('src');}}
+  function show(k,keepHash){
+    i=(k+N)%N;
+    figs.forEach(function(f,j){f.hidden=j!==i;});
+    ths.forEach(function(t,j){t.setAttribute('aria-current',j===i?'true':'false');});
+    var f=figs[i];cnt.textContent=(i+1)+' / '+N;
+    capH.innerHTML=f.querySelector('.d-title').innerHTML;capC.innerHTML=f.querySelector('.d-chips').innerHTML;
+    var t=ths[i];strip.scrollTo({left:t.offsetLeft-strip.clientWidth/2+t.clientWidth/2,behavior:'smooth'});
+    if(!keepHash&&history.replaceState)history.replaceState(null,'','#gemba-'+(i+1));
+    preload(i+1);preload(i-1);
+    if(!lb.hidden)lbLoad();
+  }
+  function fromHash(){var m=/^#gemba-(\d+)$/.exec(location.hash);if(m){var k=parseInt(m[1],10)-1;if(k>=0&&k<N){show(k,true);return true;}}return false;}
+  document.querySelector('.gw-prev').addEventListener('click',function(){show(i-1);});
+  document.querySelector('.gw-next').addEventListener('click',function(){show(i+1);});
+  ths.forEach(function(t,j){t.addEventListener('click',function(){show(j);});});
+  window.addEventListener('hashchange',fromHash);
+  // lightbox con zoom
+  function fit(){var w=lbSt.clientWidth,h=lbSt.clientHeight;return Math.min(w,h*16/9);}
+  function setZoom(z,cx,cy){
+    var old=lbImg.offsetWidth||1,rx=cx==null?.5:(lbSt.scrollLeft+cx)/old,ry=cy==null?.5:(lbSt.scrollTop+cy)/(lbImg.offsetHeight||1);
+    zoom=Math.max(1,Math.min(4,z));lbImg.style.width=Math.round(fit()*zoom)+'px';lbSt.classList.toggle('z',zoom>1);
+    lbSt.scrollLeft=rx*lbImg.offsetWidth-(cx==null?lbSt.clientWidth/2:cx);lbSt.scrollTop=ry*lbImg.offsetHeight-(cy==null?lbSt.clientHeight/2:cy);
+  }
+  function lbLoad(){var im=figs[i].querySelector('img');lbImg.src=im.getAttribute('src');lbImg.alt=im.alt;lbT.textContent=figs[i].getAttribute('data-t');lbC.textContent=(i+1)+' / '+N;setZoom(1);}
+  function openLb(){opener=document.activeElement;lb.hidden=false;document.body.style.overflow='hidden';lbLoad();lb.querySelector('.gw-lb-close').focus();}
+  function closeLb(){lb.hidden=true;document.body.style.overflow='';if(opener&&opener.focus)opener.focus();}
+  figs.forEach(function(f){f.querySelector('img').addEventListener('click',openLb);});
+  lb.querySelector('.gw-lb-close').addEventListener('click',closeLb);
+  lb.querySelector('.gw-lb-in').addEventListener('click',function(){setZoom(zoom+1);});
+  lb.querySelector('.gw-lb-out').addEventListener('click',function(){setZoom(zoom-1);});
+  lb.querySelector('.gw-lb-prev').addEventListener('click',function(){show(i-1);});
+  lb.querySelector('.gw-lb-next').addEventListener('click',function(){show(i+1);});
+  lbImg.addEventListener('click',function(e){if(drag&&drag.m)return;var r=lbSt.getBoundingClientRect();setZoom(zoom>1?1:2.5,e.clientX-r.left,e.clientY-r.top);});
+  window.addEventListener('resize',function(){if(!lb.hidden)setZoom(zoom);});
+  // arrastre con mouse cuando hay zoom
+  var drag=null;
+  lbSt.addEventListener('pointerdown',function(e){if(zoom>1&&e.pointerType==='mouse'){drag={x:e.clientX,y:e.clientY,l:lbSt.scrollLeft,t:lbSt.scrollTop,m:false};lbSt.classList.add('drag');}});
+  window.addEventListener('pointermove',function(e){if(drag){var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>3)drag.m=true;lbSt.scrollLeft=drag.l-dx;lbSt.scrollTop=drag.t-dy;}});
+  window.addEventListener('pointerup',function(){if(drag){lbSt.classList.remove('drag');setTimeout(function(){drag=null;},0);}});
+  // teclado
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey)return;
+    if(e.key==='ArrowLeft'){show(i-1);e.preventDefault();}
+    else if(e.key==='ArrowRight'){show(i+1);e.preventDefault();}
+    else if(!lb.hidden&&e.key==='Escape'){closeLb();}
+    else if(!lb.hidden&&(e.key==='+'||e.key==='=')){setZoom(zoom+1);}
+    else if(!lb.hidden&&e.key==='-'){setZoom(zoom-1);}
+  });
+  // deslizar en celular (en el visor y en el lightbox sin zoom)
+  function swipe(el,ok){var sx=null,sy=null;
+    el.addEventListener('touchstart',function(e){if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;}else sx=null;},{passive:true});
+    el.addEventListener('touchend',function(e){if(sx==null||!ok())return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+      if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3)show(i+(dx<0?1:-1));},{passive:true});}
+  swipe(document.querySelector('.gw-stage'),function(){return true;});
+  swipe(lbSt,function(){return zoom===1;});
+  window.addEventListener('beforeprint',function(){figs.forEach(function(f){f.querySelector('img').loading='eager';});});
+  if(!fromHash())show(0,true);
+})();
+</script>
 </body>
 </html>
