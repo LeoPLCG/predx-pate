@@ -30,3 +30,7 @@
 # Material interno del cliente: transcripciones crudas y mapa de sistemas. Ya quedan fuera por la lista blanca.
 /entrevistas/raw/
 /documentos/raw/TI/
+
+# Bases del cliente en PDF y correos (.eml): nunca se suben. Ya quedan fuera por la lista blanca.
+/documentos/raw/bbdd/**/*.pdf
+/documentos/raw/bbdd/**/*.eml
