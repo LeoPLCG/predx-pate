@@ -136,7 +136,7 @@ td.hm{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
   </header>
 
   <div class="tags"><span class="tag">EE17</span><span class="tag">O1</span><span class="tag">S4</span></div>
-  <p class="thesis">El OEE real de cárnicos es 64.2%, no el 88% que muestra el historial. La pérdida grande no está en paros: está en la calidad, que hoy se mide con muestras semanales.</p>
+  <p class="thesis">En oct 2025-mar 2026 el OEE de cárnicos fue 66.5%, no el 88.4% del historial reportado. En los 18 meses medidos fue 64.2%. La pérdida grande no está en paros: está en la calidad, que hoy se mide con muestras semanales.</p>
 
   <p class="cap" style="margin:0 0 8px;font-size:13px">Fuente: EE17 · Base Indicadores AB 2025-2026 · corte 02-oct-2026</p>
   <div class="base"><b>Base</b>Indicadores AB 2025-2026.xlsx: registros diarios de 8 áreas (Sacrificio, Eviscerado, Deshuese 1, Deshuese 2, Pastas, Grasas, Harina de carne y hueso, Harina de pluma y sangre), 31-mar-2025 a 02-oct-2026, 3,034 días-área. Todo se recalculó desde las capturas (horarios, paros, producción y muestras), sin usar las gráficas ni los totales del archivo.</div>
@@ -182,7 +182,7 @@ td.hm{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
     <div class="tbl"><table>
       <thead><tr><th>#</th><th>Dónde</th><th>Qué se encontró</th><th>Impacto</th></tr></thead>
       <tbody>
-        <tr><td class="num">1</td><td>Análisis X indicador · historial Oct-Mar 26</td><td>Los OEE de Oct-Mar 26 (fila 35 a 40) están capturados a mano: Sacrificio 87.0%, cuando su calidad × rendimiento × disponibilidad da 60.9%.</td><td class="bad">Total del historial 88.4% contra 66.6% real del mismo periodo.</td></tr>
+        <tr><td class="num">1</td><td>Análisis X indicador · historial oct 2025-mar 2026</td><td>Los OEE de oct 2025-mar 2026 (fila 35 a 40) están capturados a mano: Sacrificio 87.0%, cuando su calidad × rendimiento × disponibilidad da 60.9%.</td><td class="bad">Total del historial 88.4% contra 66.5% real del mismo periodo (Σ tiempo valioso ÷ Σ tiempo planeado). La hoja Periodo del Excel muestra 66.6%.</td></tr>
         <tr><td class="num">2</td><td>Harina de carne y hueso · calidad</td><td>Del 31-mar al 18-jul-2025 la calidad solo usa humedad aunque la grasa se captura. Desde el 21-jul promedia humedad y grasa, así que un lote fuera en grasa cuenta como medio bueno. Grasa trae 74 de 330 muestras fuera de especificación (22%).</td><td class="bad">Si el lote debe cumplir ambos criterios, la calidad es 77.6% y el OEE baja de 91.3% a 70.9%.</td></tr>
         <tr><td class="num">3</td><td>Todas las hojas · rendimiento</td><td>La velocidad estándar es la meta, no la capacidad. Sacrificio supera 100% de rendimiento en 78% de los días; Harina de carne y hueso da OEE mensual de 104% en enero 2026.</td><td class="bad">OEE arriba de 100% es imposible: el estándar está mal.</td></tr>
         <tr><td class="num">4</td><td>Periodo 2025 y 2026 · total</td><td>El total por periodo es =AVERAGE() de las áreas, y el OEE de cada área es el promedio de los OEE diarios.</td><td>El método no es válido aunque aquí la diferencia sea chica (66.6% contra 66.5%).</td></tr>
@@ -201,12 +201,12 @@ td.hm{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
     <div class="kpi alert"><div class="v">64.2%</div><div class="l">OEE cárnicos</div><div class="d">Sacrificio, Eviscerado, Deshuese 1 y 2, Pastas y Grasas. 1.53 M minutos planeados.</div></div>
     <div class="kpi"><div class="v">75.6%</div><div class="l">OEE rendimientos</div><div class="d">Harinas, con la grasa incluida en calidad. Solo con humedad daría 86.9%.</div></div>
     <div class="kpi"><div class="v">67.4%</div><div class="l">OEE planta</div><div class="d">8 áreas. Contra una referencia de clase mundial de 85%.</div></div>
-    <div class="kpi alert"><div class="v">−21.9 pts</div><div class="l">Historial contra real</div><div class="d">88.4% reportado en Oct-Mar 26 contra 66.5% recalculado.</div></div>
+    <div class="kpi alert"><div class="v">−21.9 pts</div><div class="l">Historial contra real</div><div class="d">88.4% reportado en oct 2025-mar 2026 contra 66.5% recalculado.</div></div>
   </section>
   <div class="cmp">
     <article class="card">
       <h3>OEE de cárnicos por periodo</h3>
-      <p class="cap">Recalculado contra lo que reporta el archivo.</p>
+      <p class="cap">Recalculado contra lo que reporta el archivo. En oct 2025-mar 2026 el recalculado es 66.5% (Σ tiempo valioso ÷ Σ tiempo planeado); la hoja Periodo del Excel muestra 66.6%. Abr-sep 26 va al 02-oct-2026, periodo incompleto: no se compara como semestre cerrado.</p>
       <div class="chart" style="height:260px"><canvas id="g1" role="img" aria-label="OEE cárnicos recalculado 61.2, 66.5 y 65.0 por ciento; archivo 61.8, 66.6 e historial 88.4">OEE por periodo.</canvas></div>
       <div class="legend"><span><i class="sw" style="background:var(--green)"></i>Recalculado</span><span><i class="sw" style="background:var(--blue)"></i>Hoja Periodo</span><span><i class="sw" style="background:var(--orange)"></i>Historial (capturado)</span><span><i class="sw dash" style="border-color:var(--ink)"></i>Clase mundial 85%</span></div>
     </article>
@@ -243,9 +243,9 @@ td.hm{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
 
   <article class="card">
     <h3>OEE por área y periodo: recalculado contra archivo</h3>
-    <p class="cap">Celda: OEE recalculado. Entre paréntesis, lo que reporta la hoja Periodo; en Oct-Mar 26 también el historial capturado.</p>
+    <p class="cap">Celda: OEE recalculado. Entre paréntesis, lo que reporta la hoja Periodo; en oct 2025-mar 2026 también el historial capturado.</p>
     <div class="tbl"><table>
-      <thead><tr><th>Área</th><th>Abr-Sep 25</th><th>Oct 25-Mar 26</th><th>Abr-Sep 26</th></tr></thead>
+      <thead><tr><th>Área</th><th>Abr-Sep 25</th><th>Oct 25-Mar 26</th><th>Abr-sep 26 (al 02-oct)</th></tr></thead>
       <tbody id="tp"></tbody>
     </table></div>
   </article>
@@ -290,7 +290,7 @@ function topLabels(fmt){return{id:'t'+Math.random(),afterDatasetsDraw(ch){const 
  ch.data.datasets.forEach((d,si)=>{const m=ch.getDatasetMeta(si);m.data.forEach((b,i)=>{const v=d.data[i];if(v==null)return;ctx.fillText(fmt(v),b.x,b.y-6);});});ctx.restore();}}}
 
 /* global by period */
-new Chart(document.getElementById('g1'),{type:'bar',data:{labels:['Abr-Sep 25','Oct 25-Mar 26','Abr-Sep 26'],datasets:[
+new Chart(document.getElementById('g1'),{type:'bar',data:{labels:['Abr-Sep 25','Oct 25-Mar 26','Abr-sep 26 (al 02-oct)'],datasets:[
  {label:'Recalculado',data:[61.2,66.5,65.0],backgroundColor:C.green,borderRadius:5,maxBarThickness:30},
  {label:'Hoja Periodo',data:[61.8,66.6,null],backgroundColor:C.blue,borderRadius:5,maxBarThickness:30},
  {label:'Historial',data:[61.8,88.4,null],backgroundColor:C.orange,borderRadius:5,maxBarThickness:30}]},
