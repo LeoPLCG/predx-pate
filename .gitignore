@@ -4,6 +4,7 @@
 /*
 !/.github/
 !/.gitignore
+!/CHANGELOG_NMO.md
 !/presentacion/
 /presentacion/*
 !/presentacion/output/
