@@ -242,3 +242,8 @@ Responsable: Leonardo Pimentel. La frase suelta «este hallazgo es la oportunida
 ## 2026-10-13 · Higiene y sanidad contra la base de RR.HH.
 
 Responsable: Leonardo Pimentel. El hallazgo de bajas se reescribe sin atribuir error a ningún área: compara lo que declara Higiene y sanidad (rotación y ausentismo bajo control, sin cifra ni criterio de baja) con la base de RR.HH. (IRP.xlsx, hoja Altas y Bajas, ene-sep): 14 bajas en 2026 contra 6 en 2025, con 43.8 personas promedio (32.0% en nueve meses en cálculo simple, contra 11.7% de la planta). Las 14 bajas salen de la base de RR.HH., no de un reporte de Higiene. Se retira la causa «cada área lleva su propio registro», que no tenía sustento en las fuentes.
+
+
+## 2026-10-13 · Ancho en celular (375 px)
+
+Responsable: Leonardo Pimentel. La página del estudio de plantilla (EE16) medía 679 px en un viewport de 375 px porque sus tablas anchas no se desplazaban dentro de su caja; las tarjetas de los estudios ahora se desplazan en horizontal. El detalle NMO, el índice de entrevistas, la matriz de impactos financieros y la simulación financiera tenían el mismo desborde y reciben la misma regla solo en pantallas de hasta 760 px. Las 30 páginas del sitio miden 375 px.
