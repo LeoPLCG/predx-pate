@@ -164,3 +164,28 @@ OPP-082 medición de productividad y bonos en todas las líneas · OPP-083 OEE p
 **Folios.** Se quitaron del texto del sitio las marcas «[folio pendiente]» (incluida la de S1-E5). La calificación S1-E5 = 2.0 se mantiene como decisión de Leonardo Pimentel con evidencia de campo. Las evidencias que siguen faltando quedan listadas en la sección «Pendientes de evidencia» de este archivo.
 
 **Gráfico de existencias de producto terminado.** Se agregó como imagen (`Grafico_Existencias_Producto_Terminado`, carpeta BD17) en la tarjeta C1 de Frío, Logística y Comercial, junto al hallazgo de capital de trabajo (EE09). Es una captura del Excel de proyección de septiembre de 2026: no se replicó con datos propios porque la captura no trae las hojas de enero a agosto ni la unidad.
+
+
+## 2026-10-13 · Cierre de las 13 evidencias pendientes
+
+Responsable: Leonardo Pimentel. Las calificaciones de la matriz NMO no cambian; solo se cita la fuente de cada hallazgo. NMO macro 1.2 sin cambio. Donde la frase textual no está en la transcripción, se cita la entrevista sin comillas.
+
+| # | Hallazgo | Fuente que ahora se cita | Estado |
+|---|---|---|---|
+| 1 | PI-H1 productividad y remuneración solo en Deshuese 2 | Reporte Marel (único medido), entrevista de Deshuese 06-oct-2026, RR.HH. 07-oct-2026 y Contraloría 06-oct-2026 | Cerrado |
+| 2 | PI-H5 trazabilidad en papel | Gemba Walk 06-oct-2026, lámina 6 de 9, y al menos 36 formatos físicos recolectados | Cerrado |
+| 3 | PI-H6 y Mantenimiento H5 paros duplicados | Entrevista de Producción 05-oct-2026 (registro propio de paros porque Mantenimiento no los registraba todos), citada sin comillas porque la frase no es literal; Mantenimiento 06-oct-2026; BD04 | Cerrado |
+| 4 | Mantenimiento H1 insumos y refacciones sin registro ni SKU único | Entrevistas de Mantenimiento y de Ventas, almacenes y logística (06-oct-2026). El hallazgo es la oportunidad; no se exige BD10 ni BD17 | Cerrado |
+| 5 | Mantenimiento H2 y H3 | Entrevista de Eviscerado 06-oct-2026 y Gemba Walk (órdenes correctivas sin repuestos); criterio de tercerización de la entrevista de Mantenimiento. Servicios sin cuantificar: «por diseñar en el proyecto» | Cerrado |
+| 6 | ST-H2 a ST-H5 | Entrevista de RR.HH. 07-oct-2026, citada por dimensión (E2, E3, E4, E5) | Cerrado |
+| 7 | S1 E5 = 2.0 | Entrevista de Medio Ambiente 07-oct-2026: práctica mencionada, no formalizada. Se mantiene 2.0 | Cerrado |
+| 8 | Plantilla oficial | Estudio de RR.HH. sobre el Excel IRP: Deshuese 265 autorizados contra 250.4 reales, total 578 autorizados. El 244 contra 258 queda como declarado en la entrevista de RR.HH. | Cerrado |
+| 9 | Adeudo de unos $60 M | Tesorería lo menciona y lo muestra en Excel (07-oct-2026); Contraloría lo confirma de forma verbal (06-oct-2026). Frase literal de la transcripción de Tesorería | Cerrado |
+| 10 | Umbral de 1.90 a 1.95 M aves al mes y venta gestionada desde corporativo | Seis entrevistas citadas en la tarjeta de Frío, Logística y Comercial (Ventas, almacenes y logística entre ellas). PROAN no aparece en el organigrama de PATE; se agregó como hallazgo de Estructura | Cerrado |
+| 11 | Contribución por ave $12.3 | Ver CHANGELOG_FINANCIERO.md | Documentado |
+| 12 | Mapa de Oportunidades | Solo las oportunidades cuantificadas en un estudio entran a la suma; el resto se rotula «Por validar y diseñar durante el proyecto» y el Resumen declara los conteos | Cerrado |
+| 13 | Existencias de producto terminado | Gráfico interactivo con los 30 días de septiembre (tabla transcrita de la captura del Excel); reemplaza la imagen en la tarjeta de C1 | Cerrado, con aviso |
+
+**Aviso de transcripción del gráfico (13).** La tabla se transcribió a mano de una captura de pantalla. Se verificó contra la forma de la curva en cinco fechas (5-6, 11, 12-13, 18 y 24 de septiembre). El dato de 2024 del día 3 (329,096) tiene una lectura ambigua en la captura. Confirmar contra el Excel original. El eje del Excel dice «Cantidad» sin unidad; los valores se leen en kg y se muestran en toneladas. No hay hojas de enero a agosto, por eso no hay selector de mes.
+
+**Aviso de láminas.** La referencia a la lámina de Gemba Walk en Mantenimiento H2 es la 7 de 9; la de trazabilidad en papel es la 6 de 9.

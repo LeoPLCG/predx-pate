@@ -5,6 +5,7 @@
 !/.github/
 !/.gitignore
 !/CHANGELOG_NMO.md
+!/CHANGELOG_FINANCIERO.md
 !/presentacion/
 /presentacion/*
 !/presentacion/output/
