@@ -247,3 +247,8 @@ Responsable: Leonardo Pimentel. El hallazgo de bajas se reescribe sin atribuir e
 ## 2026-10-13 · Ancho en celular (375 px)
 
 Responsable: Leonardo Pimentel. La página del estudio de plantilla (EE16) medía 679 px en un viewport de 375 px porque sus tablas anchas no se desplazaban dentro de su caja; las tarjetas de los estudios ahora se desplazan en horizontal. El detalle NMO, el índice de entrevistas, la matriz de impactos financieros y la simulación financiera tenían el mismo desborde y reciben la misma regla solo en pantallas de hasta 760 px. Las 30 páginas del sitio miden 375 px.
+
+
+## 2026-10-13 · Revisión de redacción
+
+Responsable: Leonardo Pimentel. Sin cambio de cifras, citas, ids ni anclas. Una revisión ortográfica con diccionario de español sobre todo el texto visible del sitio corrigió: «los unidades de inventario» a «las unidades de inventario» (la expansión de la sigla SKU rompía la concordancia), «canal canal lista para cocinar» a «canal lista para cocinar», «accidentabilidad» a «accidentalidad», «stps» a «STPS» y «Historial de Marell» a «Historial de MAREL» en las fuentes. No se encontraron «proeyctar», «Abastacecimiento» ni «resultado positivo de resultados».
