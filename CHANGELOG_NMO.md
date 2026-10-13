@@ -237,3 +237,8 @@ Responsable: Leonardo Pimentel. Se omite del sitio toda mención del adeudo de u
 ## 2026-10-13 · Mantenimiento H1: hallazgo y oportunidad ligados
 
 Responsable: Leonardo Pimentel. La frase suelta «este hallazgo es la oportunidad» se reformula en el racional de Mantenimiento y en el Resumen: el hallazgo cita el gasto en refacciones de $37.4 M en ene-2025 a sep-2026 (Gasto en refacciones, vista macro), que solo se ve por proveedor y por mes, y la oportunidad es un catálogo con SKU único y consumo registrado contra equipo y orden de trabajo. Sin cambio de cifras, citas ni calificaciones.
+
+
+## 2026-10-13 · Higiene y sanidad contra la base de RR.HH.
+
+Responsable: Leonardo Pimentel. El hallazgo de bajas se reescribe sin atribuir error a ningún área: compara lo que declara Higiene y sanidad (rotación y ausentismo bajo control, sin cifra ni criterio de baja) con la base de RR.HH. (IRP.xlsx, hoja Altas y Bajas, ene-sep): 14 bajas en 2026 contra 6 en 2025, con 43.8 personas promedio (32.0% en nueve meses en cálculo simple, contra 11.7% de la planta). Las 14 bajas salen de la base de RR.HH., no de un reporte de Higiene. Se retira la causa «cada área lleva su propio registro», que no tenía sustento en las fuentes.
