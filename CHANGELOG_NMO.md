@@ -212,3 +212,10 @@ Responsable: Leonardo Pimentel. Las calificaciones y el NMO macro (1.2) no cambi
 - **Distribución de madurez.** Cada pilar con su nombre completo.
 - **Estructura Organizacional.** Se quita la nota de plantilla y el botón de estructura y span de control.
 - **Sección 18.** Cada botón lleva su descripción debajo, centrada.
+
+
+## 2026-10-13 · Entrevistas y plantilla
+
+Responsable: Leonardo Pimentel. Sin cambio de calificaciones.
+- **27 entrevistas en todo el sitio.** Los textos que contaban 26 fichas (temas que se repiten, hipótesis confirmadas, estructura, tecnología aplicada) ahora usan las 27 personas entrevistadas como universo.
+- **Plantilla.** La cifra es 600.8 en todos lados y se aclara que es el promedio de la base IRP; la referencia de Nómina a «cerca de 600» pasa a 600.8.
