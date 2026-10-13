@@ -227,3 +227,8 @@ Responsable: Leonardo Pimentel. Sin cambio de calificaciones.
 - **Redacción.** «Mal calculado» pasa a «presenta inconsistencias en su cálculo (19 identificadas, 9 de severidad alta)»; los dos números se cuentan directamente en el Registro de inconsistencias del OEE y coinciden con los esperados.
 - **Nota de las cifras.** Donde aparecen juntas, una nota explica que 66.5% es el OEE ponderado de cárnicos de oct 2025-mar 2026 recalculado con la Base de Indicadores, 64.2% es el mismo cálculo sobre los 18 meses medidos y 88.4% es la cifra capturada en el historial del reporte semestral de Revisión por la Dirección, no resultado del recálculo.
 - **Detalle NMO.** Se corrige un error de la generación que dejaba duplicados el mapa de calor y el racional por vertical.
+
+
+## 2026-10-13 · Adeudo omitido del registro
+
+Responsable: Leonardo Pimentel. Se omite del sitio toda mención del adeudo de unos $60 M con el accionista principal: el racional de Abasto, el hallazgo de Administración & Finanzas del Resumen y la cita de Tesorería de «En sus propias palabras». Sin cambio de calificaciones.
