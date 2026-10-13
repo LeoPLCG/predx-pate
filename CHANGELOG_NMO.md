@@ -140,3 +140,27 @@ No se graficó: el archivo «PROYECCION-EXISTENCIAS-2026 al 24-09-2026» no est�
 
 ### 9. Oportunidades nuevas (por cuantificar)
 OPP-082 medición de productividad y bonos en todas las líneas · OPP-083 OEE ponderado con revisión semanal · OPP-084 trazabilidad digital · OPP-085 control de plantilla · OPP-086 evaluación de desempeño por niveles · OPP-087 perfiles de puesto exactos · OPP-088 eliminación de reportes y actividades duplicados. Total del inventario: 88.
+
+## 2026-10-13 · Celdas sin evidencia en 1, folios fuera del sitio y gráfico de existencias
+
+**Celdas sin evidencia = 1.** Las 13 celdas que no tenían evidencia (A1-E5, A3-E1, O5-E5, C1-E5, C2-E3, C2-E4, C3-E3, C3-E5, M1-E5, M3-E5, M6-E1, M6-E5 y T3-E3) se califican 1 por la regla del PreDx: la ausencia de evidencia no significa que funcione bien. En la matriz llevan la nota «sin evidencia, 1 por regla del PreDx» y no cuentan como dimensiones con evidencia (122 de 135).
+
+| Pilar | Antes | Después |
+|---|---|---|
+| A1, A3 | 1.1 | 1.1 |
+| O5 | 1.2 | 1.2 |
+| C1 | 1.1 | 1.0 |
+| C2 | 1.1 | 1.1 |
+| C3 | 1.1 | 1.0 |
+| M1, M3, M6 | 1.2, 1.1, 1.1 | 1.2, 1.1, 1.1 |
+| T3 | 1.2 | 1.2 |
+
+| Grupo | Antes | Después |
+|---|---|---|
+| Frío, Logística y Comercial | 1.1 | **1.0** |
+| Demás grupos | sin cambio | sin cambio |
+| **NMO macro** | 1.2 (1.163) | **1.2 (1.156)** |
+
+**Folios.** Se quitaron del texto del sitio las marcas «[folio pendiente]» (incluida la de S1-E5). La calificación S1-E5 = 2.0 se mantiene como decisión de Leonardo Pimentel con evidencia de campo. Las evidencias que siguen faltando quedan listadas en la sección «Pendientes de evidencia» de este archivo.
+
+**Gráfico de existencias de producto terminado.** Se agregó como imagen (`Grafico_Existencias_Producto_Terminado`, carpeta BD17) en la tarjeta C1 de Frío, Logística y Comercial, junto al hallazgo de capital de trabajo (EE09). Es una captura del Excel de proyección de septiembre de 2026: no se replicó con datos propios porque la captura no trae las hojas de enero a agosto ni la unidad.
