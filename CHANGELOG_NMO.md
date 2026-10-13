@@ -232,3 +232,8 @@ Responsable: Leonardo Pimentel. Sin cambio de calificaciones.
 ## 2026-10-13 · Adeudo omitido del registro
 
 Responsable: Leonardo Pimentel. Se omite del sitio toda mención del adeudo de unos $60 M con el accionista principal: el racional de Abasto, el hallazgo de Administración & Finanzas del Resumen y la cita de Tesorería de «En sus propias palabras». Sin cambio de calificaciones.
+
+
+## 2026-10-13 · Mantenimiento H1: hallazgo y oportunidad ligados
+
+Responsable: Leonardo Pimentel. La frase suelta «este hallazgo es la oportunidad» se reformula en el racional de Mantenimiento y en el Resumen: el hallazgo cita el gasto en refacciones de $37.4 M en ene-2025 a sep-2026 (Gasto en refacciones, vista macro), que solo se ve por proveedor y por mes, y la oportunidad es un catálogo con SKU único y consumo registrado contra equipo y orden de trabajo. Sin cambio de cifras, citas ni calificaciones.
