@@ -129,16 +129,16 @@ td.hm{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
 
   <header>
     <a class="crumb" href="../predx_template.html#s7" style="text-decoration:none">← Volver a Proceso Industrial · O1</a>
-    <div class="eyebrow" style="margin-top:14px">Estudio estadístico · <span class="sg" data-sg="EE17">estudio estadístico EE17</span> · <span class="sg" data-sg="OEE">eficiencia general del equipo (OEE, por sus siglas en inglés: Overall Equipment Effectiveness)</span> por área · abr-2025 a oct-2026</div>
+    <div class="eyebrow" style="margin-top:14px">Estudio estadístico · <span class="sg" data-sg="EE17">estudio estadístico OEE por área</span> · <span class="sg" data-sg="OEE">eficiencia general del equipo (OEE, por sus siglas en inglés: Overall Equipment Effectiveness)</span> por área · abr-2025 a oct-2026</div>
     <h1>OEE de planta</h1>
     <p class="sub">¿Qué tan bien usa PATE el tiempo de sus líneas, y qué tan confiable es el OEE que se reporta hoy?</p>
     <hr class="rule">
   </header>
 
-  <div class="tags"><span class="tag">EE17</span><span class="tag">O1</span><span class="tag">S4</span></div>
+  <div class="tags"><span class="tag">OEE por área</span><span class="tag">O1</span><span class="tag">S4</span></div>
   <p class="thesis">En oct 2025-mar 2026 el OEE de cárnicos fue 66.5%, no el 88.4% del historial reportado. En los 18 meses medidos fue 64.2%. La pérdida grande no está en paros: está en la calidad, que hoy se mide con muestras semanales.</p>
 
-  <p class="cap" style="margin:0 0 8px;font-size:13px">Fuente: EE17 · Base Indicadores AB 2025-2026 · corte 02-oct-2026</p>
+  <p class="cap" style="margin:0 0 8px;font-size:13px">Fuente: OEE por área · Base Indicadores AB 2025-2026 · corte 02-oct-2026</p>
   <div class="base"><b>Base</b>Indicadores AB 2025-2026.xlsx: registros diarios de 8 áreas (Sacrificio, Eviscerado, Deshuese 1, Deshuese 2, Pastas, Grasas, Harina de carne y hueso, Harina de pluma y sangre), 31-mar-2025 a 02-oct-2026, 3,034 días-área. Todo se recalculó desde las capturas (horarios, paros, producción y muestras), sin usar las gráficas ni los totales del archivo.</div>
 
   <!-- 1. QUÉ ES -->
@@ -187,7 +187,7 @@ td.hm{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
         <tr><td class="num">3</td><td>Todas las hojas · rendimiento</td><td>La velocidad estándar es la meta, no la capacidad. Sacrificio supera 100% de rendimiento en 78% de los días; Harina de carne y hueso da OEE mensual de 104% en enero 2026.</td><td class="bad">OEE arriba de 100% es imposible: el estándar está mal.</td></tr>
         <tr><td class="num">4</td><td>Periodo 2025 y 2026 · total</td><td>El total por periodo es =AVERAGE() de las áreas, y el OEE de cada área es el promedio de los OEE diarios.</td><td>El método no es válido aunque aquí la diferencia sea chica (66.6% contra 66.5%).</td></tr>
         <tr><td class="num">5</td><td>Calidad · todas las áreas</td><td>Se toma una muestra por semana y la fórmula repite el valor (=IF(B10=B9,T9,…)). Cada área mide algo distinto: lotes en Sacrificio, defectos en Deshuese 2, promedio de dos criterios en Pastas.</td><td>La calidad no es comparable entre áreas ni refleja el día.</td></tr>
-        <tr><td class="num">6</td><td>Disponibilidad · todas las áreas</td><td>Disponibilidad entre 96% y 99.7%. Grasas registró paros en 2 de 376 días; 87% de los días de Deshuese 2 no tienen paros.</td><td>Los paros no se capturan. EE12 encontró 1.27 h/día sin registro.</td></tr>
+        <tr><td class="num">6</td><td>Disponibilidad · todas las áreas</td><td>Disponibilidad entre 96% y 99.7%. Grasas registró paros en 2 de 376 días; 87% de los días de Deshuese 2 no tienen paros.</td><td>Los paros no se capturan. Utilización de la capacidad instalada encontró 1.27 h/día sin registro.</td></tr>
         <tr><td class="num">7</td><td>Historial · disponibilidad</td><td>Sacrificio y Eviscerado tienen exactamente la misma disponibilidad de Abr-22 a Mar-24 (88.66%, 90.57%, 93.06%, 94.50%).</td><td>Valores copiados entre áreas.</td></tr>
         <tr><td class="num">8</td><td>Hoja1 · OEE de harinas</td><td>La columna «OEE» de H1 es igual a la columna de calidad (enero 86.9% y 86.9%).</td><td>La gráfica de OEE muestra calidad.</td></tr>
         <tr><td class="num">9</td><td>Etiquetas y huecos</td><td>Unidades cruzadas («kg/min» para aves, «Kg tentativos» para piezas en Deshuese 1). Deshuese 1 no tiene capturas en septiembre 2026.</td><td>Riesgo de lectura y huecos en la serie.</td></tr>
@@ -212,7 +212,7 @@ td.hm{text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
     </article>
     <article class="card">
       <h3>Es un techo, no un piso</h3>
-      <p class="cap">El rendimiento se mide contra la meta. Con la capacidad nominal de 9,500 aves/h (EE12):</p>
+      <p class="cap">El rendimiento se mide contra la meta. Con la capacidad nominal de 9,500 aves/h (Utilización de la capacidad instalada):</p>
       <div class="tbl"><table style="min-width:0">
         <thead><tr><th>Área</th><th>Con meta</th><th>Con nominal</th></tr></thead>
         <tbody>

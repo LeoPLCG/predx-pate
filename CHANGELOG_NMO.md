@@ -189,3 +189,17 @@ Responsable: Leonardo Pimentel. Las calificaciones de la matriz NMO no cambian; 
 **Aviso de transcripción del gráfico (13).** La tabla se transcribió a mano de una captura de pantalla. Se verificó contra la forma de la curva en cinco fechas (5-6, 11, 12-13, 18 y 24 de septiembre). El dato de 2024 del día 3 (329,096) tiene una lectura ambigua en la captura. Confirmar contra el Excel original. El eje del Excel dice «Cantidad» sin unidad; los valores se leen en kg y se muestran en toneladas. No hay hojas de enero a agosto, por eso no hay selector de mes.
 
 **Aviso de láminas.** La referencia a la lámina de Gemba Walk en Mantenimiento H2 es la 7 de 9; la de trazabilidad en papel es la 6 de 9.
+
+
+## 2026-10-13 · Ajustes de presentación (sin cambio de calificaciones)
+
+Responsable: Leonardo Pimentel. Las calificaciones y el NMO macro (1.2) no cambian.
+- **Matriz dimensión por pilar.** Un decimal en todas las celdas, total por fila (promedio de la dimensión en los 27 pilares) y total por columna (nivel del pilar); la esquina muestra el nivel global. Se ajustó el ancho para que entre en la página, tanto en la sección NMO como en el detalle por pilar y dimensión.
+- **Alineación estratégica.** Se registra que no existe un plan estratégico escrito ni un plan a 3 o 5 años (Gerencia General, 05-oct-2026).
+- **Cadena de valor.** M5 y T1 muestran su nivel (el nombre con glosario desplazaba el número).
+- **Estructura organizacional.** Tres tarjetas nuevas: perfiles y funciones en proceso, plantilla +3.9% y +5.9% sobre los puestos aprobados en los últimos 3 meses, y bonos de productividad solo en una área.
+- **Citas corregidas en pantalla** (la cita registrada sigue literal contra la transcripción): «SAP» en lugar de «Zap», «avicultores» en lugar de «agricultores» y la cita de Grasas sobre migrar el papel a lo digital.
+- **Resumen Ejecutivo.** Se quitan las tarjetas de impacto anual y ahorro del proyecto y la sección de conclusiones; los cuadrantes pasan a «Rediseño Sistema & Herramientas de Trabajo» y «Requieren implementación hombro a hombro»; los estudios se citan por nombre.
+- **Mapa de Oportunidades.** Columna «Impacto Px», sin «una vez», «sin conciliar» ni «(escenario 15 días)», y se quita la etiqueta «nueva» de las oportunidades.
+- **Sección 18.** Solo quedan los botones «Ver propuesta de Proyecto PATE» y «Ver Simulación Financiera».
+- **Agenda.** Sin tabla de avance de entrevistas; pasa directo al PDF actualizado.
