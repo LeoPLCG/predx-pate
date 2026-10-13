@@ -53,3 +53,90 @@ En el sitio estos folios se muestran como «[folio pendiente]»; no se sustituye
 
 H4 tiene respaldo en el Gemba Walk del 06-oct-2026 (lámina 2). H6 y H7 tienen respaldo en la entrevista de Mantenimiento del 06-oct-2026.
 
+## 2026-10-13 · Matriz a un decimal, Proceso Industrial y Soporte Transversal celda por celda
+
+**Método.** Se calificó celda por celda con evidencia, sin escalar. Cada celda toma el nivel más conservador de sus fuentes; los niveles por dimensión de Proceso Industrial (E1 1.5, E2 1.3, E3 1.2, E4 1.1, E5 1.2) y de Soporte Transversal (E1 1.1, E2 1.2, E3 1.0, E4 1.1, E5 1.3) se agregaron como una evidencia más en cada celda que ya tenía evidencia, de modo que solo bajan una celda y nunca suben una con evidencia más baja. Todas las celdas se guardan y se muestran con un decimal; pilar, grupo y macro se recalculan desde las celdas redondeadas (promedio de las dimensiones con evidencia, promedio de pilares y promedio simple de los 27 pilares, con el redondeo del repo).
+
+### 1. Efecto del redondeo a un decimal (solo Abasto, Frío y Mantenimiento, que venían del escalamiento anterior)
+| Pilar | Antes (celdas con 2 decimales) | Después |
+|---|---|---|
+| A1, A2, A3 | 1.1 | 1.1 (celdas 1.13 pasan a 1.1) |
+| C1 | 1.06 | 1.1 |
+| C2 | 1.16 | 1.1 |
+| C3 | 1.08 | 1.1 |
+| M1 | 1.19 | 1.2 |
+| M3 | 1.07 | 1.1 |
+| M5 | 1.21 | 1.2 |
+Los grupos no cambian por el redondeo (Abasto 1.1, Frío 1.1, Mantenimiento 1.1). El macro solo por redondeo pasa de 1.258 a 1.259, que se sigue mostrando 1.3.
+
+### 2. Proceso Industrial (O1 a O5)
+| Pilar | E1 a E5 antes | E1 a E5 después | Promedio antes | Promedio después |
+|---|---|---|---|---|
+| O1 Sacrificio y Capacidad de Línea | 2, 2, 1, 2, 2 | 1.5, 1.3, 1, 1.1, 1.2 | 1.8 | 1.2 |
+| O2 Rendimientos y Balance de Masa | sin evidencia, 1, 1, 2, 1 | 1.0*, 1, 1, 1.1, 1 | 1.2 | 1.0 |
+| O3 Deshuese y Valor Agregado | 2, 2, 2, 1, 1 | 1.5, 1.3, 1.2, 1, 1 | 1.6 | 1.2 |
+| O4 Calidad, Inocuidad y TIF | 2, 2, 1, 1, 2 | 1.5, 1.3, 1, 1, 1.2 | 1.6 | 1.2 |
+| O5 Subproductos y Rendering | 2, 1, 1, 1, sin evidencia | 1.5*, 1.0*, 1.2*, 1.1*, sin evidencia | 1.2 | 1.2 |
+| **Grupo** | | | **1.5** | **1.2** |
+
+Hallazgos y fuente por dimensión:
+- **E1 (1.5).** PI-H2: los bonos de productividad existen solo en Deshuese 2. Fuente: Gemba Walk, 06-oct-2026, lámina 2.
+- **E2 (1.3).** PI-H1 y PI-H5: productividad medida solo en Deshuese 2 y trazabilidad solo en papel. Fuente: entrevistas de Producción (05-oct-2026) y Deshuese (06-oct-2026) [folio pendiente].
+- **E3 (1.2).** PI-H1: productividad sin medir en la mayoría de las líneas y costo de proceso que se comporta como fijo. Fuente: EE06, BD08, ene-2025 a ago-2026.
+- **E4 (1.1).** PI-H3, PI-H4 y PI-H6: OEE mal calculado (registro de inconsistencias del OEE, EE17), revisado cada seis meses (Producción, 09-oct-2026) y paros duplicados entre Producción y Mantenimiento [folio pendiente].
+- **E5 (1.2).** PI-H3 y PI-H4: sin ciclo de mejora sobre el OEE ni sobre sus inconsistencias (EE17).
+
+\* Celdas con anulación, «decisión de Leonardo Pimentel con evidencia de campo»:
+- O2 E1 = 1.0: nadie es dueño del rendimiento ni lo mide por tramo o por lote (Producción, 05-oct-2026, y Deshuese, 06-oct-2026).
+- O5 con promedio 1.2: E1 1.5 (responsable, supervisora y cuatro operadores por turno, con inspección de exteriores sin cobertura del segundo turno), E2 1.0 (materia prima sin pesar y planeación por historial), E3 1.2 (fuentes en conflicto, Abastos 2 y Rendimiento 1; se toma el nivel de Proceso Industrial) y E4 1.1 (registros en papel y sin objetivos de productividad; se toma el nivel de Proceso Industrial). Las celdas E3 y E4 quedan por encima de la evidencia más conservadora (1) por esta decisión.
+
+### 3. Soporte Transversal (S1, S2, TX)
+| Pilar | E1 a E5 antes | E1 a E5 después | Promedio antes | Promedio después |
+|---|---|---|---|---|
+| S1 Servicios Industriales y Ambiente | 2, 2, 1, 2, sin evidencia | 1.1, 1.2, 1, 1.1, 2.0* | 1.8 | 1.3 |
+| S2 Capital Humano y Seguridad | 2, 2, 1, 1, 2 | 1.1, 1.2, 1, 1, 1.3 | 1.6 | 1.1 |
+| TX Gobierno y Gestión | 1, 1, 1, 1, 1 | 1, 1, 1, 1, 1 | 1.0 | 1.0 |
+| **Grupo** | | | **1.5** | **1.1** |
+
+Hallazgos y fuente por dimensión:
+- **E1 (1.1).** ST-H1: plantilla total de 600.8 personas reales contra 578 autorizadas en sep-2026 (EE16).
+- **E2 (1.2).** ST-H3 y ST-H4: perfiles de puesto genéricos, apenas en elaboración, y sin mapa de actividades repetidas. Fuente: entrevista de RR.HH., 07-oct-2026 [folio pendiente].
+- **E3 (1.0).** ST-H1 y ST-H4: actividades y reportes duplicados y costo de plantilla excedente (EE16). La evidencia del grupo en E3 es 1 y no se sube [folio pendiente para los reportes duplicados].
+- **E4 (1.1).** ST-H5: todo en papel, sin indicadores de plantilla ni de desempeño. Fuente: entrevistas de RR.HH. y Nómina, 07-oct-2026 [folio pendiente].
+- **E5 (1.3).** ST-H2 y ST-H3: esfuerzo incipiente de perfiles, sin evaluación de desempeño individual [folio pendiente].
+
+\* S1 E5 = 2.0, «decisión de Leonardo Pimentel con evidencia de campo». Las fichas no tienen evidencia de S1 en E5; la referencia más cercana es que los títulos de los dos pozos están al corriente (Medio Ambiente, 07-oct-2026). [folio pendiente]
+
+### 4. Grupos y macro
+| Grupo | Antes | Después |
+|---|---|---|
+| Abasto de Parvadas | 1.1 | 1.1 |
+| Proceso Industrial | 1.5 | 1.2 |
+| Frío, Logística y Comercial | 1.1 | 1.1 |
+| Mantenimiento | 1.1 | 1.1 |
+| Administración & Finanzas | 1.4 | 1.4 |
+| Tecnología Aplicada | 1.1 | 1.1 |
+| Soporte Transversal | 1.5 | 1.1 |
+| **NMO macro (27 pilares)** | **1.3 (1.258)** | **1.2 (1.163)** |
+
+### 5. Conciliación de plantilla
+- **Total.** 600.8 personas reales contra 578 autorizadas en sep-2026 (EE16, base IRP). Nómina menciona unos 600 colaboradores fijos (declarado).
+- **Deshuese.** RR.HH. declara 244 personas requeridas contra 258 reales (14 de colchón); la tabla de nómina por área dice 265 autorizadas contra 250.4 reales (EE16, ene-sep 2026). No hay una fuente única y no se elige una cifra como verdadera.
+- **Cifras descartadas.** 544 fue un error de captura de la instrucción: la estructura validada es 578 y no se usa en ningún lado. «260 vs 244» tampoco está en ninguna fuente; lo más cercano es el 258 de RR.HH. y se sustituyó por lo verificado.
+
+### 6. Celdas sin evidencia (pendientes)
+Se excluyen del promedio por la fórmula del repo y no se rellenan con supuestos: A1-E5, A3-E1, O5-E5, C1-E5, C2-E3, C2-E4, C3-E3, C3-E5, M1-E5, M3-E5, M6-E1, M6-E5 y T3-E3.
+
+### 7. Pendientes de evidencia nuevos
+| Hallazgo | Qué falta | Responsable | Fuente esperada |
+|---|---|---|---|
+| PI-H1 | Folio de que la productividad se mide solo en Deshuese 2 | Leonardo Pimentel / equipo PreDx | Entrevistas de Producción y Deshuese |
+| PI-H5, PI-H6 | Folio de la trazabilidad en papel y de los paros duplicados | Leonardo Pimentel / equipo PreDx | Entrevistas de Producción y Rendimiento; base de paros (BD04) |
+| ST-H2, ST-H3, ST-H4, ST-H5 | Folios de evaluación de desempeño, perfiles, reportes duplicados y papel | Leonardo Pimentel / equipo PreDx | Entrevistas de RR.HH. y Nómina |
+| S1-E5 | Folio de la calificación 2.0 | Leonardo Pimentel / equipo PreDx | Entrevista de Medio Ambiente o Servicios Generales |
+
+### 8. Gráfico de existencias de producto terminado
+No se graficó: el archivo «PROYECCION-EXISTENCIAS-2026 al 24-09-2026» no está en `documentos/raw` (la carpeta `comercial` está vacía). Falta la ruta del Excel.
+
+### 9. Oportunidades nuevas (por cuantificar)
+OPP-082 medición de productividad y bonos en todas las líneas · OPP-083 OEE ponderado con revisión semanal · OPP-084 trazabilidad digital · OPP-085 control de plantilla · OPP-086 evaluación de desempeño por niveles · OPP-087 perfiles de puesto exactos · OPP-088 eliminación de reportes y actividades duplicados. Total del inventario: 88.
