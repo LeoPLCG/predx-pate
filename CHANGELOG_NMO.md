@@ -203,3 +203,12 @@ Responsable: Leonardo Pimentel. Las calificaciones y el NMO macro (1.2) no cambi
 - **Mapa de Oportunidades.** Columna «Impacto Px», sin «una vez», «sin conciliar» ni «(escenario 15 días)», y se quita la etiqueta «nueva» de las oportunidades.
 - **Sección 18.** Solo quedan los botones «Ver propuesta de Proyecto PATE» y «Ver Simulación Financiera».
 - **Agenda.** Sin tabla de avance de entrevistas; pasa directo al PDF actualizado.
+
+
+## 2026-10-13 · Racional de las 13 celdas en nivel 1 y ajustes de forma
+
+Responsable: Leonardo Pimentel. Las calificaciones y el NMO macro (1.2) no cambian.
+- **Detalle NMO.** Las 13 celdas que decían «Regla del PreDx: sin evidencia levantada» ahora llevan el racional del nivel 1 con su fuente (entrevista, puesto y fecha): A1-E5, A3-E1, O5-E5, C1-E5, C2-E3, C2-E4, C3-E3, C3-E5, M1-E5, M3-E5, M6-E1, M6-E5 y T3-E3. Todas las dimensiones quedan con evidencia citada.
+- **Distribución de madurez.** Cada pilar con su nombre completo.
+- **Estructura Organizacional.** Se quita la nota de plantilla y el botón de estructura y span de control.
+- **Sección 18.** Cada botón lleva su descripción debajo, centrada.
