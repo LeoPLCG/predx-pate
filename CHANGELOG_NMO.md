@@ -297,3 +297,8 @@ Responsable: Leonardo Pimentel. La sección «5 Niveles de Madurez» lleva el p�
 ## 2026-10-14 · NMO sin benchmarks ni metodología de calificación
 
 Responsable: Leonardo Pimentel. En «NMO & Alineación Estratégica» se eliminan las subsecciones «Benchmarks de Madurez por Industria» y «Metodología de Calificación». Sin cambio de calificaciones.
+
+
+## 2026-10-14 · Alineación estratégica
+
+Responsable: Leonardo Pimentel. En el recuadro final de «NMO & Alineación Estratégica» se elimina la frase sobre el rumbo escrito y el nivel de madurez objetivo de cada pilar; queda la declaración de que no existe un plan estratégico escrito ni un plan a 3 o 5 años (Gerencia General, 05-oct-2026).
