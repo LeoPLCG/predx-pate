@@ -322,3 +322,8 @@ Responsable: Leonardo Pimentel. En las tarjetas del Resumen Ejecutivo de Hallazg
 ## 2026-10-14 · NMO: dos frases de criterio de evidencia
 
 Responsable: Leonardo Pimentel. En «NMO & Alineación Estratégica» se eliminan la frase sobre contradicción entre fuentes, ausencia de evidencia y default conservador (con su enlace a la Metodología del Prediagnóstico) y la frase «Cuando dos fuentes no coinciden registramos el nivel más bajo…». Sin cambio de calificaciones.
+
+
+## 2026-10-14 · Racional por vertical
+
+Responsable: Leonardo Pimentel. En el racional del nivel de madurez por vertical (NMO y detalle NMO) se eliminan la frase del ajuste de Mantenimiento de 1.3 a 1.1, la frase de los niveles máximos de Soporte Transversal y el párrafo «Nivel global». Sin cambio de calificaciones.
