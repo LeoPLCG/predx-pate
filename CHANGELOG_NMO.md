@@ -287,3 +287,8 @@ Responsable: Leonardo Pimentel. Se reformula el primer punto del racional de Aba
 ## 2026-10-14 · Racional de Proceso Industrial
 
 Responsable: Leonardo Pimentel. Se elimina del racional de Proceso Industrial (O1 a O5) la frase sobre el nivel más conservador de cada celda y los niveles máximos de la vertical. Sin cambio de calificaciones.
+
+
+## 2026-10-14 · Cinco niveles de madurez
+
+Responsable: Leonardo Pimentel. La sección «5 Niveles de Madurez» lleva el párrafo introductorio del modelo, las cinco tarjetas con los textos nuevos (Gestionado & Predecible y Optimizado & Innovador), y la nota en cursiva sobre la escala de Likert. Se retiran las descripciones anteriores y los nombres de nivel antiguos en las leyendas de escala y en la rotulación de niveles. El detalle NMO vuelve a generarse con una sola copia del mapa de calor y del racional, y la limpieza ya tolera saltos de línea de Windows. Sin cambio de calificaciones.
