@@ -282,3 +282,8 @@ Responsable: Leonardo Pimentel. Se reemplaza el PDF de la propuesta publicado en
 ## 2026-10-14 · Racional de Abasto de Parvadas
 
 Responsable: Leonardo Pimentel. Se reformula el primer punto del racional de Abasto de Parvadas (A1, A2, A3): se procesan las aves que llegan y el abasto no se gestiona con una meta para llegar al menos a punto de equilibrio y conseguir utilidad (Gerencia General, declarado). Sin cambio de calificaciones.
+
+
+## 2026-10-14 · Racional de Proceso Industrial
+
+Responsable: Leonardo Pimentel. Se elimina del racional de Proceso Industrial (O1 a O5) la frase sobre el nivel más conservador de cada celda y los niveles máximos de la vertical. Sin cambio de calificaciones.
