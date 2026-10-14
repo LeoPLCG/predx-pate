@@ -292,3 +292,8 @@ Responsable: Leonardo Pimentel. Se elimina del racional de Proceso Industrial (O
 ## 2026-10-14 · Cinco niveles de madurez
 
 Responsable: Leonardo Pimentel. La sección «5 Niveles de Madurez» lleva el párrafo introductorio del modelo, las cinco tarjetas con los textos nuevos (Gestionado & Predecible y Optimizado & Innovador), y la nota en cursiva sobre la escala de Likert. Se retiran las descripciones anteriores y los nombres de nivel antiguos en las leyendas de escala y en la rotulación de niveles. El detalle NMO vuelve a generarse con una sola copia del mapa de calor y del racional, y la limpieza ya tolera saltos de línea de Windows. Sin cambio de calificaciones.
+
+
+## 2026-10-14 · NMO sin benchmarks ni metodología de calificación
+
+Responsable: Leonardo Pimentel. En «NMO & Alineación Estratégica» se eliminan las subsecciones «Benchmarks de Madurez por Industria» y «Metodología de Calificación». Sin cambio de calificaciones.
