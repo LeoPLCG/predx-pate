@@ -302,3 +302,8 @@ Responsable: Leonardo Pimentel. En «NMO & Alineación Estratégica» se elimina
 ## 2026-10-14 · Alineación estratégica
 
 Responsable: Leonardo Pimentel. En el recuadro final de «NMO & Alineación Estratégica» se elimina la frase sobre el rumbo escrito y el nivel de madurez objetivo de cada pilar; queda la declaración de que no existe un plan estratégico escrito ni un plan a 3 o 5 años (Gerencia General, 05-oct-2026).
+
+
+## 2026-10-14 · Conteo de oportunidades en la portada
+
+Responsable: Leonardo Pimentel. La portada interior del documento mostraba 81 oportunidades; ahora toma el conteo del inventario (88), igual que la portada del portal, la introducción, el Resumen, el Mapa y el cierre.
