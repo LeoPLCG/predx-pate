@@ -317,3 +317,8 @@ Responsable: Leonardo Pimentel. En «¿Quién es PATE?» el rótulo «1 Sedes» 
 ## 2026-10-14 · Resumen Ejecutivo: tarjetas de nivel y oportunidades
 
 Responsable: Leonardo Pimentel. En las tarjetas del Resumen Ejecutivo de Hallazgos se eliminan la leyenda bajo el nivel de madurez (banda y rangos) y la leyenda bajo las 88 oportunidades; quedan solo las cifras. Sin cambio de cifras.
+
+
+## 2026-10-14 · NMO: dos frases de criterio de evidencia
+
+Responsable: Leonardo Pimentel. En «NMO & Alineación Estratégica» se eliminan la frase sobre contradicción entre fuentes, ausencia de evidencia y default conservador (con su enlace a la Metodología del Prediagnóstico) y la frase «Cuando dos fuentes no coinciden registramos el nivel más bajo…». Sin cambio de calificaciones.
