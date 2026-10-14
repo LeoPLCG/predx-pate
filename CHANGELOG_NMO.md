@@ -257,3 +257,8 @@ Responsable: Leonardo Pimentel. Sin cambio de cifras, citas, ids ni anclas. Una 
 ## 2026-10-13 · Propuesta de Proyecto PATE en la sección 18
 
 Responsable: Leonardo Pimentel. El botón «Ver propuesta de Proyecto PATE» de «Transformación: Roadmap & Propuesta» abre ahora el PDF «Propuesta de Proyecto PATE» (presentacion/slides), publicado como assets/pdf/propuesta-proyecto.pdf.
+
+
+## 2026-10-13 · Propuesta de Proyecto PATE incrustada
+
+Responsable: Leonardo Pimentel. El botón «Ver propuesta de Proyecto PATE» abre la página de la propuesta dentro del sitio, con el PDF incrustado (como el visor del Gemba Walk) y un enlace de respaldo para abrirlo o descargarlo; ya no abre el PDF en otra pestaña.
