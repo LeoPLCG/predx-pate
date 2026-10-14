@@ -252,3 +252,8 @@ Responsable: Leonardo Pimentel. La página del estudio de plantilla (EE16) medí
 ## 2026-10-13 · Revisión de redacción
 
 Responsable: Leonardo Pimentel. Sin cambio de cifras, citas, ids ni anclas. Una revisión ortográfica con diccionario de español sobre todo el texto visible del sitio corrigió: «los unidades de inventario» a «las unidades de inventario» (la expansión de la sigla SKU rompía la concordancia), «canal canal lista para cocinar» a «canal lista para cocinar», «accidentabilidad» a «accidentalidad», «stps» a «STPS» y «Historial de Marell» a «Historial de MAREL» en las fuentes. No se encontraron «proeyctar», «Abastacecimiento» ni «resultado positivo de resultados».
+
+
+## 2026-10-13 · Propuesta de Proyecto PATE en la sección 18
+
+Responsable: Leonardo Pimentel. El botón «Ver propuesta de Proyecto PATE» de «Transformación: Roadmap & Propuesta» abre ahora el PDF «Propuesta de Proyecto PATE» (presentacion/slides), publicado como assets/pdf/propuesta-proyecto.pdf.
