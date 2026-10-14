@@ -327,3 +327,8 @@ Responsable: Leonardo Pimentel. En «NMO & Alineación Estratégica» se elimina
 ## 2026-10-14 · Racional por vertical
 
 Responsable: Leonardo Pimentel. En el racional del nivel de madurez por vertical (NMO y detalle NMO) se eliminan la frase del ajuste de Mantenimiento de 1.3 a 1.1, la frase de los niveles máximos de Soporte Transversal y el párrafo «Nivel global». Sin cambio de calificaciones.
+
+
+## 2026-10-14 · ¿Quién es PATE?
+
+Responsable: Leonardo Pimentel. El indicador «26 Entrevistas + recorridos» pasa a «27 Entrevistas + 1 Gemba Walk», igual que el resto del sitio.
