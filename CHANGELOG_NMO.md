@@ -277,3 +277,8 @@ Responsable: Leonardo Pimentel. «Proam» se muestra como «PROAN» en la cita d
 ## 2026-10-13 · Propuesta de Proyecto PATE, nueva versión
 
 Responsable: Leonardo Pimentel. Se reemplaza el PDF de la propuesta publicado en la sección 18 por la versión más reciente (40 páginas), en la misma ubicación y con el mismo botón.
+
+
+## 2026-10-14 · Racional de Abasto de Parvadas
+
+Responsable: Leonardo Pimentel. Se reformula el primer punto del racional de Abasto de Parvadas (A1, A2, A3): se procesan las aves que llegan y el abasto no se gestiona con una meta para llegar al menos a punto de equilibrio y conseguir utilidad (Gerencia General, declarado). Sin cambio de calificaciones.
