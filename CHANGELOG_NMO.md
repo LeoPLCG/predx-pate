@@ -342,3 +342,8 @@ Responsable: Leonardo Pimentel. Se elimina el recuadro «Por qué este PreDx» y
 ## 2026-10-14 · Facturación en ¿Quién es PATE?
 
 Responsable: Leonardo Pimentel. El indicador de facturación pasa de «Por validar» a «$590 M, Facturación 2025 (MXN)». El dato lo da la Dirección del proyecto. La generación del sitio ahora continúa con el último panorama financiero calculado cuando el Excel de costos está abierto o bloqueado.
+
+
+## 2026-10-14 · Growth Management: datos de la encuesta
+
+Responsable: Leonardo Pimentel. Se reemplazan los marcadores pendientes del párrafo introductorio y de «Cómo se aplicó»: encuesta de 68 reactivos (16 + 19 + 16 + 17 por bloque, verificados en el PDF de Growth Management) aplicada a 27 colaboradores del lunes 5 al jueves 8 de octubre de 2026. El PDF no indica el número de encuestados, así que ese dato (27, 100% de respuesta) queda como dato de la Dirección del proyecto.
