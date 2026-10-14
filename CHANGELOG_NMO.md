@@ -272,3 +272,8 @@ Responsable: Leonardo Pimentel. Se reemplaza el PDF de la propuesta publicado en
 ## 2026-10-13 · Ajustes de redacción
 
 Responsable: Leonardo Pimentel. «Proam» se muestra como «PROAN» en la cita del rastro de Lagos (la cita registrada sigue literal contra la transcripción), «viscerado» pasa a «eviscerado» en la oportunidad de digitalizar los registros de piso, y «Aportación» y «Gráficas» llevan acento en los nombres de hoja y tabla citados. Sin cambio de cifras.
+
+
+## 2026-10-13 · Propuesta de Proyecto PATE, nueva versión
+
+Responsable: Leonardo Pimentel. Se reemplaza el PDF de la propuesta publicado en la sección 18 por la versión más reciente (40 páginas), en la misma ubicación y con el mismo botón.
