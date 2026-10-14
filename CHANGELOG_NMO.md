@@ -337,3 +337,8 @@ Responsable: Leonardo Pimentel. El indicador «26 Entrevistas + recorridos» pas
 ## 2026-10-14 · ¿Quién es PATE?
 
 Responsable: Leonardo Pimentel. Se elimina el recuadro «Por qué este PreDx» y el elemento «Frío por amoniaco y planta de tratamiento de aguas residuales (PTAR) propia» de «Capacidades Clave».
+
+
+## 2026-10-14 · Facturación en ¿Quién es PATE?
+
+Responsable: Leonardo Pimentel. El indicador de facturación pasa de «Por validar» a «$590 M, Facturación 2025 (MXN)». El dato lo da la Dirección del proyecto. La generación del sitio ahora continúa con el último panorama financiero calculado cuando el Excel de costos está abierto o bloqueado.
