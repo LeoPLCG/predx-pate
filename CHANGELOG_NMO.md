@@ -312,3 +312,8 @@ Responsable: Leonardo Pimentel. La portada interior del documento mostraba 81 op
 ## 2026-10-14 · Sede y Agenda
 
 Responsable: Leonardo Pimentel. En «¿Quién es PATE?» el rótulo «1 Sedes» pasa a «1 Sede». Se reemplaza el PDF de la Agenda (6 páginas) por la versión actualizada de documentos/raw/agenda.
+
+
+## 2026-10-14 · Resumen Ejecutivo: tarjetas de nivel y oportunidades
+
+Responsable: Leonardo Pimentel. En las tarjetas del Resumen Ejecutivo de Hallazgos se eliminan la leyenda bajo el nivel de madurez (banda y rangos) y la leyenda bajo las 88 oportunidades; quedan solo las cifras. Sin cambio de cifras.
