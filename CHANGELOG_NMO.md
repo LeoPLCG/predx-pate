@@ -332,3 +332,8 @@ Responsable: Leonardo Pimentel. En el racional del nivel de madurez por vertical
 ## 2026-10-14 · ¿Quién es PATE?
 
 Responsable: Leonardo Pimentel. El indicador «26 Entrevistas + recorridos» pasa a «27 Entrevistas + 1 Gemba Walk», igual que el resto del sitio.
+
+
+## 2026-10-14 · ¿Quién es PATE?
+
+Responsable: Leonardo Pimentel. Se elimina el recuadro «Por qué este PreDx» y el elemento «Frío por amoniaco y planta de tratamiento de aguas residuales (PTAR) propia» de «Capacidades Clave».
