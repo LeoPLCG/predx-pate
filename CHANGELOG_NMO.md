@@ -307,3 +307,8 @@ Responsable: Leonardo Pimentel. En el recuadro final de «NMO & Alineación Estr
 ## 2026-10-14 · Conteo de oportunidades en la portada
 
 Responsable: Leonardo Pimentel. La portada interior del documento mostraba 81 oportunidades; ahora toma el conteo del inventario (88), igual que la portada del portal, la introducción, el Resumen, el Mapa y el cierre.
+
+
+## 2026-10-14 · Sede y Agenda
+
+Responsable: Leonardo Pimentel. En «¿Quién es PATE?» el rótulo «1 Sedes» pasa a «1 Sede». Se reemplaza el PDF de la Agenda (6 páginas) por la versión actualizada de documentos/raw/agenda.
