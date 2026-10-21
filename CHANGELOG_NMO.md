@@ -347,3 +347,8 @@ Responsable: Leonardo Pimentel. El indicador de facturación pasa de «Por valid
 ## 2026-10-14 · Growth Management: datos de la encuesta
 
 Responsable: Leonardo Pimentel. Se reemplazan los marcadores pendientes del párrafo introductorio y de «Cómo se aplicó»: encuesta de 68 reactivos (16 + 19 + 16 + 17 por bloque, verificados en el PDF de Growth Management) aplicada a 27 colaboradores del lunes 5 al jueves 8 de octubre de 2026. El PDF no indica el número de encuestados, así que ese dato (27, 100% de respuesta) queda como dato de la Dirección del proyecto.
+
+
+## 2026-10-21 · Etiqueta de madurez en la introducción y espacio en los niveles
+
+Responsable: Leonardo Pimentel. La introducción muestra «Madurez · Inicial» (antes «Madurez · Crítico») para coincidir con el nivel 1 del NMO, y la nota de la escala de Likert queda a 32 px de las tarjetas de los cinco niveles. Sin otros cambios.
