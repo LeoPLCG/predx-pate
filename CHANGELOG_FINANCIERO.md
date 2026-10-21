@@ -53,3 +53,10 @@ Responsable: Leonardo Pimentel. El simulador de beneficios incorpora la tabla ed
 ## 2026-10-21 · Equipo del proyecto sin IVA ni subtotales
 
 Responsable: Leonardo Pimentel. En la tabla «Equipo del proyecto» del simulador se quita el total con IVA y el valor del proyecto se muestra como «$22,560,000 + IVA»; se quita también el subtotal por recurso y el parámetro de IVA, que ya no se usa. El valor sin IVA sigue alimentando el ROI (2.03× conservador y 3.24× ampliado con los valores iniciales).
+
+
+## 2026-10-21 · ROI según la composición del equipo
+
+Responsable: Leonardo Pimentel. El beneficio de cada palanca del simulador se multiplica por una captura que depende de qué roles del equipo del proyecto se mantienen: matriz de pérdida por rol (constante `PERD` al inicio del script), con los porcentajes de varios roles quitados multiplicados, 5% para el Director y 3% para Auditoría en todas las palancas, y pérdida proporcional a la fracción de semanas-hombre quitada cuando un rol se reduce. OEE y Horas en líneas usan un porcentaje para el directo y otro para la dilución. La corrida, el ahorro del proyecto (× 1.3333), el costo neto por ave y el ROI usan esa captura, en los dos escenarios; con el equipo completo (188 SH) nada cambia: ROI de 2.03× conservador y 3.24× ampliado.
+
+ROI conservador al quitar un rol (la inversión baja con sus semanas-hombre): sin Producción 1.78×, sin Mantenimiento 1.82×, sin Contraloría y Ventas, Almacenes y Logística 1.92×, sin People & Culture 1.94× y sin Gerente 1.89×.

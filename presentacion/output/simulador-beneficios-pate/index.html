@@ -368,6 +368,11 @@ tr.tot td{font-weight:800;border-top:2px solid var(--green-2)}
 (function(){
 // PROVISIONAL: validar con Producción (mar 13-oct-2026). Cambiar solo aquí.
 const OEE_BASE=63.7;
+/* Matriz de pérdida por rol (% del beneficio de la palanca que se pierde si se quita el rol).
+   Columnas: Contraloría + Ventas, Almacenes y Logística / Producción / Mantenimiento / People & Culture / Gerente.
+   Los % de varios roles quitados se multiplican: captura = Π(1 − pérdida/100). Si un rol se reduce parcialmente, la pérdida es pérdida × (1 − SH/SH_base). */
+const PERD={oee_d:[5,45,25,15,20],oee_i:[35,35,25,15,30],disp_d:[5,30,45,10,20],disp_i:[35,30,40,10,30],y:[5,50,0,35,20],hx:[15,25,0,55,20],dot:[30,0,0,65,20],ref:[35,0,50,5,20],ene:[25,10,45,5,20]};
+const PERD_DIR=5,PERD_AUD=3;
 const K=1.5,A0=14592195*K,MP=110.90e6*K,EMP=9.58e6*K,TOT=371.63e6*K,CF=47.61e6*K,CV=TOT-MP-EMP-CF,VV=0.2,BASE=TOT/A0;
 const DES=58.79e6*K,LINES=58.90e6*K,REF=17.44e6*K,ENE=29.27e6*K,VSH=0.6,PER=22846*12,HXO=15.36e6*0.75,G=9.53,VAL=50.74-13.92,FLUJO=9.3e6;
 const P={cons:{t:23.96,vol:4,y:0.5,oee:68,dot:10,hx:25,disp:0.8,ref:10,ene:5},ret:{t:23.13,vol:7,y:1.0,oee:70,dot:20,hx:35,disp:1.0,ref:10,ene:6}};
@@ -388,7 +393,20 @@ function model(x){const v=x.vol/100,A=A0*(1+v);
  const C=MP*(1+v)+EMP*(1+v)+CV*(VV*(1+v)+(1-VV))+CF-S,c=C/A,run=(BASE-c)*A,abs=run-S;
  const dil={};for(const k in d)dil[k]=0;const cap=d.oee+d.disp;
  if(cap>0){dil.oee=abs*d.oee/cap;dil.disp=abs*d.disp/cap;}else{dil.oee=abs;}
- return{c,A,run,abs,d,dil};}
+ return capt({c,A,run,abs,d,dil});}
+
+/* captura por composición del equipo: cada rol quitado reduce el beneficio de cada palanca; las pérdidas se multiplican */
+const ROL_IDX=[2,3,4,5,1]; /* posición en la tabla del equipo: Contr+VAL, Producción, Mantenimiento, P&C, Gerente */
+function fraccionQuitada(i){const e=document.querySelector('.eq-w[data-i="'+i+'"]');if(!e)return 0;const base=EQ[i][2];return base>0?Math.max(0,1-Math.max(0,+e.value||0)/base):0;}
+function factorCaptura(n){let c=1;for(let j=0;j<5;j++)c*=1-PERD[n][j]*fraccionQuitada(ROL_IDX[j])/100;c*=1-PERD_DIR*fraccionQuitada(0)/100;c*=1-PERD_AUD*fraccionQuitada(6)/100;return c;}
+function capt(r){
+ const f={y:factorCaptura('y'),oee:factorCaptura('oee_d'),disp:factorCaptura('disp_d'),dot:factorCaptura('dot'),hx:factorCaptura('hx'),ref:factorCaptura('ref'),ene:factorCaptura('ene')};
+ const fi={oee:factorCaptura('oee_i'),disp:factorCaptura('disp_i')};
+ const d={},dil={};let S=0,ab=0;
+ for(const k in r.d){d[k]=r.d[k]*f[k];S+=d[k];dil[k]=(fi[k]!==undefined?r.dil[k]*fi[k]:r.dil[k]);ab+=dil[k];}
+ const run=S+ab;
+ return{c:BASE-run/r.A,A:r.A,run,abs:ab,d,dil};}
+
 
 /* ramp: 8 months (34 weeks) summing to 4 months of full savings */
 const W=(()=>{let lo=0.1,hi=5;for(let i=0;i<60;i++){const m=(lo+hi)/2;let s=0;for(let k=1;k<=8;k++)s+=Math.pow(k/8,m);if(s>4)lo=m;else hi=m;}const p=(lo+hi)/2;return Array.from({length:8},(_,i)=>Math.pow((i+1)/8,p));})();
@@ -458,7 +476,7 @@ function calc(){
   +'<tr class="tot"><td>Total proyecto + 12 meses</td><td></td><td class="r">Costo neto $25.47</td><td class="r">'+f2(r.c)+'</td><td class="r">'+fm(r.run-r.abs)+'</td><td class="r">'+fm(r.abs)+'</td><td class="r">'+M1(qc.tot)+'</td><td class="r">'+M1(qa.tot)+'</td><td class="r">'+f2(BASE-ra.c)+'</td></tr>';
  const qs=n=>{let s=0;for(let i=n;i<n+3;i++)s+=(i<8?W[i]:1);return Math.round(100*s/3);};
  $('tb_sup').innerHTML='Supuestos: proyecto de 34 semanas (nov-26 a jun-27) más 12 meses, con la misma rampa de captura para cada palanca: '+qs(0)+'% promedio del trimestre 1, '+qs(3)+'% del 2, '+qs(6)+'% del 3 y 100% del 4 en adelante. Mes de arranque por palanca: [PENDIENTE: supuesto]; hoy todas inician en nov-26. A ritmo pleno (captura al 100%) el escenario conservador equivale a '+M1(rc.run/1e6)+' por año y el ampliado a '+M1(ra.run/1e6)+' por año.';
- pj(r.c,target);
+ pj(r.c,target);tesis();
 }
 /* equipo del proyecto: semanas-hombre x tarifa; el total sin IVA alimenta el valor del proyecto del ROI */
 const EQ=[['Director de Operaciones (LCG)','',12],['Gerente','Administración de Px + Abastecimiento de Aves',34],['Consultor','Contraloría + Ventas, Almacenes y Logística',34],['Consultor','Producción: Deshuese, Pastas y Empaque',34],['Consultor','Mantenimiento',34],['Consultor','People & Culture (P&C)',34],['Auditoría','',6]];
@@ -475,7 +493,7 @@ $('eq_tarifa').addEventListener('input',()=>eqCalc(true));
 document.querySelectorAll('.eq-w').forEach(e=>e.addEventListener('input',()=>eqCalc(true)));
 eqCalc(false);
 setPreset('cons');
-{const rc=model(P.cons),sh=pct([rc.d.y+rc.d.oee+rc.dil.oee,rc.d.dot+rc.d.hx,rc.d.disp+rc.dil.disp+rc.d.ref+rc.d.ene]);$('thesisVal').textContent=fm(rc.run*HZ);$('thesisCpa').textContent=f2(rc.c);$('thesisD2').textContent=sh[0]+'%';$('thesisMt').textContent=sh[2]+'%';}
+function tesis(){const rc=model(P.cons),sh=pct([rc.d.y+rc.d.oee+rc.dil.oee,rc.d.dot+rc.d.hx,rc.d.disp+rc.dil.disp+rc.d.ref+rc.d.ene]);$('thesisVal').textContent=fm(rc.run*HZ);$('thesisCpa').textContent=f2(rc.c);$('thesisD2').textContent=sh[0]+'%';$('thesisMt').textContent=sh[2]+'%';}
 })();
 </script>
 
