@@ -95,7 +95,29 @@ tfoot td{border-top:2px solid var(--green-2);font-weight:700}
 details summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--brand)}
 details table{min-width:520px;margin-top:8px;font-size:13px}
 details td{padding:6px 10px}
+/* equipo del proyecto: construcción de la inversión */
+.eq{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.eq-t{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);padding:16px 18px 10px}
+.eq-par{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-end;padding:4px 18px 14px;background:var(--mint);border-top:1px solid var(--mint-line);border-bottom:1px solid var(--mint-line)}
+.eq-par label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-top:12px}
+.eq-par input{font:700 15px var(--sans);padding:8px 10px;border:1px solid var(--line);border-radius:8px;width:150px;color:var(--ink);background:#fff;font-variant-numeric:tabular-nums}
+.eq-par input.ed{background:#fff8dc;border-color:#e3c76b}
+.eq-par input[readonly]{background:#f3f6f4;color:var(--brand);border-style:dashed}
+.eq-par input:focus-visible,.eq td input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.eq .tbl{overflow-x:auto}
+.eq table{min-width:520px;font-size:14px}
+.eq th{background:var(--brand);color:#fff;border-bottom:0;padding:10px 12px}
+.eq th.r,.eq td.r{text-align:right}
+.eq td{padding:8px 12px;vertical-align:middle}
+.eq td.rol{font-weight:700}
+.eq td.ar{color:var(--ink-2);font-size:13px}
+.eq td input{font:700 15px var(--sans);width:84px;text-align:right;padding:6px 8px;border:1px solid #e3c76b;border-radius:8px;background:#fff8dc;color:var(--ink);font-variant-numeric:tabular-nums}
+.eq-foot{display:flex;flex-wrap:wrap;gap:10px 28px;background:var(--brand);color:#fff;padding:14px 18px}
+.eq-foot div{display:flex;flex-direction:column;gap:2px;min-width:150px}
+.eq-foot .l{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.eq-foot .v{font-family:var(--serif);font-weight:800;font-size:22px;line-height:1.1;font-variant-numeric:tabular-nums}
 @media (max-width:520px){.thesis{font-size:17px}.kpi .v{font-size:30px}}
+@media (max-width:520px){.eq table{min-width:0;font-size:12.5px}.eq th{padding:8px 4px;font-size:9.5px;letter-spacing:.02em}.eq td{padding:8px 4px}.eq td.rol{font-size:12.5px}.eq td.ar{font-size:11px}.eq td input{width:46px;padding:5px 4px;font-size:13px}.eq td.num{font-size:12px}}
 </style>
 </head>
 <body>
@@ -256,10 +278,28 @@ tr.tot td{font-weight:800;border-top:2px solid var(--green-2)}
         </div>
       </div>
 
+      <div class="eq" id="equipo">
+        <div class="eq-t">Equipo del proyecto · Construcción de la inversión</div>
+        <div class="eq-par">
+          <label for="eq_tarifa">Tarifa semana-hombre (MXN)<input type="number" class="ed" id="eq_tarifa" min="0" step="1000" value="120000"></label>
+          <label for="eq_iva">IVA (%)<input type="number" class="ed" id="eq_iva" min="0" max="100" step="1" value="16"></label>
+          <label for="eq_inv">Inversión del proyecto (MXN)<input type="text" id="eq_inv" readonly value="$22,560,000"></label>
+        </div>
+        <div class="tbl"><table>
+          <thead><tr><th>Rol</th><th>Áreas / alcance</th><th class="r">Semanas</th><th class="r">Subtotal (MXN)</th></tr></thead>
+          <tbody id="eq_rows"></tbody>
+        </table></div>
+        <div class="eq-foot">
+          <div><span class="l">Total semanas-hombre</span><span class="v" id="eq_sh">188 SH</span></div>
+          <div><span class="l" id="eq_lval">Valor del proyecto (semanas × $120,000 MXN)</span><span class="v" id="eq_val">$22,560,000</span></div>
+          <div><span class="l" id="eq_liva">Total con IVA (16%)</span><span class="v" id="eq_tot">$26,169,600 MXN</span></div>
+        </div>
+      </div>
+
       <div class="group main">
         <h3>Retorno del proyecto <span class="badge">ROI</span></h3>
         <div class="inp" style="padding:8px 0 4px;align-items:flex-end">
-          <label for="i_fee">Valor del proyecto (MXN)<input type="number" id="i_fee" min="0" step="10000" value="22560000" style="width:190px"></label>
+          <label for="i_fee">Valor del proyecto (MXN)<input type="number" id="i_fee" min="0" step="10000" value="22560000" style="width:190px;background:#f3f6f4;border-style:dashed" readonly title="Se alimenta de la tabla Equipo del proyecto"></label>
           <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--serif);font-weight:800;font-size:34px;color:var(--brand);line-height:1" id="r_roi">—</span><span style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)">ROI · ahorro ÷ valor</span></div>
         </div>
         <p class="note" id="r_roid" style="margin:4px 0 12px"></p>
@@ -422,6 +462,20 @@ function calc(){
  $('tb_sup').innerHTML='Supuestos: proyecto de 34 semanas (nov-26 a jun-27) más 12 meses, con la misma rampa de captura para cada palanca: '+qs(0)+'% promedio del trimestre 1, '+qs(3)+'% del 2, '+qs(6)+'% del 3 y 100% del 4 en adelante. Mes de arranque por palanca: [PENDIENTE: supuesto]; hoy todas inician en nov-26. A ritmo pleno (captura al 100%) el escenario conservador equivale a '+M1(rc.run/1e6)+' por año y el ampliado a '+M1(ra.run/1e6)+' por año.';
  pj(r.c,target);
 }
+/* equipo del proyecto: semanas-hombre x tarifa; el total sin IVA alimenta el valor del proyecto del ROI */
+const EQ=[['Director de Operaciones (LCG)','',12],['Gerente','Administración de Px + Abastecimiento de Aves',34],['Consultor','Contraloría + Ventas, Almacenes y Logística',34],['Consultor','Producción: Deshuese, Pastas y Empaque',34],['Consultor','Mantenimiento',34],['Consultor','People & Culture (P&C)',34],['Auditoría','',6]];
+const mxn=v=>Math.round(v).toLocaleString('es-MX');
+$('eq_rows').innerHTML=EQ.map((q,i)=>'<tr><td class="rol">'+q[0]+'</td><td class="ar">'+q[1]+'</td><td class="r"><input type="number" class="eq-w" data-i="'+i+'" min="0" step="1" value="'+q[2]+'" aria-label="Semanas de '+q[0]+(q[1]?' ('+q[1]+')':'')+'"></td><td class="r num" id="eq_s'+i+'"></td></tr>').join('');
+function eqCalc(run){
+ const t=Math.max(0,+$('eq_tarifa').value||0),iva=Math.max(0,+$('eq_iva').value||0);let sh=0;
+ document.querySelectorAll('.eq-w').forEach(e=>{const w=Math.max(0,+e.value||0);sh+=w;$('eq_s'+e.dataset.i).textContent='$'+mxn(w*t);});
+ const val=sh*t,tot=val*(1+iva/100);
+ $('eq_sh').textContent=mxn(sh)+' SH';$('eq_val').textContent='$'+mxn(val);$('eq_tot').textContent='$'+mxn(tot)+' MXN';
+ $('eq_lval').textContent='Valor del proyecto (semanas × $'+mxn(t)+' MXN)';$('eq_liva').textContent='Total con IVA ('+(+iva.toFixed(2))+'%)';$('eq_inv').value='$'+mxn(val);
+ $('i_fee').value=val;if(run)calc();}
+['eq_tarifa','eq_iva'].forEach(id=>$(id).addEventListener('input',()=>eqCalc(true)));
+document.querySelectorAll('.eq-w').forEach(e=>e.addEventListener('input',()=>eqCalc(true)));
+eqCalc(false);
 setPreset('cons');
 {const rc=model(P.cons),sh=pct([rc.d.y+rc.d.oee+rc.dil.oee,rc.d.dot+rc.d.hx,rc.d.disp+rc.dil.disp+rc.d.ref+rc.d.ene]);$('thesisVal').textContent=fm(rc.run*HZ);$('thesisCpa').textContent=f2(rc.c);$('thesisD2').textContent=sh[0]+'%';$('thesisMt').textContent=sh[2]+'%';}
 })();
