@@ -357,3 +357,8 @@ Responsable: Leonardo Pimentel. La introducción muestra «Madurez · Inicial» 
 ## 2026-10-21 · Banda del NMO: Inicial
 
 Responsable: Leonardo Pimentel. La banda del nivel global (1.0 a 1.4) se llama «Inicial» en todo el sitio, como el nivel 1 del NMO: portal, introducción, leyenda de la cadena de valor, Resumen y cierre del documento. Ya no se usa «Crítico» para el nivel de madurez; sí permanece en expresiones como equipos críticos o puntos críticos de control. Sin cambio de colores ni de cifras.
+
+
+## 2026-10-21 · Alcance de PATE: accionistas y no accionistas
+
+Responsable: Leonardo Pimentel. En «¿Quién es PATE?» el alcance, la cobertura y el modelo mencionan la programación y el retiro de parvadas, el abasto de granjas y el servicio de retiro para accionistas y no accionistas.
