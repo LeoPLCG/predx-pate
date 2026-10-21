@@ -282,17 +282,15 @@ tr.tot td{font-weight:800;border-top:2px solid var(--green-2)}
         <div class="eq-t">Equipo del proyecto · Construcción de la inversión</div>
         <div class="eq-par">
           <label for="eq_tarifa">Tarifa semana-hombre (MXN)<input type="number" class="ed" id="eq_tarifa" min="0" step="1000" value="120000"></label>
-          <label for="eq_iva">IVA (%)<input type="number" class="ed" id="eq_iva" min="0" max="100" step="1" value="16"></label>
           <label for="eq_inv">Inversión del proyecto (MXN)<input type="text" id="eq_inv" readonly value="$22,560,000"></label>
         </div>
         <div class="tbl"><table>
-          <thead><tr><th>Rol</th><th>Áreas / alcance</th><th class="r">Semanas</th><th class="r">Subtotal (MXN)</th></tr></thead>
+          <thead><tr><th>Rol</th><th>Áreas / alcance</th><th class="r">Semanas</th></tr></thead>
           <tbody id="eq_rows"></tbody>
         </table></div>
         <div class="eq-foot">
           <div><span class="l">Total semanas-hombre</span><span class="v" id="eq_sh">188 SH</span></div>
-          <div><span class="l" id="eq_lval">Valor del proyecto (semanas × $120,000 MXN)</span><span class="v" id="eq_val">$22,560,000</span></div>
-          <div><span class="l" id="eq_liva">Total con IVA (16%)</span><span class="v" id="eq_tot">$26,169,600 MXN</span></div>
+          <div><span class="l" id="eq_lval">Valor del proyecto (semanas × $120,000 MXN)</span><span class="v"><span id="eq_val">$22,560,000</span> <span style="font-family:var(--sans);font-size:14px;font-weight:700;opacity:.9">+ IVA</span></span></div>
         </div>
       </div>
 
@@ -465,15 +463,15 @@ function calc(){
 /* equipo del proyecto: semanas-hombre x tarifa; el total sin IVA alimenta el valor del proyecto del ROI */
 const EQ=[['Director de Operaciones (LCG)','',12],['Gerente','Administración de Px + Abastecimiento de Aves',34],['Consultor','Contraloría + Ventas, Almacenes y Logística',34],['Consultor','Producción: Deshuese, Pastas y Empaque',34],['Consultor','Mantenimiento',34],['Consultor','People & Culture (P&C)',34],['Auditoría','',6]];
 const mxn=v=>Math.round(v).toLocaleString('es-MX');
-$('eq_rows').innerHTML=EQ.map((q,i)=>'<tr><td class="rol">'+q[0]+'</td><td class="ar">'+q[1]+'</td><td class="r"><input type="number" class="eq-w" data-i="'+i+'" min="0" step="1" value="'+q[2]+'" aria-label="Semanas de '+q[0]+(q[1]?' ('+q[1]+')':'')+'"></td><td class="r num" id="eq_s'+i+'"></td></tr>').join('');
+$('eq_rows').innerHTML=EQ.map((q,i)=>'<tr><td class="rol">'+q[0]+'</td><td class="ar">'+q[1]+'</td><td class="r"><input type="number" class="eq-w" data-i="'+i+'" min="0" step="1" value="'+q[2]+'" aria-label="Semanas de '+q[0]+(q[1]?' ('+q[1]+')':'')+'"></td></tr>').join('');
 function eqCalc(run){
- const t=Math.max(0,+$('eq_tarifa').value||0),iva=Math.max(0,+$('eq_iva').value||0);let sh=0;
- document.querySelectorAll('.eq-w').forEach(e=>{const w=Math.max(0,+e.value||0);sh+=w;$('eq_s'+e.dataset.i).textContent='$'+mxn(w*t);});
- const val=sh*t,tot=val*(1+iva/100);
- $('eq_sh').textContent=mxn(sh)+' SH';$('eq_val').textContent='$'+mxn(val);$('eq_tot').textContent='$'+mxn(tot)+' MXN';
- $('eq_lval').textContent='Valor del proyecto (semanas × $'+mxn(t)+' MXN)';$('eq_liva').textContent='Total con IVA ('+(+iva.toFixed(2))+'%)';$('eq_inv').value='$'+mxn(val);
+ const t=Math.max(0,+$('eq_tarifa').value||0);let sh=0;
+ document.querySelectorAll('.eq-w').forEach(e=>{sh+=Math.max(0,+e.value||0);});
+ const val=sh*t;
+ $('eq_sh').textContent=mxn(sh)+' SH';$('eq_val').textContent='$'+mxn(val);
+ $('eq_lval').textContent='Valor del proyecto (semanas × $'+mxn(t)+' MXN)';$('eq_inv').value='$'+mxn(val);
  $('i_fee').value=val;if(run)calc();}
-['eq_tarifa','eq_iva'].forEach(id=>$(id).addEventListener('input',()=>eqCalc(true)));
+$('eq_tarifa').addEventListener('input',()=>eqCalc(true));
 document.querySelectorAll('.eq-w').forEach(e=>e.addEventListener('input',()=>eqCalc(true)));
 eqCalc(false);
 setPreset('cons');

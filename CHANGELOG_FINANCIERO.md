@@ -48,3 +48,8 @@ La suma por palanca coincide con el total de cada escenario. Los meses históric
 ## 2026-10-21 · Equipo del proyecto en el simulador
 
 Responsable: Leonardo Pimentel. El simulador de beneficios incorpora la tabla editable «Equipo del proyecto · Construcción de la inversión» antes de la tarjeta de ROI: tarifa semana-hombre de $120,000 MXN, IVA de 16% y siete roles con 188 semanas-hombre en total. El valor del proyecto del ROI es de solo lectura y toma el total sin IVA de la tabla ($22,560,000); con los valores iniciales el ROI sigue en 2.03× (conservador) y 3.24× (ampliado). El total con IVA es $26,169,600 MXN. Al cambiar semanas, tarifa o IVA todo se recalcula.
+
+
+## 2026-10-21 · Equipo del proyecto sin IVA ni subtotales
+
+Responsable: Leonardo Pimentel. En la tabla «Equipo del proyecto» del simulador se quita el total con IVA y el valor del proyecto se muestra como «$22,560,000 + IVA»; se quita también el subtotal por recurso y el parámetro de IVA, que ya no se usa. El valor sin IVA sigue alimentando el ROI (2.03× conservador y 3.24× ampliado con los valores iniciales).
