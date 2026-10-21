@@ -352,3 +352,8 @@ Responsable: Leonardo Pimentel. Se reemplazan los marcadores pendientes del pár
 ## 2026-10-21 · Etiqueta de madurez en la introducción y espacio en los niveles
 
 Responsable: Leonardo Pimentel. La introducción muestra «Madurez · Inicial» (antes «Madurez · Crítico») para coincidir con el nivel 1 del NMO, y la nota de la escala de Likert queda a 32 px de las tarjetas de los cinco niveles. Sin otros cambios.
+
+
+## 2026-10-21 · Banda del NMO: Inicial
+
+Responsable: Leonardo Pimentel. La banda del nivel global (1.0 a 1.4) se llama «Inicial» en todo el sitio, como el nivel 1 del NMO: portal, introducción, leyenda de la cadena de valor, Resumen y cierre del documento. Ya no se usa «Crítico» para el nivel de madurez; sí permanece en expresiones como equipos críticos o puntos críticos de control. Sin cambio de colores ni de cifras.
