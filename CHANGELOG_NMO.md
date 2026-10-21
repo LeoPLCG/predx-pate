@@ -367,3 +367,8 @@ Responsable: Leonardo Pimentel. En «¿Quién es PATE?» el alcance, la cobertur
 ## 2026-10-21 · Cita de la razón de ser de PATE
 
 Responsable: Leonardo Pimentel. En «Proceso de levantamiento» la cita de la Gerencia General sobre la razón de ser de PATE se muestra como «Pate, nace y existe para recibir las gallinas de los socios y no socios, y después darle el fin sanitario que corresponde.» La cita registrada sigue literal contra la transcripción; solo cambia el texto mostrado.
+
+
+## 2026-10-21 · Cita sobre la retroalimentación
+
+Responsable: Leonardo Pimentel. En «Proceso de levantamiento» la cita de la Gerencia General se muestra como «allá casi no me hablan para felicitarme, pero sí para retroalimentarme.» La cita registrada sigue literal contra la transcripción; solo cambia el texto mostrado.
