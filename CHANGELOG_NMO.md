@@ -362,3 +362,8 @@ Responsable: Leonardo Pimentel. La banda del nivel global (1.0 a 1.4) se llama �
 ## 2026-10-21 · Alcance de PATE: accionistas y no accionistas
 
 Responsable: Leonardo Pimentel. En «¿Quién es PATE?» el alcance, la cobertura y el modelo mencionan la programación y el retiro de parvadas, el abasto de granjas y el servicio de retiro para accionistas y no accionistas.
+
+
+## 2026-10-21 · Cita de la razón de ser de PATE
+
+Responsable: Leonardo Pimentel. En «Proceso de levantamiento» la cita de la Gerencia General sobre la razón de ser de PATE se muestra como «Pate, nace y existe para recibir las gallinas de los socios y no socios, y después darle el fin sanitario que corresponde.» La cita registrada sigue literal contra la transcripción; solo cambia el texto mostrado.
